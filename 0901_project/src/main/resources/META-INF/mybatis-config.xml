@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<mappers>
+<!-- 		<mapper resource="META-INF/batch1-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/basket-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/ckboard-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/creditcard-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/delivery-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/dongcode-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/history-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/freeboard-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/join-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/kakaomap-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/login-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/memberboard-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/order-mapper.xml" /> -->
+<!-- 		<mapper resource="META-INF/product-mapper.xml" /> -->
+	</mappers>
+
+</configuration>
