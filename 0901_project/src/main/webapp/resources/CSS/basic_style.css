@@ -25,11 +25,11 @@ button {
    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
 }
 #top-header {
-   background-color: #D3D3D3;
+   background-color: #8FBC8F;
    height: 30px;
 }
 .top-item {
-   color : black;
+   color : white;
    float : right;
    margin-top: 6px;
    margin-right: 30px;
