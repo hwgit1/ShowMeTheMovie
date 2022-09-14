@@ -33,7 +33,7 @@
                         <div class="movie-date"></div>
                         <div class="like-reserve-wrapper">
                             
-                            <button class="reserveButton" color="green">예매</button>
+                            <button class="reserveButton"><img src="resources/img/reserve.PNG"></button>
                         </div>
                     </div>
                 </div>
