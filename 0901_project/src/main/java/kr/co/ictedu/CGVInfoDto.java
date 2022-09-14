@@ -7,7 +7,6 @@ public class CGVInfoDto {
 	String movieTitle;
 	String movieRate; //예매율
 	String movieOpenDate; //개봉일
-	String like;
 	int seq;
 	
 	public CGVInfoDto() {
@@ -55,13 +54,6 @@ public class CGVInfoDto {
 		this.movieOpenDate = movieOpenDate;
 	}
 
-	public String getLike() {
-		return like;
-	}
-
-	public void setLike(String like) {
-		this.like = like;
-	}
 
 	public CGVInfoDto(String rank, String img, String movieTitle, String movieRate,
 			String movieOpenDate, int seq) {

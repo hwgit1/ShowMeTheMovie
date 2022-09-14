@@ -70,12 +70,7 @@ function getList(data, index) {
         <div class="movie-title">${data.movieTitle}</div>
         <div class="movie-rate"><span>예매율</span><span style="margin-left: 10px;">${data.movieRate}</span></div>
         <div class="movie-date">${data.movieOpenDate}</div>
-        <div class="like-reserve-wrapper">
-            <div><button type="button" class="movie-like"><img class="likeButton"
-                        src="./images/heart.png"><span>${data.like}</span></button>
-            </div>
-            <button type="button" class="reserveButton" id="reserve${index}"><img src="./images/reserve.PNG"></button>
-        </div>
+        
     </div>
     <input type="hidden" name="rank" value=${data.rank}>
     <input type="hidden" name="img" value=${data.img}>

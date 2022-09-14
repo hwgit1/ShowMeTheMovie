@@ -15,7 +15,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 
-		return "header";//jsp file name
+		return "main";//jsp file name
 
 	}//home
 	
