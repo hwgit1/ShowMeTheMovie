@@ -27,7 +27,7 @@ public class CGVInfoController {
 	@ResponseBody
 	@RequestMapping(value = "crawling.do", method = {RequestMethod.GET, RequestMethod.POST}, produces="text/plain;charset=UTF-8")
 	public String getCrawling() {
-		logger.info("크롤리잉" + new Date());
+		logger.info("크롤링" + new Date());
 		Document doc;
 		String gson = "";
 		
