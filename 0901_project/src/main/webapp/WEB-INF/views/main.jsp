@@ -22,15 +22,7 @@
 <%@ include file="/WEB-INF/views/header.jsp" %>
     <div>
             <div class="movie-infomation-wrapper">
-                 <div class="movie-informaion">
-                    <div class="movie-rank"></div>
-                    <div class="poster-wrapper"><img src="resources/img/background.jpg"></div>
-                    <div>
-                        <div class="movie-title"></div>
-                        <div class="movie-rate"><span></span><span style="margin-left: 10px;"></span></div>
-                        <div class="movie-date"></div>
-                                            </div>
-                </div> 
+                 
 
                 <div class="movie-informaion">
                     <div class="movie-rank"></div>
@@ -39,7 +31,10 @@
                         <div class="movie-title"></div>
                         <div class="movie-rate"><span></span><span style="margin-left: 10px;"></span></div>
                         <div class="movie-date"></div>
-                       
+                        <div class="like-reserve-wrapper">
+                            
+                            <button class="reserveButton" color="green">예매</button>
+                        </div>
                     </div>
                 </div>
                 

@@ -36,19 +36,19 @@ public class CGVInfoController {
 			 doc = Jsoup.connect("http://www.cgv.co.kr/movies/").get();
 			/* Elements */
 			 Elements ranks = doc.select(".rank");
-			 logger.info("rank" + ranks); 
+			 //logger.info("rank" + ranks); 
 			 
 			 Elements imgs = doc.select(".thumb-image > img");
-			 logger.info("imgs" + imgs); 
+			 //logger.info("imgs" + imgs); 
 			 
 			 Elements movieTitles = doc.select("div.box-contents strong.title");
-			 logger.info("titles" + movieTitles); 
+			 //logger.info("titles" + movieTitles); 
 			 
 			 Elements movieRates = doc.select(".percent span");
-			 logger.info("percents" + movieRates); 
+			 //logger.info("percents" + movieRates); 
 			 
 			 Elements movieOpenDates = doc.select(".txt-info strong");
-			 logger.info("percents" + movieOpenDates); 
+			 //logger.info("percents" + movieOpenDates); 
 			
 			 List<CGVInfoDto> list = new ArrayList<CGVInfoDto>();
 			 
