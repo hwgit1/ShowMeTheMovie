@@ -88,31 +88,25 @@
     font-weight: bold;
 }
 
-.like-reserve-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 6px;
-    font-size: 14px;
-}
+/* .like-reserve-wrapper { */
+/*     display: flex; */
+/*     justify-content: center; */
+/*     margin-top: 6px; */
+/*     font-size: 14px; */
+/* } */
 
-.movie-like {
-    font-size: 13px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
+/* .movie-like { */
+/*     font-size: 13px; */
+/*     font-weight: bold; */
+/*     display: flex; */
+/*     align-items: center; */
+/* } */
 
-.likeButton {
-    width: 23px;
-    height: 23px;
-    margin-right: 5px;
-}
-
-.likeButton:hover {
-    background-image: url("../images/fullHeart.png");
-    background-position: center;
-    background-size: contain;
-}
+/* .likeButton:hover { */
+/*     background-image: url("../images/fullHeart.png"); */
+/*     background-position: left; */
+/*     background-size: contain; */
+/* } */
 
 
 /* .poster-wrapper {
@@ -131,6 +125,8 @@
 .reserveButton>img {
     width: 59px;
     border-radius: 5px;
+    background-position: left;
+    background-size: contain;
 }
 
 

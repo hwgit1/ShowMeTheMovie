@@ -15,9 +15,6 @@ public class CGVReserveDto implements Serializable {
 	private String movieAge;
 	
 	
-	public CGVReserveDto() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getId() {
 		return id;

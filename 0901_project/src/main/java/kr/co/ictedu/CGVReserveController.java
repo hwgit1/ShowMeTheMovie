@@ -22,7 +22,8 @@ public class CGVReserveController {
 	CGVReserveService cgvReserveService;
 	
 	
-	private static Logger logger = LoggerFactory.getLogger(CGVInfoController.class);
+	private static Logger logger = LoggerFactory.getLogger(CGVReserveController.class);
+	
 	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveReserve() {
 		logger.info("moveReserve");

@@ -189,7 +189,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 770px;
+    height: 750px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -319,6 +319,12 @@ body {
 
 .movie-list-wrapper {
     padding: 4px 15px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 700px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-list {

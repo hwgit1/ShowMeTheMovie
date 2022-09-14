@@ -34,12 +34,12 @@ function add() {
             setList(data);
             movieListAge = document.querySelectorAll('.movie-list-age');
             movieListAge.forEach(li => {
-                if (li.innerHTML === '15세 이상') {
+                if (li.innerHTML === '15') {
                     li.classList.add('fifteen');
-                } else if (li.innerHTML === '청소년 관람불가') {
+                } else if (li.innerHTML === '18') {
                     li.classList.add('eighteen');
                     li.innerHTML = '청불';
-                } else if (li.innerHTML === '전체') {
+                } else if (li.innerHTML === 'All') {
                     li.classList.add('all');
                 }
             });

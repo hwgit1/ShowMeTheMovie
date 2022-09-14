@@ -71,7 +71,7 @@ function getList(data, index) {
         <div class="movie-rate"><span>예매율</span><span style="margin-left: 10px;">${data.movieRate}</span></div>
         <div class="movie-date">${data.movieOpenDate}</div>
         <div class="like-reserve-wrapper">
-            <button type="button" class="reserveButton" id="reserve${index}">예매하기</button>
+            <button type="button" class="reserveButton" id="reserve${index}"><img src="resources/img/reserve.PNG"></button>
         </div>
     </div>
     <input type="hidden" name="rank" value=${data.rank}>

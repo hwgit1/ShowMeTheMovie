@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     
-
 </head>
 
 <body>
@@ -33,7 +32,7 @@
                         <div class="movie-date"></div>
                         <div class="like-reserve-wrapper">
                             
-                            <button class="reserveButton" color="green">예매</button>
+                            <button class="reserveButton" color="green"><img src="resources/img/reserve.PNG"></button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +40,6 @@
 
             </div>
         </div>
-
-        <script src="resources/js/main.js"></script>
+        <script src="/resources/js/main.js"></script>
 </body>
 </html>
