@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
+public class OrderController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+	
+	@RequestMapping(value = "/order", method = RequestMethod.GET)
+	public String select(Model model) {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-
-		return "main";//jsp file name
+		return "order/select";//jsp file name
 
 	}//home
 	
