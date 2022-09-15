@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 데이터 가져오기
 function add() {
     $.ajax({
-        url: 'crawling.do',
+        url: 'crawling.do2',
         type: 'get',
 
         success: function(data) {
@@ -70,9 +70,7 @@ function getList(data, index) {
         <div class="movie-title">${data.movieTitle}</div>
         <div class="movie-rate"><span>예매율</span><span style="margin-left: 10px;">${data.movieRate}</span></div>
         <div class="movie-date">${data.movieOpenDate}</div>
-        <div class="like-reserve-wrapper">
-            <button type="button" class="reserveButton" id="reserve${index}"><img src="resources/img/reserve.PNG" style="cursor:pointer;"></button>
-        </div>
+        
     </div>
     <input type="hidden" name="rank" value=${data.rank}>
     <input type="hidden" name="img" value=${data.img}>

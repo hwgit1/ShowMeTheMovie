@@ -28,7 +28,7 @@
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/plan">
+                     <a href="${pageContext.request.contextPath}/">
                         </h3><span>상영 예정 영화</span></h3>
                      </a>
                   </li>
@@ -47,10 +47,6 @@
                         <div class="movie-title"></div>
                         <div class="movie-rate"><span></span><span style="margin-left: 10px;"></span></div>
                         <div class="movie-date"></div>
-                        <div class="like-reserve-wrapper">
-                            
-                            <button class="reserveButton"><img src="resources/img/reserve.PNG"></button>
-                        </div>
                     </div>
                 </div>
                 
@@ -58,6 +54,6 @@
             </div>
         </div>
 
-        <script src="resources/js/main.js"></script>
+        <script src="resources/js/planmain.js"></script>
 </body>
 </html>
