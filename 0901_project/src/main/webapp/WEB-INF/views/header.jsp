@@ -54,7 +54,7 @@
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=4">
+                     <a href="${pageContext.request.contextPath}/memo/my_room_list">
                         <span>Q&A</span>
                      </a>
                   </li>
