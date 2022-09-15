@@ -12,17 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mysql.cj.Session;
+//import com.mysql.cj.Session;
 
 import kr.co.ictedu.dto.CGVReserveDto;
-import kr.co.ictedu.service.CGVReserveService;
+//import kr.co.ictedu.service.CGVReserveService;
 
 
 @Controller
 public class CGVReserveController {
 
 	@Autowired
-	CGVReserveService cgvReserveService;
+//	CGVReserveService cgvReserveService;
 	
 	
 	private static Logger logger = LoggerFactory.getLogger(CGVInfoController.class);

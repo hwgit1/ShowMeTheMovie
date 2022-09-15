@@ -5,28 +5,24 @@ public class MemberDTO {
 	private String mno;
 	private String mid;
 	private String mpwd;
-	private String tel;
-	private String email;
+	private String mname;
+	private String mtel;
+	private String memail;
 	private String mdate;
 
-	private String service_agree;
 	private String info_agree;
-	private String sms_agree;
-	private String email_agree;
-	private String tel1;
-	private String tel2;
-	private String tel3;
-	private String email1;
-	private String email2;
+	private String mtel1;
+	private String mtel2;
+	private String mtel3;
 
 	private String post_code;
-	private String addr1;
-	private String addr2;
-
+	private String maddr1;
+	private String maddr2;
+	
 	public String toString() {
 		return mno + " : " + mid;
 	}
-
+	
 	public String getMno() {
 		return mno;
 	}
@@ -39,23 +35,24 @@ public class MemberDTO {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
+	
 	public String getMpwd() {
 		return mpwd;
 	}
 	public void setMpwd(String mpwd) {
 		this.mpwd = mpwd;
 	}
-	public String getTel() {
-		return tel;
+	public String getMtel() {
+		return mtel;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setMtel(String mtel) {
+		this.mtel = mtel;
 	}
-	public String getEmail() {
-		return email;
+	public String getMemail() {
+		return memail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMemail(String memail) {
+		this.memail = memail;
 	}
 	public String getMdate() {
 		return mdate;
@@ -63,80 +60,59 @@ public class MemberDTO {
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
 	}
-
-	public String getService_agree() {
-		return service_agree;
+	public String getMtel1() {
+		return mtel1;
 	}
-	public void setService_agree(String service_agree) {
-		this.service_agree = service_agree;
+	public void setMtel1(String mtel1) {
+		this.mtel1 = mtel1;
 	}
-	public String getInfo_agree() {
-		return info_agree;
+	public String getMtel2() {
+		return mtel2;
 	}
-	public void setInfo_agree(String info_agree) {
-		this.info_agree = info_agree;
+	public void setMtel2(String mtel2) {
+		this.mtel2 = mtel2;
 	}
-	public String getSms_agree() {
-		return sms_agree;
+	public String getMtel3() {
+		return mtel3;
 	}
-	public void setSms_agree(String sms_agree) {
-		this.sms_agree = sms_agree;
+	public void setMtel3(String mtel3) {
+		this.mtel3 = mtel3;
 	}
-	public String getEmail_agree() {
-		return email_agree;
-	}
-	public void setEmail_agree(String email_agree) {
-		this.email_agree = email_agree;
-	}
-	public String getTel1() {
-		return tel1;
-	}
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
-	}
-	public String getTel2() {
-		return tel2;
-	}
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
-	}
-	public String getTel3() {
-		return tel3;
-	}
-	public void setTel3(String tel3) {
-		this.tel3 = tel3;
-	}
-	public String getEmail1() {
-		return email1;
-	}
-	public void setEmail1(String email1) {
-		this.email1 = email1;
-	}
-	public String getEmail2() {
-		return email2;
-	}
-	public void setEmail2(String email2) {
-		this.email2 = email2;
-	}
-
 	public String getPost_code() {
 		return post_code;
 	}
 	public void setPost_code(String post_code) {
 		this.post_code = post_code;
 	}
-	public String getAddr1() {
-		return addr1;
+	public String getMaddr1() {
+		return maddr1;
 	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
+	public void setMaddr1(String maddr1) {
+		this.maddr1 = maddr1;
 	}
-	public String getAddr2() {
-		return addr2;
+	public String getMaddr2() {
+		return maddr2;
 	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
+	public void setMaddr2(String maddr2) {
+		this.maddr2 = maddr2;
 	}
+
+	public String getMname() {
+		return mname;
+	}
+
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+
+	public String getInfo_agree() {
+		return info_agree;
+	}
+
+	public void setInfo_agree(String info_agree) {
+		this.info_agree = info_agree;
+	}
+	
 
 }//class
 
