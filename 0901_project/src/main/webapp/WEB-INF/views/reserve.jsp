@@ -1,20 +1,20 @@
-<%@page import="bit.com.a.model.CGVMemberDto"%>
+<%-- <%@page import="bit.com.a.model.CGVMemberDto"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
  <%
-CGVMemberDto login = (CGVMemberDto)session.getAttribute("login");
-if(login!= null) System.out.println(login.toString());
+// CGVMemberDto login = (CGVMemberDto)session.getAttribute("login");
+// if(login!= null) System.out.println(login.toString());
 %> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
  
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/reserve.css">
+    <link rel="stylesheet" href="/resources/css/reset.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/reserve.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
     <script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
@@ -24,55 +24,55 @@ if(login!= null) System.out.println(login.toString());
 </head>
 
 <body>
- <%if(login == null){
-	%>
-	<script>
-	alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!")
-	location.href="moveMain.do"
-	</script>
-	<%
-}%> 
-    <div class="header-nav-wrapper">
-        <header class="header">
-            <div class="header-inner">
-                <div><button><i class="zmdi zmdi-apps"></i><span>&nbsp;CGV APP</span></button></div>
-                <div><button><i class="zmdi zmdi-facebook-box"></i><span>&nbsp;Like</span></button></div>
-                <div><button><i class="zmdi zmdi-instagram"></i><span>&nbsp;follow</span></button></div>
-                <div><button>알뜰한 영화 관람법</button></div>
-            </div>
-            <div class="header-inner">
+<%--  <%if(login == null){ --%>
+<%-- 	%> --%>
+<!-- 	<script> -->
+<!-- // 	alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!") -->
+<!-- // 	location.href="moveMain.do" -->
+<!-- 	</script> -->
+<%-- 	<% --%>
+<%-- }%>  --%>
+<!--     <div class="header-nav-wrapper"> -->
+<!--         <header class="header"> -->
+<!--             <div class="header-inner"> -->
+<!--                 <div><button><i class="zmdi zmdi-apps"></i><span>&nbsp;CGV APP</span></button></div> -->
+<!--                 <div><button><i class="zmdi zmdi-facebook-box"></i><span>&nbsp;Like</span></button></div> -->
+<!--                 <div><button><i class="zmdi zmdi-instagram"></i><span>&nbsp;follow</span></button></div> -->
+<!--                 <div><button>알뜰한 영화 관람법</button></div> -->
+<!--             </div> -->
+<!--             <div class="header-inner"> -->
                 
-                 <% if(login != null){
-                	%>
-                	<div><button><%=login.getName()%>님 환영합니다</button></div>
-                	<div><a href="moveMypage.do"><button>마이페이지</button></a></div>
-                	<div><a href="logout.do"><button>로그아웃</button></a></div>
-                	<%
-                } else {
-                	%>
-                	<div><a href="moveLogin.do"><button>로그인</button></a></div>
-                	<div><a href="moveRegister.do"><button>회원가입</button></a></div>
-                	<%
-                }
-                %> 
-            </div>
-        </header>
-        <nav class="nav-wrapper">
-            <div class="logo-wrapper"><a href="moveMain.do"><img class="cgvLogo" src="./images/cgv.png"></a></div>
-            <div class="nav-content">
-                <div class="movieLogo-wrapper"><img class="cgvMovie" src="./images/h2_movie.png"></div>
-                <div class="nav-inner">
-                    <div><button>영화</button></div>
-                    <div><button>예매</button></div>
-                    <div><button>극장</button></div>
-                    <div><button>이벤트&컬쳐</button></div>
-                    <div class="search-wrapper"><input><button class="searchButton">검색</button></div>
-                </div>
-            </div>
-            <div></div>
-            <div></div>
-        </nav>
-    </div>
+<%--                  <% if(login != null){ --%>
+<%--                 	%> --%>
+<%--                 	<div><button><%=login.getName()%>님 환영합니다</button></div> --%>
+<!--                 	<div><a href="moveMypage.do"><button>마이페이지</button></a></div> -->
+<!--                 	<div><a href="logout.do"><button>로그아웃</button></a></div> -->
+<%--                 	<% --%>
+<!-- //                 } else { -->
+<%--                 	%> --%>
+<!--                 	<div><a href="moveLogin.do"><button>로그인</button></a></div> -->
+<!--                 	<div><a href="moveRegister.do"><button>회원가입</button></a></div> -->
+<%--                 	<% --%>
+<!-- //                 } -->
+<%--                 %>  --%>
+<!--             </div> -->
+<!--         </header> -->
+<!--         <nav class="nav-wrapper"> -->
+<!--             <div class="logo-wrapper"><a href="moveMain.do"><img class="cgvLogo" src="./images/cgv.png"></a></div> -->
+<!--             <div class="nav-content"> -->
+<!--                 <div class="movieLogo-wrapper"><img class="cgvMovie" src="./images/h2_movie.png"></div> -->
+<!--                 <div class="nav-inner"> -->
+<!--                     <div><button>영화</button></div> -->
+<!--                     <div><button>예매</button></div> -->
+<!--                     <div><button>극장</button></div> -->
+<!--                     <div><button>이벤트&컬쳐</button></div> -->
+<!--                     <div class="search-wrapper"><input><button class="searchButton">검색</button></div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--         </nav> -->
+<!--     </div> -->
     <div class="reserve-container">
         <div class="movie-part">
             <div class="reserve-title">영화</div>
@@ -100,8 +100,8 @@ if(login!= null) System.out.println(login.toString());
                         <button class="theater-location">강원(5)</button>
                     </div>
                     <div class="theater-place-wrapper">
-                        <button class="theater-place">천호</button>
-                        <button class="theater-place">강변</button>
+                        <button class="theater-place">신촌</button>
+                        <button class="theater-place">홍대</button>
                         <button class="theater-place">건대입구</button>
                         <button class="theater-place">구로</button>
                         <button class="theater-place">대학로</button>
@@ -163,6 +163,6 @@ if(login!= null) System.out.println(login.toString());
         </div>
 
     </div>
-    <script src="js/reserve.js"></script>
+    <script src="/resources/js/reserve.js"></script>
 </body>
 </html>
