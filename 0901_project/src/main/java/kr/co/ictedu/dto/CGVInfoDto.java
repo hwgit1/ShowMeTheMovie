@@ -1,4 +1,4 @@
-package kr.co.ictedu;
+package kr.co.ictedu.dto;
 
 public class CGVInfoDto {
 

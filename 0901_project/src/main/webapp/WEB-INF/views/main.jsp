@@ -15,13 +15,30 @@
     <link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     
+
 </head>
 
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
+<div id="movie-menu">
+               <ul id="movie-ing">
+                  <li>
+                     <a href="${pageContext.request.contextPath}/">
+                        <h3><span>상영 중인 영화</span></h3>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="${pageContext.request.contextPath}/">
+                        </h3><span>상영 예정 영화</span></h3>
+                     </a>
+                  </li>
+               </ul>
+         </div>
     <div>
+    
+    	
+            
             <div class="movie-infomation-wrapper">
-                 
 
                 <div class="movie-informaion">
                     <div class="movie-rank"></div>
@@ -32,7 +49,7 @@
                         <div class="movie-date"></div>
                         <div class="like-reserve-wrapper">
                             
-                            <button class="reserveButton" color="green"><img src="resources/img/reserve.PNG"></button>
+                            <button class="reserveButton"><img src="resources/img/reserve.PNG"></button>
                         </div>
                     </div>
                 </div>
@@ -40,6 +57,7 @@
 
             </div>
         </div>
-        <script src="/resources/js/main.js"></script>
+
+        <script src="resources/js/main.js"></script>
 </body>
 </html>

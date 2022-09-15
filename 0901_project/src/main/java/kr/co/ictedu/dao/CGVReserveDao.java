@@ -1,6 +1,8 @@
-package kr.co.ictedu;
+package kr.co.ictedu.dao;
 
 import java.util.List;
+
+import kr.co.ictedu.dto.CGVReserveDto;
 
 
 public interface CGVReserveDao {

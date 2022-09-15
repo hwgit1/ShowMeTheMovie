@@ -1,4 +1,4 @@
-package kr.co.ictedu;
+package kr.co.ictedu.dto;
 
 import java.io.Serializable;
 
