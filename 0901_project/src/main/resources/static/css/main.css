@@ -117,10 +117,12 @@
 
 #movie-menu {
    margin-top: 30px;
-   margin-left: 120px;
-   width: 100%;
+   margin-left: 22.2222%;
+   float : left;
+   width: 1200px;
+   height : 50px;
    text-align : center;
-   position: relative;
+   white-space:nowrap normal;
 }
 
 #movie-ing > li {
