@@ -3,6 +3,7 @@ const date = new Date();
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 const reserveDate = document.querySelector('.reserve-date');
 const theaterPlace = document.querySelectorAll('.theater-place');
+const theaterLocation = document.querySelectorAll('.theater-location');
 const reserveTimeWant = document.querySelectorAll('.reserve-time-want');
 const inputTitle = document.querySelector('.title');
 const inputSelectedTheater = document.querySelector('.selectedTheater');
@@ -46,6 +47,7 @@ function add() {
             if (crawlingData.length === 0) {
                 location.href = 'moveReserve.do';
             }
+            
             document.querySelectorAll('.movie-list-title').forEach(li => {
                 li.addEventListener('click', function() {
                     const movieListTitleActvie = document.querySelectorAll(
@@ -98,7 +100,7 @@ function getMovieList(item) {
 function addDate() {
     const weekOfDay = ['일', '월', '화', '수', '목', '금', '토'];
     year = date.getFullYear();
-    month = date.getMonth();
+    month = date.getMonth() +1;
     reserveDate.append(year + '/' + month);
     for (i = date.getDate(); i <= lastDay.getDate(); i++) {
         const button = document.createElement('button');
@@ -167,6 +169,20 @@ theaterPlace.forEach(list => {
             li.classList.remove('theater-place-active');
         });
         list.classList.add('theater-place-active');
+        console.log(list.innerHTML);
+        inputSelectedTheater.value = list.innerHTML;
+    });
+});
+
+theaterLocation.forEach(list => {
+    list.addEventListener('click', function() {
+        const theaterLocationWrapper = document.querySelectorAll(
+            '.theater-location-active'
+        );
+        theaterLocationWrapper.forEach(li => {
+            li.classList.remove('theater-location-active');
+        });
+        list.classList.add('theater-location-active');
         console.log(list.innerHTML);
         inputSelectedTheater.value = list.innerHTML;
     });

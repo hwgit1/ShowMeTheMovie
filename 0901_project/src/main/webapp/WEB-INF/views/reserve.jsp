@@ -100,8 +100,8 @@
                         <button class="theater-location">강원(5)</button>
                     </div>
                     <div class="theater-place-wrapper">
-                        <button class="theater-place">천호</button>
-                        <button class="theater-place">강변</button>
+                        <button class="theater-place">신촌</button>
+                        <button class="theater-place">홍대</button>
                         <button class="theater-place">건대입구</button>
                         <button class="theater-place">구로</button>
                         <button class="theater-place">대학로</button>

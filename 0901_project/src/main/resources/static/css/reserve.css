@@ -317,6 +317,11 @@ body {
     color: white;
 }
 
+.theater-location-active {
+    background-color: #333333;
+    color: white;
+}
+
 .movie-list-wrapper {
     padding: 4px 15px;
     overflow: scroll;
