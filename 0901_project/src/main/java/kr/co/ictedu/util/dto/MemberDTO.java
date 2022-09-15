@@ -5,16 +5,12 @@ public class MemberDTO {
 	private String mno;
 	private String mid;
 	private String mpwd;
+	private String mname;
 	private String mtel;
 	private String memail;
 	private String mdate;
-	private String mnick;
-	private String role;
-	private String mstatus;
 
-	private String infoch;
-	private String smsch;
-	private String emailch;
+	private String info_agree;
 	private String mtel1;
 	private String mtel2;
 	private String mtel3;
@@ -40,12 +36,6 @@ public class MemberDTO {
 		this.mid = mid;
 	}
 	
-	public String getMnick() {
-		return mnick;
-	}
-	public void setMnick(String mnick) {
-		this.mnick = mnick;
-	}
 	public String getMpwd() {
 		return mpwd;
 	}
@@ -61,44 +51,14 @@ public class MemberDTO {
 	public String getMemail() {
 		return memail;
 	}
-	public String getMstatus() {
-		return mstatus;
-	}
-	public void setMstatus(String mstatus) {
-		this.mstatus = mstatus;
-	}
 	public void setMemail(String memail) {
 		this.memail = memail;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
 	}
 	public String getMdate() {
 		return mdate;
 	}
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
-	}
-	public String getInfoch() {
-		return infoch;
-	}
-	public void setInfoch(String infoch) {
-		this.infoch = infoch;
-	}
-	public String getSmsch() {
-		return smsch;
-	}
-	public void setSmsch(String smsch) {
-		this.smsch = smsch;
-	}
-	public String getEmailch() {
-		return emailch;
-	}
-	public void setEmailch(String emailch) {
-		this.emailch = emailch;
 	}
 	public String getMtel1() {
 		return mtel1;
@@ -136,6 +96,23 @@ public class MemberDTO {
 	public void setMaddr2(String maddr2) {
 		this.maddr2 = maddr2;
 	}
+
+	public String getMname() {
+		return mname;
+	}
+
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+
+	public String getInfo_agree() {
+		return info_agree;
+	}
+
+	public void setInfo_agree(String info_agree) {
+		this.info_agree = info_agree;
+	}
+	
 
 }//class
 

@@ -25,6 +25,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect( request.getContextPath() + "/login_form" );
 			return false;//계속 진행할 메소드 호출 중지.
 		}
+		
 		return super.preHandle(request, response, handler);//계속 진행할 메소드 호출.
 	}//preHandle
 
