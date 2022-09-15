@@ -1,4 +1,4 @@
-package kr.co.ictedu;
+package kr.co.ictedu.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+
+import kr.co.ictedu.dto.CGVInfoDto;
 
 
 @Controller
