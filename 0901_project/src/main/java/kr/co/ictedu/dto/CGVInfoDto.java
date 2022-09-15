@@ -66,7 +66,7 @@ public class CGVInfoDto {
 	}
 
 
-	public CGVInfoDto(String rank, String img, String movieAge,String movieTitle, String movieRate,
+	public CGVInfoDto(String rank, String img, String movieTitle, String movieRate,
 			String movieOpenDate, int seq) {
 		super();
 		this.rank = rank;

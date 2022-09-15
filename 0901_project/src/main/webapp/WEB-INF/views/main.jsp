@@ -30,7 +30,7 @@
 				                 
 				                 
 				                  <li>
-				                     <a href="${pageContext.request.contextPath}/">
+				                     <a href="${pageContext.request.contextPath}/plan">
 				                        </h3><span> &nbsp; 상영 예정 영화</span></h3>
 				                     </a>
 				                  </li>
