@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mysql.cj.Session;
+//import com.mysql.cj.Session;
 
 import kr.co.ictedu.dto.CGVPayDto;
 import kr.co.ictedu.dto.CGVReserveDto;
