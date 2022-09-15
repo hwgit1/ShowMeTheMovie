@@ -43,6 +43,9 @@ public class CGVInfoplanController {
 			 Elements imgs = doc.select(".thumb-image > img");
 			 //logger.info("imgs" + imgs); 
 			 
+			 Elements movieAges = doc.select(".cgvIcon");
+			 logger.info("cgvIcon" + movieAges); 
+			 
 			 Elements movieTitles = doc.select("div.box-contents strong.title");
 			 //logger.info("titles" + movieTitles); 
 			 
@@ -58,11 +61,12 @@ public class CGVInfoplanController {
 				
 				 String rank = ranks.get(i).text();
 				 String img = imgs.get(i).attr("src");
+				 String movieAge = movieAges.get(i).text();
 				 String movieTitle = movieTitles.get(i).text();
 				 String movieRate = movieRates.get(i).text();
 				 String movieOpenDate = movieOpenDates.get(i).text();
 				 int seq = i;
-				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieTitle, movieRate, movieOpenDate, seq);
+				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieTitle, movieAge, movieRate, movieOpenDate, seq);
 				 
 				 logger.info(cgvInfoDto.toString());
 				 list.add(cgvInfoDto);

@@ -47,7 +47,7 @@ function reserveEvent() {
     document.querySelectorAll('.reserveButton').forEach((list, index) => {
         console.log(list);
         console.log(index);
-        document.querySelector('.movie-information');
+        document.querySelector('.movie-informaion');
         moveReserve(list, index);
     });
 }
@@ -57,7 +57,7 @@ function moveReserve(list, index) {
         console.log(list);
         console.log(index);
 
-        document.querySelector('.movie-information').submit();
+        document.querySelector('.movie-informaion').submit();
     });
 }
 
