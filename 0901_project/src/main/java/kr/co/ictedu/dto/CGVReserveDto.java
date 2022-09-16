@@ -14,7 +14,25 @@ public class CGVReserveDto implements Serializable {
 	private String selectedTheater;
 	private String movieAge;
 	
+	private CGVPayDto cgvPayDto;
 	
+	public CGVReserveDto() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public CGVPayDto getCgvPayDto() {
+		return cgvPayDto;
+	}
+
+
+
+	public void setCgvPayDto(CGVPayDto cgvPayDto) {
+		this.cgvPayDto = cgvPayDto;
+	}
+
+
 
 	public String getId() {
 		return id;
@@ -126,6 +144,7 @@ public class CGVReserveDto implements Serializable {
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
+		this.cgvPayDto = cgvPayDto;
 	}
 
 	@Override
