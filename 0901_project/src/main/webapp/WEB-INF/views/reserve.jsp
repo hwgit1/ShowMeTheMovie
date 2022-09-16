@@ -24,55 +24,8 @@
 </head>
 
 <body>
-<%--  <%if(login == null){ --%>
-<%-- 	%> --%>
-<!-- 	<script> -->
-<!-- // 	alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!") -->
-<!-- // 	location.href="moveMain.do" -->
-<!-- 	</script> -->
-<%-- 	<% --%>
-<%-- }%>  --%>
-<!--     <div class="header-nav-wrapper"> -->
-<!--         <header class="header"> -->
-<!--             <div class="header-inner"> -->
-<!--                 <div><button><i class="zmdi zmdi-apps"></i><span>&nbsp;CGV APP</span></button></div> -->
-<!--                 <div><button><i class="zmdi zmdi-facebook-box"></i><span>&nbsp;Like</span></button></div> -->
-<!--                 <div><button><i class="zmdi zmdi-instagram"></i><span>&nbsp;follow</span></button></div> -->
-<!--                 <div><button>알뜰한 영화 관람법</button></div> -->
-<!--             </div> -->
-<!--             <div class="header-inner"> -->
-                
-<%--                  <% if(login != null){ --%>
-<%--                 	%> --%>
-<%--                 	<div><button><%=login.getName()%>님 환영합니다</button></div> --%>
-<!--                 	<div><a href="moveMypage.do"><button>마이페이지</button></a></div> -->
-<!--                 	<div><a href="logout.do"><button>로그아웃</button></a></div> -->
-<%--                 	<% --%>
-<!-- //                 } else { -->
-<%--                 	%> --%>
-<!--                 	<div><a href="moveLogin.do"><button>로그인</button></a></div> -->
-<!--                 	<div><a href="moveRegister.do"><button>회원가입</button></a></div> -->
-<%--                 	<% --%>
-<!-- //                 } -->
-<%--                 %>  --%>
-<!--             </div> -->
-<!--         </header> -->
-<!--         <nav class="nav-wrapper"> -->
-<!--             <div class="logo-wrapper"><a href="moveMain.do"><img class="cgvLogo" src="./images/cgv.png"></a></div> -->
-<!--             <div class="nav-content"> -->
-<!--                 <div class="movieLogo-wrapper"><img class="cgvMovie" src="./images/h2_movie.png"></div> -->
-<!--                 <div class="nav-inner"> -->
-<!--                     <div><button>영화</button></div> -->
-<!--                     <div><button>예매</button></div> -->
-<!--                     <div><button>극장</button></div> -->
-<!--                     <div><button>이벤트&컬쳐</button></div> -->
-<!--                     <div class="search-wrapper"><input><button class="searchButton">검색</button></div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--         </nav> -->
-<!--     </div> -->
+<%@ include file="/WEB-INF/views/header.jsp" %>
+
     <div class="reserve-container">
         <div class="movie-part">
             <div class="reserve-title">영화</div>
@@ -82,8 +35,6 @@
             </div>
              <div class="movie-list-wrapper">
                 <div class="movie-list">
-                    <%-- <div class="movie-list-age">15</div>
-                    <div class="movie-list-title">1917</div> --%>
                 </div>
             </div>
         </div>

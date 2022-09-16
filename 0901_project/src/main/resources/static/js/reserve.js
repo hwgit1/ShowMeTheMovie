@@ -1,6 +1,8 @@
 const date = new Date();
 // console.log(date.getFullYear());
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+const afterFirstDay = new Date(date.getFullYear(), date.getMonth() + 2, 1);
+const afterLastDay = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 const reserveDate = document.querySelector('.reserve-date');
 const theaterPlace = document.querySelectorAll('.theater-place');
 const theaterLocation = document.querySelectorAll('.theater-location');
@@ -42,6 +44,8 @@ function add() {
                     li.innerHTML = '청불';
                 } else if (li.innerHTML === 'All') {
                     li.classList.add('all');
+                } else if (li.innerHTML === '12') {
+                    li.classList.add('twelve');
                 }
             });
             if (crawlingData.length === 0) {
@@ -135,6 +139,41 @@ function addDate() {
 
         dayClickEvent(button);
     }
+    afterMonth = date.getMonth() +2;
+    reserveDate.append(year + '/' + afterMonth);
+    for (i = afterFirstDay.getDate(); i <= afterLastDay.getDate(); i++) {
+        const button = document.createElement('button');
+        const spanWeekOfDay = document.createElement('span');
+        const spanDay = document.createElement('span');
+
+        //class넣기
+        button.classList = 'movie-date-wrapper';
+        spanWeekOfDay.classList = 'movie-week-of-day';
+        spanDay.classList = 'movie-day';
+
+        //weekOfDay[new Date(2020-03-날짜)]
+        const dayOfWeek =
+            weekOfDay[new Date(year + '-' + afterMonth + '-' + i).getDay()];
+
+        //요일 넣기
+        if (dayOfWeek === '토') {
+            spanWeekOfDay.classList.add('saturday');
+            spanDay.classList.add('saturday');
+        } else if (dayOfWeek === '일') {
+            spanWeekOfDay.classList.add('sunday');
+            spanDay.classList.add('sunday');
+        }
+        spanWeekOfDay.innerHTML = dayOfWeek;
+        button.append(spanWeekOfDay);
+        //날짜 넣기
+        spanDay.innerHTML = i;
+        button.append(spanDay);
+        //button.append(i);
+
+        reserveDate.append(button);
+
+        afterDayClickEvent(button);
+    }
 }
 
 function dayClickEvent(button) {
@@ -151,6 +190,29 @@ function dayClickEvent(button) {
             year +
             '.' +
             month +
+            '.' +
+            button.childNodes[1].innerHTML +
+            '(' +
+            button.childNodes[0].innerHTML +
+            ')';
+        console.log(inputReserveDate.value);
+    });
+}
+
+function afterDayClickEvent(button) {
+    button.addEventListener('click', function() {
+        const movieDateWrapperActive = document.querySelectorAll(
+            '.movie-date-wrapper-active'
+        );
+        movieDateWrapperActive.forEach(list => {
+            list.classList.remove('movie-date-wrapper-active');
+        });
+        button.classList.add('movie-date-wrapper-active');
+        console.log(button.childNodes[1].innerHTML);
+        inputReserveDate.value =
+            year +
+            '.' +
+            afterMonth +
             '.' +
             button.childNodes[1].innerHTML +
             '(' +
