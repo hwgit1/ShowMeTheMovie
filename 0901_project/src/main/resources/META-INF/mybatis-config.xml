@@ -17,7 +17,7 @@
  		<mapper resource="META-INF/join-mapper.xml" /> 
 <!-- 		<mapper resource="META-INF/kakaomap-mapper.xml" /> -->
  		<mapper resource="META-INF/login-mapper.xml" /> 
-<!--  		<mapper resource="META-INF/memberboard-mapper.xml" />  -->
+  		<mapper resource="META-INF/memberboard-mapper.xml" />
 <!-- 		<mapper resource="META-INF/order-mapper.xml" />  -->
 <!-- 		<mapper resource="META-INF/product-mapper.xml" />  -->
 			<mapper resource="META-INF/memo-mapper.xml" />

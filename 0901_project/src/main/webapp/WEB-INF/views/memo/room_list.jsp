@@ -13,7 +13,7 @@
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 		<hr>
-		<h3> My Memo List </h3>
+		<h3> Q&A </h3>
 		<hr>
 
 			<table class="table table-hover table-borderless table-bordered">
@@ -31,7 +31,6 @@
 				</c:forEach>
 			</table>
 
-	<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
 </html>
 
