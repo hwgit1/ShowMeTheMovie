@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #FDFCF0;
+    background-color: white;
 }
 
 
@@ -33,18 +33,22 @@ body {
 }
 
 .movie-part {
+	background-color: #FDFCF0;
     width: 284px;
 }
 
 .theater-part {
+	background-color: #FDFCF0;
     width: 264px;
 }
 
 .day-part {
+	background-color: #FDFCF0;
     width: 91px;
 }
 
 .time-part {
+	background-color: #FDFCF0;
     width: 384px;
 }
 
