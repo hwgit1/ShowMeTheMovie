@@ -13,7 +13,6 @@
     <title>Document</title>
  
     <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/reserve.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
@@ -31,7 +30,6 @@
             <div class="reserve-title">영화</div>
             <div class="sort-wrapper">
                 <div class="sort-rate sort-selected">예매율순</div>
-                <div class="sort-korean">가나다순</div>
             </div>
              <div class="movie-list-wrapper">
                 <div class="movie-list">
