@@ -19,4 +19,11 @@ public class HomeController {
 
 	}//home
 	
+	@RequestMapping(value = "/plan", method = RequestMethod.GET)
+	public String planhome(Model model) {
+
+		return "planmain";//jsp file name
+
+	}//planhome
+	
 }
