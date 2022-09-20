@@ -4,12 +4,11 @@ public class Kakao_MemberDTO {
 
 	private String nickname;
 	private String email;
-	private String age_range;
 	private String join_kakao;
 	
 	
 	public String toString() {
-		return nickname + " : " + email + " : " + age_range + " : " + join_kakao;
+		return nickname + " : " + email + " : " + join_kakao;
 	}
 
 
@@ -31,17 +30,6 @@ public class Kakao_MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-	public String getAge_range() {
-		return age_range;
-	}
-
-
-	public void setAge_range(String age_range) {
-		this.age_range = age_range;
-	}
-
 
 	public String getJoin_kakao() {
 		return join_kakao;
