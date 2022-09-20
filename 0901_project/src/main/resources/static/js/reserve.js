@@ -11,6 +11,7 @@ const inputTitle = document.querySelector('.title');
 const inputSelectedTheater = document.querySelector('.selectedTheater');
 const inputReserveDate = document.querySelector('.reserveDate');
 const inputRunningTime = document.querySelector('.runningTime');
+const inputReserveWhere = document.querySelector('.reserveWhere');
 const moveSeatForm = document.querySelector('.moveSeatForm');
 const moveSeatButton = document.querySelector('.moveSeatButton');
 const movieAge = document.querySelector('.movieAge');
@@ -185,7 +186,27 @@ function dayClickEvent(button) {
             list.classList.remove('movie-date-wrapper-active');
         });
         button.classList.add('movie-date-wrapper-active');
-        console.log(button.childNodes[1].innerHTML);
+        const day = button.childNodes[1].innerHTML;
+        console.log(day);
+        
+        $.ajax({
+            url : "seatReserve.do",
+            type : "POST",
+            data :{
+            	seatreserve_date : button.childNodes[1].innerHTML
+            },
+            dataType: 'JSON',
+            success : function (data) {
+                if(data.resultMap.code == "1"){
+                    alert("success!")
+                    
+                } else {
+                    alert("error!")
+                }
+                
+                }
+            });  //ajax
+        
         inputReserveDate.value =
             year +
             '.' +
@@ -198,7 +219,7 @@ function dayClickEvent(button) {
         console.log(inputReserveDate.value);
     });
 }
-
+//button.childNodes[1].innerHTML -> 날짜
 function afterDayClickEvent(button) {
     button.addEventListener('click', function() {
         const movieDateWrapperActive = document.querySelectorAll(
@@ -208,7 +229,10 @@ function afterDayClickEvent(button) {
             list.classList.remove('movie-date-wrapper-active');
         });
         button.classList.add('movie-date-wrapper-active');
-        console.log(button.childNodes[1].innerHTML);
+        const day = button.childNodes[1].innerHTML;
+        
+        console.log(day);
+        
         inputReserveDate.value =
             year +
             '.' +
@@ -221,6 +245,7 @@ function afterDayClickEvent(button) {
         console.log(inputReserveDate.value);
     });
 }
+
 
 theaterPlace.forEach(list => {
     list.addEventListener('click', function() {
@@ -253,14 +278,17 @@ theaterLocation.forEach(list => {
 reserveTimeWant.forEach(list => {
     list.addEventListener('click', function() {
         const reserveTimeActive = document.querySelectorAll('.reserve-time-active');
+        const id = $(this).attr('id');
         reserveTimeActive.forEach(li => {
             li.classList.remove('reserve-time-active');
         });
         list.classList.add('reserve-time-active');
         console.log(list.innerHTML);
+        inputReserveWhere.value = id;
         inputRunningTime.value = list.innerHTML;
     });
 });
+
 
 moveSeatButton.addEventListener('click', function() {
     if (!!inputTitle.value &&
