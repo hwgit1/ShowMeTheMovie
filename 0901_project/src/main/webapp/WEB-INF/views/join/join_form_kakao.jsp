@@ -1,383 +1,266 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>쇼미더무비  |  회원가입</title>
+		<title> 회원 가입 </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		<style type="text/css">
-		
-		
-		
-		#service_agree_label, #info_agree_label, #member_pwd_label, #remember_pwd_label, #member_nick_label, #member_addr1_label, #member_email_label {
+		#info_agree_label, #mid_label, #mname_label, #mpwd_label, #rempwd_label, #mtel1_label, #memail_label, #maddr1_label {
 			color : red;
+		}
+		.tip{
+			color : black;
 		}
 		</style>
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
-			window.alert(" 가입한 이력이 없습니다. \n 회원가입 해주세요.");
 			$("#addr_btn").click(function() {
 
 			    new daum.Postcode({
 			        oncomplete: function(data) {//data : 다음에서 주는 결과 값.
-			        	$("#member_addr1").val(data.zonecode);
-			        	$("#member_addr2").val(data.address);
+			        	$("#post_code").val(data.zonecode);
+			        	$("#maddr1").val(data.address);
 			        }//call back function
 			    }).open();
 
 			});//click
 		});//ready
 		</script>
-		
 	</head>
 	<body>
-		<div class="container">
-			
-			
-			<header class="jumbotron bg-white mt-1 mb-1">
-				<h1 class="text-center"> 회원 가입</h1>
-			</header>
-			
-			<main class="clearfix mt-1" style="height:900px">
-				<!-- 차후 aside col-1 을 0로 변경 및 색상 white로 변경하여 눈에 보지이 않게 조치에정 -->
-				<aside class="col-1 h-100 bg-white float-left"></aside>
-				<section class="col-9 h-100 bg-white float-left">
-					<table class="table table-hover">
-			<hr size="30" noshade>
+	<%@ include file="/WEB-INF/views/header.jsp" %>
+		<hr>
+		<h3> 회원 가입 </h3>
+		<hr>
+		<table class="table table-hover">
 			<tbody>
 				<tr>
-					<br>
-					<th> 이 름  </th>
+					<th> 아 이 디 </th>
 					<td>
 						<div class="input-group">
-							<input type="text" id="member_name" name="member_name" maxlength="20" class="form-control" value="${kakao_login_info.nickname}" readonly="readonly">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th> 이 메 일 </th>
-					<td>
-						<div class="input-group">
-							<input type="text" id="member_email" name="member_email" maxlength="25" class="form-control" value="${kakao_login_info.email}" readonly="readonly">
+							<input type="text" id="mid" name="mid" maxlength="20" class="form-control">
 							<div class="input-group-append">
-								<button id="email_btn" class="btn btn-primary"> email 중 복 체 크 </button>
+								<button id="id_btn" class="btn btn-primary"> 아 이 디 중 복 체 크 </button>
 							</div>
 						</div>
-							<label id="member_email_label"></label>
+						<label for="mid" id="mid_label"></label>
 					</td>
 				</tr>
 				<tr>
 					<th> 비 밀 번 호 </th>
 					<td>
-						<input type="password" id="member_pwd" name="member_pwd" maxlength="20" class="form-control" placeholder=" 비밀 번호를 입력해 주세요 ">
-						<label for="pwd" id="member_pwd_label"></label>
+						<input type="password" id="mpwd" name="mpwd" maxlength="20" class="form-control">
+						<label for="mpwd" id="mpwd_label"></label>
+						<p class="tip">
+						영문소문자, 숫자, 특수문자만 입력해주세요.
+						</p>
 					</td>
 				</tr>
 				<tr>
 					<th> 비 밀 번 호 확 인 </th>
 					<td>
-						<input type="password" id="remember_pwd" name="remember_pwd" maxlength="20" class="form-control" placeholder=" 비밀 번호를 입력해 주세요 ">
-						<label for="rempwd" id="remember_pwd_label"></label>
+						<input type="password" id="rempwd" name="rempwd" maxlength="20" class="form-control">
+						<label for="rempwd" id="rempwd_label"></label>
 					</td>
 				</tr>
+				
 				<tr>
-					<th> 닉 네 임  </th>
+					<th> 이름 </th>
 					<td>
+						<input type="text" id="mname" name="mname" maxlength="20" class="form-control" value="${kakao_login_info.nickname}" readonly="readonly">
+						<label for="mname" id="mname_label"></label>
+						<p class="tip">
+						한글만 입력해주세요.
+						</p>
+					</td>
+				</tr>
+				
+				<tr>
+				<th>이메일</th>
+				<td>
 						<div class="input-group">
-							<input type="text" id="member_nick" name="member_nick" maxlength="20" class="form-control" value="">
+							<input id="memail" type="text" class="form-control" name="memail" value="${kakao_login_info.email}" readonly="readonly" required/>
 							<div class="input-group-append">
-								<button id="nick_btn" class="btn btn-primary"> 닉 네 임 중 복 체 크 </button>
+								<button id="email_btn" class="btn btn-primary"> email 중 복 체 크 </button>
 							</div>
 						</div>
-						<label for="nick" id="member_nick_label"></label>
+					<label for="memail" id="memail_label"></label>
+				</td>
+				</tr>
+				
+				<tr>
+					<th> 주 소 </th>
+					<td>
+						<div class="input-group">
+							<span class="input-group-text"> 우 편 번 호 </span>
+							<input type="text" id="post_code" name="post_code" readonly="readonly"
+									class="form-control">
+							<button id="addr_btn" class="btn btn-primary"> 주 소 검 색 </button>
+						</div>
+						<div class="input-group">
+							<span class="input-group-text"> 주 소 </span>
+							<input type="text" id="maddr1" name="maddr1" readonly="readonly"
+									class="form-control">
+						</div>
+						<div class="input-group">
+							<span class="input-group-text"> 상 세 주 소 </span>
+							<input type="text" id="maddr2" name="maddr2" class="form-control">
+						</div>
+						<label for="maddr1" id="maddr1_label"></label>
 					</td>
 				</tr>
 				<tr>
 					<th> 전 화 번 호 </th>
 					<td>
 						<div class="input-group">
-							<input type="text" id="member_phone" name="member_phone" maxlength="11" class="form-control" value="" placeholder=" '-'를 제외한 숫자만 입력해주세요. " >
-							<div class="input-group-append">
-								<button id="phone_btn" class="btn btn-primary"> 전 화 번 호 중 복 체 크 </button>
-							</div>
+							<input type="text" id="mtel1" name="mtel1" maxlength="3" class="form-control"
+									placeholder="010">
+							<input type="text" id="mtel2" name="mtel2" maxlength="4" class="form-control"
+									placeholder="1234">
+							<input type="text" id="mtel3" name="mtel3" maxlength="4" class="form-control"
+									placeholder="5678">
 						</div>
-						<label id="member_phone_label"></label>
+						<label for="mtel1" id="mtel1_label"></label>
+						<p class="tip">
+						숫자만 입력해주세요
+						</p>
 					</td>
 				</tr>
 				<tr>
-					<th> 주 소 </th>
+					<th> 개 인 정 보 제 공 동 의 </th>
 					<td>
-						<div class="input-group">
-							<div class="input-group">
-								<span class="input-group-text"> 우 편 번 호 </span>
-								<input type="text" id="member_addr1" name="member_addr1" readonly="readonly"
-										class="form-control">
-								<button id="addr_btn" class="btn btn-primary"> 주 소 검 색 </button>
-							</div>
-							
-							<div class="input-group">
-								<span class="input-group-text"> 주 소 </span>
-								<input type="text" id="member_addr2" name="member_addr2" readonly="readonly"
-										class="form-control">
-							</div>
-							<div class="input-group">
-								<span class="input-group-text"> 상 세 주 소 </span>
-								<input type="text" id="member_addr3" name="member_addr3" class="form-control">
-							</div>
-							
-							<label for="addr1" id="member_addr1_label"></label>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th> E M A I L 수신동의 </th>
-					<td>
-						<div class="input-group">
+						<div class="input-group mb-1">
 							<div class="input-group-text">
-								<input type="checkbox" id="email_agree" name="email_agree" class="mr-1"
-										checked="checked"> EMAIL 수신을 동의 합니다.
+								<input type="checkbox" id="info_agree" name="info_agree" class="mr-1"
+										checked="checked"> 개인 정보 제공에 동의 합니다.
 							</div>
 						</div>
+						<textarea class="form-control">1. 개인정보의 수집항목
+여기서놀래는 홈페이지 회원 가입 시 회원 서비스 제공에 필요한 최소한의 정보를 수집하고 있으며 개인정보파일에 수집되는 항목은 다음과 같습니다.
+회원가입
+- 이름, 아이디, 연락처, 이메일
+
+2. 개인정보 수집목적
+(주)여기서놀래가 제공하는 맞춤화된 서비스 및 개발(사전조사 및 만족도 설문조사, 고객문의 등)을 위해 수집합니다. (주)여기서놀래는 원칙적으로 이용자의 개인정보를 수집 및 이용 목적범위 내에서 처리하며, 이용자의 사전 동의 없이는 본래의 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다.
+
+가. 회원관리
+회원 맞춤 서비스 제공, 개인식별, 전체 서비스의 원활한 운영을 위한 관리, 회원탈퇴 의사 확인
+
+나. 고유서비스 이용 및 신규 개발
+예술경영지원센터에서 제공하는 컨설팅을 비롯한 각종 고유 서비스 제공의 필요 시, 신규 서비스 개발 시 의견수렴 및 안내
+
+3. 개인정보의 보유기간
+- 홈페이지 회원가입에 따라 수집된 개인정보 보유기간은 2년입니다.
+
+4. 기타사항(거부할 권리 등)
+- 회원가입에 따른 개인정보의 수집, 이용, 제공에 대해 귀하께서 동의하신 내용은 언제든지 철회 또는 거부하실 수 있습니다. 이의 경우 회원탈퇴로 처리되며 동의철회(거부)는 「회원탈퇴」를 클릭하거나 개인정보관리담당(책임자)에게 서면, 전화 이메일 등으로 연락하시면 즉시 개인정보의 삭제 및 파기 등 필요한 조치를 하겠습니다.
+
+기타 개인정보에 관한 상담 및 문의가 필요한 경우에는 개인정보침해신고센터 등으로 문의하실 수 있습니다.
+
+• 한국인터넷진흥원 개인정보침해신고센터 (www.1336.or.kr / 118)
+• 정보보호마크인증위원회 (www.eprivacy.or.kr / 02-580-0533~4)
+• 경찰청 사이버테러대응센터 (www.ctrc.go.kr / 182)</textarea>
+						<label for="info_agree" id="info_agree_label"></label>
 					</td>
 				</tr>
-				<tr>
-					<th> S _ M _ S 수신동의 </th>
-					<td>
-						<div class="input-group">
-							<div class="input-group-text">
-								<input type="checkbox" id="sms_agree" name="sms_agree" class="mr-1"
-										checked="checked"> SMS 수신을 동의 합니다.
-							</div>
-						</div>
-					</td>
-				</tr>			</tbody>
+				
+			</tbody>
 		</table>
 		<div class="clearfix">
 			<button id="join_btn" class="btn btn-primary float-right"> 회 원 가 입 </button>
 		</div>
 		<hr>
 	<script type="text/javascript">
-	let checkedNICK = "";
-	let checkedEMAIL = "";
-	let checkedPHONE = "";
-	
+	let checkedID = "";
 	let onlyNum = /^[0-9]+$/;
 	let engLowerAndNum = /^[a-z0-9]+$/;
 	let onlyPwd = /^[a-z0-9~!@#$%^&*().]+$/;
-	let onlyEmail = /^[a-zA-Z0-9.@]+$/;
-	let tmpAddr1 = $.trim( $("#member_addr1").val() );
-	let checkResult = null;
-	let emailcheckResult = null;
-	let phonecheckResult = null;
-	
+	let checkedEM = "";
+	let onlyNM = /^[가-힣]+$/;
+	let onlyEM = /^[a-zA-Z0-9@.]+$/;
+
 	$(document).ready(function() {
-		
-
-		
-		/* 전화번호 란에 숫자만 입력*/
-		$("#member_phone").keyup(function() {
-			let tmp = $("#member_phone").val().replace( /[^ 0-9 ]/g , "" );
-			$("#member_phone").val( tmp );
-		});
-		
-		
-		/* 닉네임 중복체크 버튼 */
-		$("#nick_btn").click(function() {
-
-			if( $.trim( $("#member_nick").val() ) == "" || $.trim( $("#member_nick").val() ) == null){//
-				$("#member_nick_label").text("닉네임을 입력하세요.");
-				return;
-			} else { $("#member_nick_label").text(""); }
-
-			$.get(
-					"${pageContext.request.contextPath}/join/nick_chk"
-					, { member_nick : $("#member_nick").val() }
-					, function(data, status) {
-						if(data == 0){// 중복되는 닉네임이 없을 경우
-							$("#member_nick_label").text("사용 가능한 닉네임 입니다.");
-							$("#member_nick_label").css("color", "blue");
-							checkedNICK = $("#member_nick").val();
-							// 중복되는 닉네임이 없을경우 해당 검색한 닉네임 checkedNICK에 저장
-							// 중복확인을 받은 후 닉네임을 도중에 바꿔서 닉네임 중복확인을 피하는것을 대비함
-							// 회원가입버튼을 클릭할 경우 checkedNICK값과 비교하여 닉네임 중복확인여부를 다시 확인할 예정
-							// checkedNICK = "" 경우 닉네임 중복확인 자체를 실행하지 않은것으로 간주함
-							checkResult = 0;
-							// 닉네임 중복여부를 저장
-						} else if(data >= 1){ // 중복되는 닉네임이 있을경우
-							$("#member_nick_label").text("이미 사용 중인 닉네임 입니다.");
-							$("#member_nick_label").css("color", "red");
-							checkResult = 1;
-							// 닉네임 중복여부를 저장
-							return;
-						} else {
-							alert("잠시 후 다시 시도해 주세요.");
-						}
-					}//call back function
-			);//get
-
-		});//click
-		
-		/* 전화번호 중복체크 */
-		$("#phone_btn").click(function() {	
-			
-			if( $.trim( $("#member_phone").val() ).length != 11 ){ 
-				alert("전화번호는 11자 이어야 합니다.");
-				$("#member_phone_label").text("전화번호를 11자리 모두 입력해주세요.");
-				$("#member_phone_label").css("color", "blue");
-				
-				return;// 전화번호 11자리 입력 조건 불만족시 중지
-			}
-			
-			$.get( // 전화번호 중복 체크
-					"${pageContext.request.contextPath}/join/phone_chk"
-					, { member_phone : $("#member_phone").val() }
-					, function(data, status) {
-						if(data == 0){
-							$("#member_phone_label").text("사용 가능한 전화번호 입니다.");
-							$("#member_phone_label").css("color", "blue");
-							checkedPHONE = $("#member_phone").val();
-							phonecheckResult = 0; // 전화번호 중복 여부 저장
-						} else if(data >= 1){
-							alert(" 이미 가입한 회원입니다. ")
-							$("#member_phone_label").text(" 다른 전화번호를 사용해 주세요. ");
-							$("#member_phone_label").css("color", "red");
-							phonecheckResult = 1; // 전화번호 중복 여부 저장
-							return;
-						} else {
-							alert("잠시 후 다시 시도해 주세요.");
-						}
-					}//call back function
-			);//get
-
-		});//click
-		
-		
-		
-		
-		/* 이메일 중복 체크 작성  */
-		$("#email_btn").click(function() {
-
-			
-			$.get(
-					"${pageContext.request.contextPath}/join/email_chk"
-					, { member_email : $("#member_email").val() }
-					, function(data, status) {
-						if(data == 0){
-							$("#member_email_label").text("사용 가능한 이메일 입니다.");
-							$("#member_email_label").css("color", "blue");
-							checkedEMAIL = $("#member_email").val();
-							emailcheckResult = 0;
-						} else if(data >= 1){ // 이메일 중복확인 결과 중복인경우
-							$("#member_email_label").text("naver로 로그인해주세요.");
-							$("#member_email_label").css("color", "red");
-							emailcheckResult = 1;
-							alert(" 이미 네이버로 가입하셨습니다. \n 네이버로 로그인해 주세요. ");
-							//로그인 페이지로 이동함.
-							location.href="${pageContext.request.contextPath}/login/login"
-							return;
-						} else {
-							alert("잠시 후 다시 시도해 주세요.");
-						}
-					}//call back function
-			);//get
-
-		});//click
-		
-		
-		
-		
-		/* 회원가입 버튼  */
-		
 		$("#join_btn").click(function() {
-			
-			/* 비밀번호 유효성  */
-			if( $("#member_pwd").val().match(onlyPwd) == null ){//허용되지 않은 글자는 null.
-				$("#member_pwd_label").text("영문 소문자, 숫자, 특수 문자만 허용 됩니다.");
-				return;
-			} else { $("#member_pwd_label").text(""); }
 
-			if( $("#member_pwd").val() != $("#remember_pwd").val() ){
-				$("#remember_pwd_label").text("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+			if( $("#info_agree").prop("checked") == false ){
+				$("#info_agree_label").text("필수 선택 사항 입니다.");
 				return;
-			} else { $("#remember_pwd_label").text(""); }
+			} else { $("#info_agree_label").text(""); }
 
-			
-			/* 이메일 중복체크 결과에 따른 적용 */
-			if(emailcheckResult >= 1){ // 이메일이 중복일 경우
-				$("#member_email_label").text("네이버로 가입한 메일입니다.");
-				$("#member_email_label").css("color", "red");
+			if( checkedID == "" || checkedID != $("#mid").val() ){
+				$("#mid_label").text("아이디 중복 체크를 해 주세요.");
 				return;
-			} else if(emailcheckResult == null) { // 이메일 중복체크를 하지않은경우
-				$("#member_email_label").text(" 이메일 중복체크를 해주세요. ");
-				$("#member_email_label").css("color", "red");
+			} else { $("#mid_label").text(""); }
+			
+			if( $.trim( $("#mpwd").val() ) == "" || $.trim( $("#mpwd").val() ).match(onlyPwd) == null ){
+				$("#mpwd_label").text("비밀번호입력을 확인 후 다시 해주세요.");
 				return;
-			}
+			} else { $("#mpwd_label").text(""); }
 			
-			/* 닉네임 중복체크 결과에 따른 적용 */
-			if( $("#member_nick").val() == "" || $("#member_nick").val() == null){// 닉네임창의 값이 없을경우
-				$("#member_nick_label").text("닉네임을 입력하세요."); // 메세지 출력
+			if( $("#mpwd").val() != $("#rempwd").val() ){
+				$("#rempwd_label").text("비밀번호와 비밀번호 확인이 서로 다릅니다.");
 				return;
-			} else { $("#member_nick_label").text(""); }
+			} else { $("#rempwd_label").text(""); }
 			
-			
-			if(checkResult >= 1){// 닉네임 중복 확인결과 1이상일경우 
-				$("#member_nick_label").text("이미 사용 중인 닉네임 입니다.");
-				$("#member_nick_label").css("color", "red");
+			if( checkedEM == "" || checkedEM != $("#memail").val() ){
+				$("#memail_label").text("이메일 중복확인을 해주세요.");
 				return;
-			} else if(checkResult == null) {// 중복체크를 하지 않은경우 
-				$("#member_nick_label").text(" 닉네임 중복체크를 해주세요. ");
-				$("#member_nick_label").css("color", "red");
+			} else { $("#memail_label").text(""); }
+			
+			if( $("#maddr1").val() == ""){
+				$("#maddr1_label").text("주소입력을 해주세요.");
 				return;
-			} 
+			} else { $("#maddr1_label").text(""); }
 			
-			
-			/* 가입시 전화번호 중복체크 여부 확인 */
-			if( checkedPHONE != $("#member_phone").val() || checkedPHONE == ""){
-				$("#member_phone_label").text(" 전화번호를 중복체크해 주세요. ");
-				$("#member_phone_label").css("color", "red");
+			if( $.trim( $("#maddr2").val() ) == ""){
+				$("#maddr1_label").text("상세주소입력을 확인후 다시 해주세요.");
 				return;
-			}
+			} else { $("#maddr2_label").text(""); }
+
+			if( $("#mtel1").val().match(onlyNum) == null ||
+				$("#mtel2").val().match(onlyNum) == null	||
+				$("#mtel3").val().match(onlyNum) == null){//허용되지 않은 글자는 null.
+				$("#mtel1_label").text("전화번호를 입력해주세요");
+				return;
+			} else { $("#mtel1_label").text(""); }
 			
-			
-			if( $("#member_addr1").val() == null || $("#member_addr1").val() == "" ){
-				$("#member_addr1_label").text("주소를 검색해주세요");
-				return;//진행 중지
-			} else { $("#member_addr1_label").text(""); }
-			
-			if( $("#member_addr3").val() == null || $("#member_addr3").val() == "" ){
-				$("#member_addr1_label").text("상세주소를 입력해 주세요");
-				return;//진행 중지
-			} else { $("#member_addr1_label").text(""); }
-			
+			let tmpMtel1 = $.trim( $("#mtel1").val() );
+			let tmpMtel2 = $.trim( $("#mtel2").val() );
+			let tmpMtel3 = $.trim( $("#mtel3").val() );
+
+			if( ( tmpMtel1 != "" && tmpMtel1.match(onlyNum) == null )
+				|| ( tmpMtel2 != "" && tmpMtel2.match(onlyNum) == null )
+				|| ( tmpMtel3 != "" && tmpMtel3.match(onlyNum) == null ) ){
+				$("#mtel1_label").text("숫자만 허용 됩니다.");
+				return;
+			} else { $("#mtel1_label").text(""); }
 
 			$.post(
 					"${pageContext.request.contextPath}/join/"
 					, {
-						member_name : $("#member_name").val()
-						, member_email : $("#member_email").val()
-						, member_pwd : $("#member_pwd").val()
-						, member_nick : $("#member_nick").val()
-						, member_phone : $("#member_phone").val()
-						, member_addr1 : $("#member_addr1").val()
-						, member_addr2 : $("#member_addr2").val()
-						, member_addr3 : $("#member_addr3").val()
-						, email_agree : $("#email_agree").prop("checked")
-						, sms_agree : $("#sms_agree").prop("checked")
-						, join_kakao : "Y" // 카카오로 가입여부 컬럼
-						, join_naver : "N"
+						mid : $("#mid").val()
+						, mpwd : $("#mpwd").val()
+						, mtel1 : $("#mtel1").val()
+						, mtel2 : $("#mtel2").val()
+						, mtel3 : $("#mtel3").val()
+						, memail : $("#memail").val()
+						, mname : $("#mname").val()
+						, maddr1 : $("#maddr1").val()
+						, maddr2 : $("#maddr2").val()
+						, post_code : $("#post_code").val()
+						, info_agree : $("#info_agree").prop("checked")
 					}
 					, function(data, status) {
 						if(data == 1){
-							alert("회원 가입에 성공 하셨습니다.");
-							location.href="${pageContext.request.contextPath}/login/naver_callback";
+							alert("회원 가입에 성공 하셨습니다. 로그인 해주세요.");
+							location.href="${pageContext.request.contextPath}/login_form";
 						} else {
 							alert("잠시 후 다시 시도해 주세요.");
 						}
@@ -387,13 +270,65 @@
 		});//click
 	});//ready
 
+	$(document).ready(function() {
+		$("#id_btn").click(function() {
 
-	</script>
-				</section>
-				<aside class="col-1  h-100 bg-white float-right"></aside>
-			</main>
+			if( $.trim( $("#mid").val() ) == "" ){
+				return;
+			}
+			if( $("#mid").val().match(engLowerAndNum) == null ){//허용되지 않은 글자는 null.
+				$("#mid_label").text("영문 소문자와 숫자만 허용 됩니다.");
+				return;
+			} else { $("#mid_label").text(""); }
+
+			$.get(
+					"${pageContext.request.contextPath}/join/id_chk"
+					, { mid : $("#mid").val() }
+					, function(data, status) {
+						if(data == 0){
+							$("#mid_label").text("사용 가능한 아이디 입니다.");
+							$("#mid_label").css("color", "blue");
+							checkedID = $("#mid").val();
+						} else if(data >= 1){
+							$("#mid_label").text("이미 사용 중인 아이디 입니다.");
+							$("#mid_label").css("color", "red");
+						} else {
+							alert("잠시 후 다시 시도해 주세요.");
+						}
+					}//call back function
+			);//get
 			
-		</div><!-- container -->
+		});//click
+	});//ready
+	
+	/* 이메일 중복 체크 작성  */
+	$("#email_btn").click(function() {
+
+		
+		$.get(
+				"${pageContext.request.contextPath}/join/email_validate"
+				, { memail : $("#memail").val() }
+				, function(data, status) {
+					if(data == 0){
+						$("#memail_label").text("사용 가능한 이메일 입니다.");
+						$("#memail_label").css("color", "blue");
+						checkedEM = $("#memail").val();
+						emailcheckResult = 0;
+					} else if(data >= 1){ // 이메일 중복확인 결과 중복인경우
+						$("#memail_label").text("이미 등록된 이메일입니다.");
+						$("#memail_label").css("color", "red");
+						emailcheckResult = 1;
+						alert(" 이미 가입된 이메일주소입니다. \n 다시 확인해주세요 ");
+						location.href="${pageContext.request.contextPath}/login_form"
+						return;
+					} else {
+						alert("잠시 후 다시 시도해 주세요.");
+					}
+				}//call back function
+		);//get
+
+	});//click
+	
+	</script>
 	</body>
-	<%@ include file="/WEB-INF/views/footer.jsp" %>
 </html>
