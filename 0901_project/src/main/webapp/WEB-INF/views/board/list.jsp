@@ -36,7 +36,7 @@
 		</form>
 		<hr>
 		<div class="clearfix">
-		<c:if test="${dto.authority == 1}">
+		<c:if test="${login_info.authority == 1}">
 			<a href="${pageContext.request.contextPath}/board/write_form">
 				<button class="btn btn-primary float-right"> 글 쓰러 가기 </button>
 			</a>

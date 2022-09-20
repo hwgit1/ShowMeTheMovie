@@ -103,12 +103,12 @@ public class MemberBoardController {
 
 		//endPageNum이 20이고, lastPageNum이 17이라면, endPageNum을 17로 수정해라
 		if(endPageNum > lastPageNum) endPageNum = lastPageNum;
-
+		
 		model.addAttribute("startPageNum", startPageNum);
 		model.addAttribute("endPageNum", endPageNum);
 		model.addAttribute("lastPageNum", lastPageNum);
 		model.addAttribute("userWantPage", userWantPage);
-
+		
 		dto.setLimitNum( ( Integer.parseInt(userWantPage) - 1 ) * 10  );
 		// 1 -> (1-1)*10 -> 0
 		// 2 -> (2-1)*10 -> 10
@@ -118,6 +118,7 @@ public class MemberBoardController {
 		list = service.searchList( dto );
 		model.addAttribute("list", list);
 		model.addAttribute("search_dto", dto);
+		
 		return "/board/list";//jsp file name
 		
 	}//list

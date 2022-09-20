@@ -14,8 +14,12 @@
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 		<hr>
-		<h3> ChatRoom : ${room_dto.mid_from} &lt;=&gt; ${room_dto.mid_to} </h3>
+		<h3> ${room_dto.mid_from}님의 문의사항 </h3>
 		<hr>
+
+		<a href="javascript:history.back(-1)">
+		<button id="back-btn" type="button" class="back-btn btn-primary"> 뒤로가기 </button>
+		</a>
 
 		<iframe src="${pageContext.request.contextPath}/memo/chat_list?room_no=${room_dto.room_no}"
 				name="chatList" width="100%" height="470px" frameborder="0" scrolling="no" class="mb-1"></iframe>

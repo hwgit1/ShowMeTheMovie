@@ -9,6 +9,15 @@ public class MemberBoardDTO {
 	private String contents;
 	private String view_cnt;
 	private String write_date;
+	private String authority;
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 
 	@Override
 	public String toString() {

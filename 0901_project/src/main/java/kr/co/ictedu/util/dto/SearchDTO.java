@@ -6,6 +6,9 @@ public class SearchDTO {
 	private String searchWord;
 	private int limitNum;
 	private String mno;
+	private String authority;
+	
+
 
 	@Override
 	public String toString() {
@@ -37,4 +40,11 @@ public class SearchDTO {
 		this.mno = mno;
 	}
 
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 }//class

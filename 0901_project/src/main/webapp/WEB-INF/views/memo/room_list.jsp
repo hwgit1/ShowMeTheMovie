@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>  
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -23,14 +24,38 @@
 							<h3 class="text-center">
 								<a href="${pageContext.request.contextPath}/memo/open_room?room_no=${dto.room_no}"
 									style="text-decoration:none;" class="text-dark">
-									ChatRoom : ${dto.mid_from} &lt;=&gt; ${dto.mid_to}
+									${dto.mid_from}님의 문의사항
 								</a>
 							</h3>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-
+			
+			<c:if test="${login_info.authority == 0}">
+			<button class="QnA-btn"> 문의 하기 </button>
+			</c:if>
+			
+			<script type="text/javascript">
+				$(document).ready(function() {
+			
+					$(".QnA-btn").click(function() {
+			
+						$.get(
+								"${pageContext.request.contextPath}/memo/start"
+								, function(data, status) {
+									if(data == 0){
+										alert("잠시 후 다시 시도해 주세요.");
+									} else {
+										window.location.href="${pageContext.request.contextPath}/memo/open_room?room_no="+data;
+									}
+								}//call back functiion
+						);//get
+			
+					});//click
+			
+				});//ready
+				</script>
 	</body>
 </html>
 

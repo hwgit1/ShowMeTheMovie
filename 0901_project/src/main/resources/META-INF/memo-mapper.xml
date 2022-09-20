@@ -46,12 +46,20 @@
 		or ( mno_from = #{mno_to} and mno_to = #{mno_from} ) )
 	</select>
 
-	<insert id="createRoomNo" parameterType="kr.co.ictedu.memo.MemoDTO">
-	insert into memo_room ( mno_from, mno_to )
-	values ( #{mno_from}, #{mno_to} )
+<!--  	<insert id="createRoomNo" parameterType="kr.co.ictedu.memo.MemoDTO">
+	insert into memo_room ( mno_from )
+	values ( #{mno_from} )
 		<selectKey resultType="String" keyProperty="room_no" order="AFTER">
 		SELECT LAST_INSERT_ID()
 		</selectKey>
-	</insert>
+	</insert> -->
 
+	<insert id="createRoomNo" parameterType="kr.co.ictedu.memo.MemoDTO">
+	insert into memo_room ( mno_from)
+	values ( #{mno_from})
+		<selectKey resultType="String" keyProperty="room_no" order="AFTER">
+		SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert> 
+	
 </mapper>
