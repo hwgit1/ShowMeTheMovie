@@ -22,4 +22,23 @@
 	where mno = #{mno}
 	</update>
 	
+	<select id="orderList" parameterType="java.lang.String" resultType="kr.co.ictedu.dto.CGVReserveDto">
+	select m.mno, o.order_no, o.id, o.reserveSequence, o.title, o.runningTime, o.movieDate, o.ticketNumber
+	, o.selectedSeat, o.selectTheater, o.movieAge, o.reserve_date
+	from order_main o, member m
+	where o.id = m.mid 
+	and m.mno = #{mno}
+	order by order_no desc
+	</select>
+	
+	<select id="recentOrder" parameterType="java.lang.String" resultType="kr.co.ictedu.dto.CGVReserveDto">
+	select m.mno, o.order_no, o.id, o.reserveSequence, o.title, o.runningTime, o.movieDate, o.ticketNumber
+	, o.selectedSeat, o.selectTheater, o.movieAge, o.reserve_date
+	from order_main o, member m
+	where o.id = m.mid 
+	and m.mno = #{mno}
+	order by order_no desc
+	limit 5;
+	</select>
+	
 </mapper>
