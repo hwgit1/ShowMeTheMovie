@@ -52,7 +52,11 @@
 								<td class="rorder-date">${olist.reserve_date}</td>
 							</tr>
 							</c:forEach>
-							
+							<c:if test="${order_cnt == 0}">
+							<tr>
+								<td colspan="6">예매 내역이 없습니다.</td>
+							</tr>
+							</c:if>
 						</table>
 					</div>
 				</div>
