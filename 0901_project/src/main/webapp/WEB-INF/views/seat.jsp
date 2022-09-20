@@ -58,9 +58,8 @@
 				<div class="select-seat-information">
 					<div class="selected-movie"><%=reserve.getTitle()%></div>
 					<div class="select-seat-information-wrapper">
-						<div class="select-theater-place selected-theater-place-info">CGV강남</div>
-						<div class="select-theater-place selected-theater-place-info">3관
-							8층</div>
+						<div class="select-theater-place selected-theater-place-info"><%= reserve.getSelectedTheater()%></div>
+						<div class="select-theater-place selected-theater-place-info"><%= reserve.getReserveWhere()%></div>
 						<div class="select-theater-place">
 							<span>남은좌석</span><span class="remain-seats">152</span>/<span
 								class="all-seats">172</span>
@@ -98,7 +97,6 @@
 
 			</div>
 			<div class="seat-container">
-
 				<div class="seat-wrapper">
 					<div class="screen-view-wrapper">
 						<div class="screen-view">SCREEN</div>

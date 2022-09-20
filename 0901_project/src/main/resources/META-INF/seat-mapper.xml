@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SeatMapper">
+
+	<select id="seat" parameterType="java.lang.String" resultType="kr.co.ictedu.dto.ReserveSeatDto">
+<!-- 	select re.reserve_date, th.theater_no, th.play_time, th.seat_cnt -->
+<!-- 	from reserve re, theater th -->
+<!-- 	where re.reserve_date = #{reverve_date} -->
+<!-- 	and re.theater_no = re.theater_no -->
+<!-- 	and re.theater_no = re.theater_no -->
+	
+		select reserve_date, theater_no, play_time, seat_cnt
+		from theater
+		where reserve_date = #{seatreserve_date}
+	</select>
+	
+	<insert id="order" parameterType="kr.co.ictedu.dto.CGVReserveDto">
+		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, movieAge, reserve_date)
+		VALUES ( #{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater}, #{movieAge}, now())
+	</insert>
+
+</mapper>
