@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>   
-
-<html>
-	<head>  
+<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/basic_style.css">
-      </head>
-      <body>
+      <link rel="stylesheet" type="text/css" href="/resources/css/basic_style.css">
+      
       <div id="header">
          <div id="top-header">
             <c:choose>
@@ -53,12 +49,12 @@
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/board/list">
+                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=3">
                         <span>공지사항</span>
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/memo/my_room_list">
+                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=4">
                         <span>Q&A</span>
                      </a>
                   </li>
@@ -66,6 +62,3 @@
             </div>
          </div>
       </div>
-
-	</body>
-</html>

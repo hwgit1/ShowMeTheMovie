@@ -1,5 +1,7 @@
 package kr.co.ictedu.controller;
 
+import java.awt.Window;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -16,28 +18,57 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.ictedu.dto.CGVPayDto;
 import kr.co.ictedu.dto.CGVReserveDto;
-//import kr.co.ictedu.service.CGVReserveService;
+import kr.co.ictedu.dto.ReserveSeatDto;
+import kr.co.ictedu.service.ReserveService;
+import kr.co.ictedu.util.dto.MemberDTO;
+import kr.co.ictedu.service.CGVReserveService;
 
 
 @Controller
 public class CGVReserveController {
 
 	@Autowired
-//	CGVReserveService cgvReserveService;
+	ReserveService service;
+	CGVReserveService cgvReserveService;
 	
 	
 	private static Logger logger = LoggerFactory.getLogger(CGVReserveController.class);
 	
 	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveReserve() {
+	public String moveReserve(String reverve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("moveReserve");
+		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+//		dto = null;
+//		dto = service.seat(reverve_date);
+//		model.addAttribute("seat", dto);
+//		System.out.println(dto.toString());
+//		System.out.println(dto.getReverve_date());
+		System.out.println(reverve_date);
+		return "reserve";
+	}
+	
+	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
+		logger.info("seatReserve");
+		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+		logger.info(login.getMid());
+		dtoo.setId(login.getMid());
+//		List<ReserveSeatDto> list = null;
+//		System.out.println(seatreserve_date);
+//		list = service.seat(seatreserve_date);
+//		model.addAttribute("seat", list);
+//		System.out.println(get);
 		return "reserve";
 	}
 	
 	
 	@RequestMapping(value="moveSeat.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveSeat(Model model, CGVReserveDto dto) {
+	public String moveSeat(Model model, CGVReserveDto dto, HttpSession session) {
+		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		
+		logger.info(login.getMid());
+		String id = login.getMid();
+		dto.setId(id);
 		System.out.println(dto.toString());
 		logger.info("moveSeat");
 		model.addAttribute("reserve", dto);
@@ -46,23 +77,27 @@ public class CGVReserveController {
 	}
 	
 
-//	@RequestMapping(value="moveKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
-//	public String moveKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
-//		System.out.println(dto.toString());
-//		logger.info("moveKakao");
-////		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
-//		
-////		dto.setId(login.getId());
-//		boolean isSuccess = cgvReserveService.CGVReserve(dto);
-//		System.out.println(isSuccess);
-//		model.addAttribute("reserve", dto);
+	@RequestMapping(value="moveKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String moveKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
+		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+		logger.info(login.getMid());
+		String id = login.getMid();
+		dto.setId(id);
+		System.out.println(dto.toString());
+		logger.info("moveKakao");
+		int isSuccess = 0;
+		System.out.println(isSuccess + "서비스 들어가기 전");
+		isSuccess = service.CGVReserve(dto);
+		System.out.println(isSuccess);
+//		model.addAttribute("reserve", dtoo);
 //		model.addAttribute("pay", payDto);
 //		if(isSuccess == false) {
 //			System.out.println("오류가 났어요...");
 //			return "redirect:/moveMain.do";
 //		}
-//		return "kakao";
-//	}
+		return "main";
+	}
+
 //	
 //	@RequestMapping(value="payKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
 //	public String payKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	

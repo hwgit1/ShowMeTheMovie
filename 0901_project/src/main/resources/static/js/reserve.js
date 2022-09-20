@@ -1,6 +1,8 @@
 const date = new Date();
 // console.log(date.getFullYear());
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+const afterFirstDay = new Date(date.getFullYear(), date.getMonth() + 2, 1);
+const afterLastDay = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 const reserveDate = document.querySelector('.reserve-date');
 const theaterPlace = document.querySelectorAll('.theater-place');
 const theaterLocation = document.querySelectorAll('.theater-location');
@@ -9,6 +11,7 @@ const inputTitle = document.querySelector('.title');
 const inputSelectedTheater = document.querySelector('.selectedTheater');
 const inputReserveDate = document.querySelector('.reserveDate');
 const inputRunningTime = document.querySelector('.runningTime');
+const inputReserveWhere = document.querySelector('.reserveWhere');
 const moveSeatForm = document.querySelector('.moveSeatForm');
 const moveSeatButton = document.querySelector('.moveSeatButton');
 const movieAge = document.querySelector('.movieAge');
@@ -42,6 +45,8 @@ function add() {
                     li.innerHTML = '청불';
                 } else if (li.innerHTML === 'All') {
                     li.classList.add('all');
+                } else if (li.innerHTML === '12') {
+                    li.classList.add('twelve');
                 }
             });
             if (crawlingData.length === 0) {
@@ -135,6 +140,41 @@ function addDate() {
 
         dayClickEvent(button);
     }
+    afterMonth = date.getMonth() +2;
+    reserveDate.append(year + '/' + afterMonth);
+    for (i = afterFirstDay.getDate(); i <= afterLastDay.getDate(); i++) {
+        const button = document.createElement('button');
+        const spanWeekOfDay = document.createElement('span');
+        const spanDay = document.createElement('span');
+
+        //class넣기
+        button.classList = 'movie-date-wrapper';
+        spanWeekOfDay.classList = 'movie-week-of-day';
+        spanDay.classList = 'movie-day';
+
+        //weekOfDay[new Date(2020-03-날짜)]
+        const dayOfWeek =
+            weekOfDay[new Date(year + '-' + afterMonth + '-' + i).getDay()];
+
+        //요일 넣기
+        if (dayOfWeek === '토') {
+            spanWeekOfDay.classList.add('saturday');
+            spanDay.classList.add('saturday');
+        } else if (dayOfWeek === '일') {
+            spanWeekOfDay.classList.add('sunday');
+            spanDay.classList.add('sunday');
+        }
+        spanWeekOfDay.innerHTML = dayOfWeek;
+        button.append(spanWeekOfDay);
+        //날짜 넣기
+        spanDay.innerHTML = i;
+        button.append(spanDay);
+        //button.append(i);
+
+        reserveDate.append(button);
+
+        afterDayClickEvent(button);
+    }
 }
 
 function dayClickEvent(button) {
@@ -146,7 +186,27 @@ function dayClickEvent(button) {
             list.classList.remove('movie-date-wrapper-active');
         });
         button.classList.add('movie-date-wrapper-active');
-        console.log(button.childNodes[1].innerHTML);
+        const day = button.childNodes[1].innerHTML;
+        console.log(day);
+        
+        $.ajax({
+            url : "seatReserve.do",
+            type : "POST",
+            data :{
+            	seatreserve_date : button.childNodes[1].innerHTML
+            },
+            dataType: 'JSON',
+            success : function (data) {
+                if(data.resultMap.code == "1"){
+                    alert("success!")
+                    
+                } else {
+                    alert("error!")
+                }
+                
+                }
+            });  //ajax
+        
         inputReserveDate.value =
             year +
             '.' +
@@ -159,6 +219,33 @@ function dayClickEvent(button) {
         console.log(inputReserveDate.value);
     });
 }
+//button.childNodes[1].innerHTML -> 날짜
+function afterDayClickEvent(button) {
+    button.addEventListener('click', function() {
+        const movieDateWrapperActive = document.querySelectorAll(
+            '.movie-date-wrapper-active'
+        );
+        movieDateWrapperActive.forEach(list => {
+            list.classList.remove('movie-date-wrapper-active');
+        });
+        button.classList.add('movie-date-wrapper-active');
+        const day = button.childNodes[1].innerHTML;
+        
+        console.log(day);
+        
+        inputReserveDate.value =
+            year +
+            '.' +
+            afterMonth +
+            '.' +
+            button.childNodes[1].innerHTML +
+            '(' +
+            button.childNodes[0].innerHTML +
+            ')';
+        console.log(inputReserveDate.value);
+    });
+}
+
 
 theaterPlace.forEach(list => {
     list.addEventListener('click', function() {
@@ -191,22 +278,40 @@ theaterLocation.forEach(list => {
 reserveTimeWant.forEach(list => {
     list.addEventListener('click', function() {
         const reserveTimeActive = document.querySelectorAll('.reserve-time-active');
+        const id = $(this).attr('id');
         reserveTimeActive.forEach(li => {
             li.classList.remove('reserve-time-active');
         });
         list.classList.add('reserve-time-active');
         console.log(list.innerHTML);
+        inputReserveWhere.value = id;
         inputRunningTime.value = list.innerHTML;
     });
 });
+
 
 moveSeatButton.addEventListener('click', function() {
     if (!!inputTitle.value &&
         !!inputSelectedTheater.value &&
         !!inputReserveDate.value &&
-        !!inputRunningTime.value
+        !!inputRunningTime.value 
     ) {
-        moveSeatForm.submit();
+    	moveSeatForm.submit();
+//    	if ( login != "") {
+//		} else {
+//			 toastr.options = {
+//			            positionClass: 'toast-top-full-width',
+//			            progressBar: true,
+//			            timeOut: 1000,
+//			        };
+//			        toastr.error(
+//			            '<div style="color:white">로그인해주세요</div>',
+//			            '<div style="color:white">제발</div>', {
+//			                timeOut: 3000,
+//			            }
+//			        );
+//		}
+       
     } else {
         toastr.options = {
             positionClass: 'toast-top-full-width',

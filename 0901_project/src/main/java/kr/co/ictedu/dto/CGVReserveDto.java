@@ -13,8 +13,32 @@ public class CGVReserveDto implements Serializable {
 	private String selectedSeat;
 	private String selectedTheater;
 	private String movieAge;
+	private String reserveWhere;
+	
+	private CGVPayDto cgvPayDto;
+	
+	public CGVReserveDto() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
+
+	
+	public String getReserveWhere() {
+		return reserveWhere;
+	}
+
+	public void setReserveWhere(String reserveWhere) {
+		this.reserveWhere = reserveWhere;
+	}
+
+	public CGVPayDto getCgvPayDto() {
+		return cgvPayDto;
+	}
+
+	public void setCgvPayDto(CGVPayDto cgvPayDto) {
+		this.cgvPayDto = cgvPayDto;
+	}
 
 	public String getId() {
 		return id;
@@ -98,7 +122,7 @@ public class CGVReserveDto implements Serializable {
 
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String reserveDate, String ticketNumber, String selectedSeat, String selectedTheater, String movieAge) {
+			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserveDate) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -113,8 +137,8 @@ public class CGVReserveDto implements Serializable {
 	}
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String reserveDate, String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
-			CGVPayDto cgvPayDto) {
+			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
+			CGVPayDto cgvPayDto, String reserveDate) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -126,14 +150,15 @@ public class CGVReserveDto implements Serializable {
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
+		this.cgvPayDto = cgvPayDto;
 	}
 
 	@Override
 	public String toString() {
 		return "CGVReserveDto [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title
-				+ ", runningTime=" + runningTime + ", movieDate=" + movieDate + ", reserveDate=" + reserveDate
+				+ ", runningTime=" + runningTime + ", movieDate=" + movieDate 
 				+ ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater="
-				+ selectedTheater + ", movieAge=" + movieAge + "]";
+				+ selectedTheater + ", movieAge=" + movieAge + ", reserveDate=" + reserveDate + "]";
 	}
 	
 	

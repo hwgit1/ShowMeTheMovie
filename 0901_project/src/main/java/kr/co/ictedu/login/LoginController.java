@@ -111,7 +111,7 @@ public class LoginController {
 	@RequestMapping( value = "/logout", method = RequestMethod.GET )
 	public String logout( HttpSession session ) {
 		session.invalidate();
-		return "home";//jsp file name
+		return "main";//jsp file name
 	}//logout
 
 	@RequestMapping( value = "/login", method = RequestMethod.POST )

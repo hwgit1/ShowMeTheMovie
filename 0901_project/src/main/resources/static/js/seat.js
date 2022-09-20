@@ -84,6 +84,7 @@ function initList(list, li) {
     });
 }
 
+//가격부분
 function selectListUiFunction(selectSeatListUlActive) {
     selectSeatListUlActive.forEach(li => {
         if (li.parentNode.classList.contains('select-seat-ul-normal')) {
@@ -92,7 +93,7 @@ function selectListUiFunction(selectSeatListUlActive) {
             allMoney = normalMoney + teenMoney + oldMoney;
             allNumber = normalNumber + teenNumber + oldNumber;
             ticketPrice.innerHTML = allMoney + '원';
-            if (allNumber > 16) {
+            if (allNumber > 5) {
                 li.classList.remove('select-seat-ul-active');
                 allMoney -= normalMoney;
                 allNumber = allNumber - normalNumber;
@@ -106,7 +107,7 @@ function selectListUiFunction(selectSeatListUlActive) {
             allMoney = normalMoney + teenMoney + oldMoney;
             allNumber = normalNumber + teenNumber + oldNumber;
             ticketPrice.innerHTML = allMoney + '원';
-            if (allNumber > 16) {
+            if (allNumber > 5) {
                 li.classList.remove('select-seat-ul-active');
                 //normalNumber = teenNumber = oldNumber = 0;
                 allMoney -= teenMoney;
@@ -121,7 +122,7 @@ function selectListUiFunction(selectSeatListUlActive) {
             allMoney = normalMoney + teenMoney + oldMoney;
             allNumber = normalNumber + teenNumber + oldNumber;
             ticketPrice.innerHTML = allMoney + '원';
-            if (allNumber > 16) {
+            if (allNumber > 5) {
                 li.classList.remove('select-seat-ul-active');
 
                 allMoney -= oldMoney;
@@ -137,7 +138,7 @@ function selectListUiFunction(selectSeatListUlActive) {
         console.log(allNumber + '뭥미');
         ticketPrice.innerHTML = allMoney + '원';
 
-        if (allNumber > 16) {
+        if (allNumber > 5) {
             console.log(li);
             li.classList.remove('select-seat-ul-active');
             // normalNumber = teenNumber = oldNumber = 0;
