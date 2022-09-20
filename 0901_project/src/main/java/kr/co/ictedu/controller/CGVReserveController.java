@@ -1,5 +1,6 @@
 package kr.co.ictedu.controller;
 
+import java.awt.Window;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -37,9 +38,6 @@ public class CGVReserveController {
 	public String moveReserve(String reverve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("moveReserve");
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-		logger.info(login.getMid());
-		String id = login.getMid();
-		dtoo.setId(id);
 //		dto = null;
 //		dto = service.seat(reverve_date);
 //		model.addAttribute("seat", dto);
@@ -67,6 +65,7 @@ public class CGVReserveController {
 	@RequestMapping(value="moveSeat.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveSeat(Model model, CGVReserveDto dto, HttpSession session) {
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+		
 		logger.info(login.getMid());
 		String id = login.getMid();
 		dto.setId(id);
