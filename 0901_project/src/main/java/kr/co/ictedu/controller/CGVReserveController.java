@@ -38,6 +38,7 @@ public class CGVReserveController {
 	public String moveReserve(String reverve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("moveReserve");
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+		
 //		dto = null;
 //		dto = service.seat(reverve_date);
 //		model.addAttribute("seat", dto);
@@ -50,9 +51,9 @@ public class CGVReserveController {
 	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("seatReserve");
-		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-		logger.info(login.getMid());
-		dtoo.setId(login.getMid());
+//		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+//		logger.info(login.getMid());
+//		dtoo.setId(login.getMid());
 //		List<ReserveSeatDto> list = null;
 //		System.out.println(seatreserve_date);
 //		list = service.seat(seatreserve_date);

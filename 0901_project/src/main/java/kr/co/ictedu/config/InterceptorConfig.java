@@ -21,10 +21,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		.addPathPatterns("/mypage/*")
 		.addPathPatterns("/order/*")
 		.addPathPatterns("/product/*")
+		.addPathPatterns("/seat")
 		.excludePathPatterns("/board/ck/list")
 		.excludePathPatterns("/board/member/list")
 		.excludePathPatterns("/product/list")
 		.excludePathPatterns("/product/detail")
+		
 		;
 	}//addInterceptors
 

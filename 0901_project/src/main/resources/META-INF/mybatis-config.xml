@@ -22,6 +22,7 @@
 <!-- 		<mapper resource="META-INF/order-mapper.xml" />  -->
 <!-- 		<mapper resource="META-INF/product-mapper.xml" />  -->
 		<mapper resource="META-INF/seat-mapper.xml" />
+		<mapper resource="META-INF/find-mapper.xml" />
 	</mappers>
 
 </configuration>
