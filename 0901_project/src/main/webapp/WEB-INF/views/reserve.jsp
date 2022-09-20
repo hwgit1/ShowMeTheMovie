@@ -46,7 +46,7 @@
             <div class="theater-container">
                 <div class="theater-wrapper">
                     <div class="theater-location-wrapper">
-                        <button class="theater-location">서울(30)</button>
+                        <button class="theater-location">서울(18)</button>
                         <button class="theater-location">경기(43)</button>
                         <button class="theater-location">인천(10)</button>
                         <button class="theater-location">강원(5)</button>

@@ -15,13 +15,6 @@ public class Kakao_LoginDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-//	public int join( Naver_MemberDTO dto ) {
-//		int successCount = 0;
-//		successCount = sqlSession.insert("JoinMapper.naver_join", dto);
-//		return successCount;
-//	}//join
-
-	
 	public MemberDTO login( Kakao_MemberDTO dto ) {
 		MemberDTO dtoFromDB = null;
 		dtoFromDB = sqlSession.selectOne("LoginMapper.kakao_login", dto);
