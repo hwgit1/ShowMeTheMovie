@@ -30,7 +30,7 @@ public class Kakao_LoginService {
 		String access_Token = "";
 		String refresh_Token = "";
 		String reqURL = "https://kauth.kakao.com/oauth/token";
-		//try {
+		try {
 			URL url = new URL(reqURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
@@ -39,7 +39,7 @@ public class Kakao_LoginService {
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
 			sb.append("&client_id=945e73f5f777795905223c979bc7a02f"); //본인이 발급받은 key
-			sb.append("&redirect_uri=http://localhost:8081/ictedu/login_form/kakao_login"); // 본인이 설정한 주소
+			sb.append("&redirect_uri=http://localhost/login/kakao_login"); // 본인이 설정한 주소
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());
 			bw.flush();
@@ -60,9 +60,9 @@ public class Kakao_LoginService {
 			System.out.println("refresh_token : " + refresh_Token);
 			br.close();
 			bw.close();
-		/*} catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
+		}
 		return access_Token;
 	}
     
@@ -89,11 +89,9 @@ public class Kakao_LoginService {
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String email = kakao_account.getAsJsonObject().get("email").getAsString();
-			String age_range = kakao_account.getAsJsonObject().get("age_range").getAsString();
 			
 			userInfo.put("nickname", nickname);
 			userInfo.put("email", email);
-			userInfo.put("age_range", age_range);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
