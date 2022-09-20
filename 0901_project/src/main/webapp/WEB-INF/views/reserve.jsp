@@ -5,11 +5,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
- <%
+<%
  	ReserveSeatDto seat = (ReserveSeatDto) request.getAttribute("seat");
  	MemberDTO login = (MemberDTO)session.getAttribute("login_info");
 	if(login!= null) System.out.println(login.toString());
-%> 
+%>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
