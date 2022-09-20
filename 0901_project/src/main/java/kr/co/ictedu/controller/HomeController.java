@@ -1,4 +1,4 @@
-package kr.co.ictedu;
+package kr.co.ictedu.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +15,15 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 
-		return "home";//jsp file name
+		return "main";//jsp file name
 
 	}//home
+	
+	@RequestMapping(value = "/plan", method = RequestMethod.GET)
+	public String planhome(Model model) {
+
+		return "planmain";//jsp file name
+
+	}//planhome
 	
 }
