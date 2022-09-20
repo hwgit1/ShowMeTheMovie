@@ -22,12 +22,12 @@ import kr.co.ictedu.dto.CGVInfoDto;
 
 
 @Controller
-public class CGVInfoController {
-	private static Logger logger = LoggerFactory.getLogger(CGVInfoController.class);
+public class CGVInfoplanController {
+	private static Logger logger = LoggerFactory.getLogger(CGVInfoplanController.class);
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "crawling.do", method = {RequestMethod.GET, RequestMethod.POST}, produces="text/plain;charset=UTF-8")
+	@RequestMapping(value = "crawling.do2", method = {RequestMethod.GET, RequestMethod.POST}, produces="text/plain;charset=UTF-8")
 	public String getCrawling() {
 		logger.info("크롤링" + new Date());
 		Document doc;
@@ -35,25 +35,25 @@ public class CGVInfoController {
 		
 		try {
 			
-			 doc = Jsoup.connect("http://www.cgv.co.kr/movies/").get();
+			 doc = Jsoup.connect("http://www.cgv.co.kr/movies/pre-movies.aspx").get();
 			/* Elements */
 			 Elements ranks = doc.select(".rank");
-			 logger.info("rank" + ranks); 
+			 //logger.info("rank" + ranks); 
 			 
 			 Elements imgs = doc.select(".thumb-image > img");
-			 logger.info("imgs" + imgs); 
+			 //logger.info("imgs" + imgs); 
 			 
 			 Elements movieAges = doc.select(".cgvIcon");
 			 logger.info("cgvIcon" + movieAges); 
 			 
 			 Elements movieTitles = doc.select("div.box-contents strong.title");
-			 logger.info("titles" + movieTitles); 
+			 //logger.info("titles" + movieTitles); 
 			 
 			 Elements movieRates = doc.select(".percent span");
-			 logger.info("percents" + movieRates); 
+			 //logger.info("percents" + movieRates); 
 			 
 			 Elements movieOpenDates = doc.select(".txt-info strong");
-			 logger.info("percents" + movieOpenDates); 
+			 //logger.info("percents" + movieOpenDates); 
 			
 			 List<CGVInfoDto> list = new ArrayList<CGVInfoDto>();
 			 
@@ -66,7 +66,7 @@ public class CGVInfoController {
 				 String movieRate = movieRates.get(i).text();
 				 String movieOpenDate = movieOpenDates.get(i).text();
 				 int seq = i;
-				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieAge, movieTitle, movieRate, movieOpenDate, seq);
+				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieTitle, movieAge, movieRate, movieOpenDate, seq);
 				 
 				 logger.info(cgvInfoDto.toString());
 				 list.add(cgvInfoDto);

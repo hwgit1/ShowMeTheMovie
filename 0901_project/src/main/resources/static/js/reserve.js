@@ -1,8 +1,11 @@
 const date = new Date();
 // console.log(date.getFullYear());
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+const afterFirstDay = new Date(date.getFullYear(), date.getMonth() + 2, 1);
+const afterLastDay = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 const reserveDate = document.querySelector('.reserve-date');
 const theaterPlace = document.querySelectorAll('.theater-place');
+const theaterLocation = document.querySelectorAll('.theater-location');
 const reserveTimeWant = document.querySelectorAll('.reserve-time-want');
 const inputTitle = document.querySelector('.title');
 const inputSelectedTheater = document.querySelector('.selectedTheater');
@@ -34,18 +37,21 @@ function add() {
             setList(data);
             movieListAge = document.querySelectorAll('.movie-list-age');
             movieListAge.forEach(li => {
-                if (li.innerHTML === '15세 이상') {
+                if (li.innerHTML === '15') {
                     li.classList.add('fifteen');
-                } else if (li.innerHTML === '청소년 관람불가') {
+                } else if (li.innerHTML === '18') {
                     li.classList.add('eighteen');
                     li.innerHTML = '청불';
-                } else if (li.innerHTML === '전체') {
+                } else if (li.innerHTML === 'All') {
                     li.classList.add('all');
+                } else if (li.innerHTML === '12') {
+                    li.classList.add('twelve');
                 }
             });
             if (crawlingData.length === 0) {
                 location.href = 'moveReserve.do';
             }
+            
             document.querySelectorAll('.movie-list-title').forEach(li => {
                 li.addEventListener('click', function() {
                     const movieListTitleActvie = document.querySelectorAll(
@@ -98,7 +104,7 @@ function getMovieList(item) {
 function addDate() {
     const weekOfDay = ['일', '월', '화', '수', '목', '금', '토'];
     year = date.getFullYear();
-    month = date.getMonth();
+    month = date.getMonth() +1;
     reserveDate.append(year + '/' + month);
     for (i = date.getDate(); i <= lastDay.getDate(); i++) {
         const button = document.createElement('button');
@@ -133,6 +139,41 @@ function addDate() {
 
         dayClickEvent(button);
     }
+    afterMonth = date.getMonth() +2;
+    reserveDate.append(year + '/' + afterMonth);
+    for (i = afterFirstDay.getDate(); i <= afterLastDay.getDate(); i++) {
+        const button = document.createElement('button');
+        const spanWeekOfDay = document.createElement('span');
+        const spanDay = document.createElement('span');
+
+        //class넣기
+        button.classList = 'movie-date-wrapper';
+        spanWeekOfDay.classList = 'movie-week-of-day';
+        spanDay.classList = 'movie-day';
+
+        //weekOfDay[new Date(2020-03-날짜)]
+        const dayOfWeek =
+            weekOfDay[new Date(year + '-' + afterMonth + '-' + i).getDay()];
+
+        //요일 넣기
+        if (dayOfWeek === '토') {
+            spanWeekOfDay.classList.add('saturday');
+            spanDay.classList.add('saturday');
+        } else if (dayOfWeek === '일') {
+            spanWeekOfDay.classList.add('sunday');
+            spanDay.classList.add('sunday');
+        }
+        spanWeekOfDay.innerHTML = dayOfWeek;
+        button.append(spanWeekOfDay);
+        //날짜 넣기
+        spanDay.innerHTML = i;
+        button.append(spanDay);
+        //button.append(i);
+
+        reserveDate.append(button);
+
+        afterDayClickEvent(button);
+    }
 }
 
 function dayClickEvent(button) {
@@ -158,6 +199,29 @@ function dayClickEvent(button) {
     });
 }
 
+function afterDayClickEvent(button) {
+    button.addEventListener('click', function() {
+        const movieDateWrapperActive = document.querySelectorAll(
+            '.movie-date-wrapper-active'
+        );
+        movieDateWrapperActive.forEach(list => {
+            list.classList.remove('movie-date-wrapper-active');
+        });
+        button.classList.add('movie-date-wrapper-active');
+        console.log(button.childNodes[1].innerHTML);
+        inputReserveDate.value =
+            year +
+            '.' +
+            afterMonth +
+            '.' +
+            button.childNodes[1].innerHTML +
+            '(' +
+            button.childNodes[0].innerHTML +
+            ')';
+        console.log(inputReserveDate.value);
+    });
+}
+
 theaterPlace.forEach(list => {
     list.addEventListener('click', function() {
         const theaterPlaceWrapper = document.querySelectorAll(
@@ -167,6 +231,20 @@ theaterPlace.forEach(list => {
             li.classList.remove('theater-place-active');
         });
         list.classList.add('theater-place-active');
+        console.log(list.innerHTML);
+        inputSelectedTheater.value = list.innerHTML;
+    });
+});
+
+theaterLocation.forEach(list => {
+    list.addEventListener('click', function() {
+        const theaterLocationWrapper = document.querySelectorAll(
+            '.theater-location-active'
+        );
+        theaterLocationWrapper.forEach(li => {
+            li.classList.remove('theater-location-active');
+        });
+        list.classList.add('theater-location-active');
         console.log(list.innerHTML);
         inputSelectedTheater.value = list.innerHTML;
     });

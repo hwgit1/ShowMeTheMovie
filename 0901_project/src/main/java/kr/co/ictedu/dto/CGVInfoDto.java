@@ -4,6 +4,7 @@ public class CGVInfoDto {
 
 	String rank;
 	String img;
+	String movieAge;
 	String movieTitle;
 	String movieRate; //예매율
 	String movieOpenDate; //개봉일
@@ -11,6 +12,16 @@ public class CGVInfoDto {
 	
 	public CGVInfoDto() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public String getMovieAge() {
+		return movieAge;
+	}
+
+	public void setMovieAge(String movieAge) {
+		this.movieAge = movieAge;
 	}
 
 	public String getRank() {
@@ -55,11 +66,12 @@ public class CGVInfoDto {
 	}
 
 
-	public CGVInfoDto(String rank, String img, String movieTitle, String movieRate,
+	public CGVInfoDto(String rank, String img, String movieAge, String movieTitle, String movieRate,
 			String movieOpenDate, int seq) {
 		super();
 		this.rank = rank;
 		this.img = img;
+		this.movieAge = movieAge;
 		this.movieTitle = movieTitle;
 		this.movieRate = movieRate;
 		this.movieOpenDate = movieOpenDate;
@@ -68,7 +80,7 @@ public class CGVInfoDto {
 
 	@Override
 	public String toString() {
-		return "CGVInfoDto [rank=" + rank + ", img=" + img +  ", movieTitle=" + movieTitle
+		return "CGVInfoDto [rank=" + rank + ", img=" + img + ", movieAge=" + movieAge +  ", movieTitle=" + movieTitle
 				+ ", movieRate=" + movieRate + ", movieOpenDate=" + movieOpenDate + ", seq=" + seq
 				+ "]";
 	}

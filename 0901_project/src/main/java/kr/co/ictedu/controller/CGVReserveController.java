@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 //import com.mysql.cj.Session;
 
+import kr.co.ictedu.dto.CGVPayDto;
 import kr.co.ictedu.dto.CGVReserveDto;
 //import kr.co.ictedu.service.CGVReserveService;
 
@@ -25,7 +26,8 @@ public class CGVReserveController {
 //	CGVReserveService cgvReserveService;
 	
 	
-	private static Logger logger = LoggerFactory.getLogger(CGVInfoController.class);
+	private static Logger logger = LoggerFactory.getLogger(CGVReserveController.class);
+	
 	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveReserve() {
 		logger.info("moveReserve");
@@ -48,9 +50,9 @@ public class CGVReserveController {
 //	public String moveKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
 //		System.out.println(dto.toString());
 //		logger.info("moveKakao");
-//		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
+////		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
 //		
-//		dto.setId(login.getId());
+////		dto.setId(login.getId());
 //		boolean isSuccess = cgvReserveService.CGVReserve(dto);
 //		System.out.println(isSuccess);
 //		model.addAttribute("reserve", dto);
@@ -61,14 +63,14 @@ public class CGVReserveController {
 //		}
 //		return "kakao";
 //	}
-	
+//	
 //	@RequestMapping(value="payKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
 //	public String payKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
 //		
 //		logger.info("moveKakao");
-//		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
+////		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
 //	
-//		 dto.setId(login.getId());
+////		 dto.setId(login.getId());
 //		 System.out.println(dto.toString() +"이것이 dto다");
 //		 List<CGVReserveDto> list = cgvReserveService.getCGVReserve(dto);
 //		/* CGVReserveDto cgvReserveDto = cgvReserveService.getCGVReserve(dto); */
@@ -94,13 +96,13 @@ public class CGVReserveController {
 //		
 //		return "process";
 //	}
-	
+//	
 //	@RequestMapping(value="moveMypage.do", method = {RequestMethod.GET, RequestMethod.POST})
 //	public String moveMain(Model model, CGVReserveDto reserveDto, CGVPayDto payDto, HttpSession session) {
-//		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
+////		CGVMemberDto login =(CGVMemberDto)session.getAttribute("login");
 //		
 //		 
-//		reserveDto.setId(login.getId());
+////		reserveDto.setId(login.getId());
 //		List<CGVReserveDto> list = cgvReserveService.getPayJoinTable(reserveDto);
 //		
 //		if(list != null) {

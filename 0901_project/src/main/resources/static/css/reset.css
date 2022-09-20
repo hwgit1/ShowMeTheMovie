@@ -151,6 +151,24 @@ mark,
 audio,
 video,
 input {
+/*     margin: 0; */
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    letter-spacing: -0.5px;
+    font-family: 'Noto Sans KR', sans-serif !important;
+    color: #545454;
+}
+.reserve-container,
+.movie-part,
+.theater-part,
+.reserve-title,
+.theater-container,
+.theater-wrapper,
+.day-part,
+.time-part
+{
     margin: 0;
     padding: 0;
     border: 0;
@@ -159,6 +177,10 @@ input {
     letter-spacing: -0.5px;
     font-family: 'Noto Sans KR', sans-serif !important;
     color: #545454;
+}
+
+.movie-list{
+	margin-left: 0;
 }
 
 article,
