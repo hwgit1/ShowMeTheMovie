@@ -18,8 +18,8 @@
 	</select>
 	
 	<insert id="order" parameterType="kr.co.ictedu.dto.CGVReserveDto">
-		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, movieAge, reserve_date)
-		VALUES ( #{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater}, #{movieAge}, now())
+		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, movieAge, reserve_date, seat_cnt, pay)
+		VALUES ( #{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater}, #{movieAge}, now(), #{seatCnt}, #{pay})
 	</insert>
 
 </mapper>

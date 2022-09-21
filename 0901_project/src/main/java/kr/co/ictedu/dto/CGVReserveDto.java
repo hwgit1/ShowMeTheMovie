@@ -4,17 +4,18 @@ import java.io.Serializable;
 
 public class CGVReserveDto implements Serializable {
 	private String id;
-	private String order_no;
 	private int reserveSequence;
 	private String title;
 	private String runningTime;
 	private String movieDate;
-	private String reserve_date;
+	private String reserveDate;
 	private String ticketNumber;
 	private String selectedSeat;
 	private String selectedTheater;
 	private String movieAge;
 	private String reserveWhere;
+	private String seatCnt;
+	private String pay;
 	
 	private CGVPayDto cgvPayDto;
 	
@@ -25,6 +26,18 @@ public class CGVReserveDto implements Serializable {
 	
 
 	
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+	public String getSeatCnt() {
+		return seatCnt;
+	}
+	public void setSeatCnt(String seatCnt) {
+		this.seatCnt = seatCnt;
+	}
 	public String getReserveWhere() {
 		return reserveWhere;
 	}
@@ -48,20 +61,6 @@ public class CGVReserveDto implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public String getOrder_no() {
-		return order_no;
-	}
-
-
-
-
-	public void setOrder_no(String order_no) {
-		this.order_no = order_no;
-	}
-
-
-
 
 	public int getReserveSequence() {
 		return reserveSequence;
@@ -95,12 +94,12 @@ public class CGVReserveDto implements Serializable {
 		this.movieDate = movieDate;
 	}
 
-	public String getreserve_date() {
-		return reserve_date;
+	public String getReserveDate() {
+		return reserveDate;
 	}
 
-	public void setreserve_date(String reserve_date) {
-		this.reserve_date = reserve_date;
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = reserveDate;
 	}
 
 	public String getTicketNumber() {
@@ -136,46 +135,48 @@ public class CGVReserveDto implements Serializable {
 	}
 
 
-	public CGVReserveDto(String order_no, String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserve_date) {
+	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
+			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserveDate, String seatCnt, String pay) {
 		super();
-		this.order_no = order_no;
 		this.id = id;
 		this.reserveSequence = reserveSequence;
 		this.title = title;
 		this.runningTime = runningTime;
 		this.movieDate = movieDate;
-		this.reserve_date = reserve_date;
+		this.reserveDate = reserveDate;
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
+		this.movieAge = seatCnt;
+		this.movieAge = pay;
 	}
 
-	public CGVReserveDto(String order_no, String id, int reserveSequence, String title, String runningTime, String movieDate,
+	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
 			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
-			CGVPayDto cgvPayDto, String reserve_date) {
+			CGVPayDto cgvPayDto, String reserveDate, String seatCnt, String pay) {
 		super();
-		this.order_no = order_no;
 		this.id = id;
 		this.reserveSequence = reserveSequence;
 		this.title = title;
 		this.runningTime = runningTime;
 		this.movieDate = movieDate;
-		this.reserve_date = reserve_date;
+		this.reserveDate = reserveDate;
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
 		this.cgvPayDto = cgvPayDto;
+		this.movieAge = seatCnt;
+		this.movieAge = pay;
 	}
 
 	@Override
 	public String toString() {
-		return "CGVReserveDto [order_no=" + order_no + ", id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title
+		return "CGVReserveDto [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title
 				+ ", runningTime=" + runningTime + ", movieDate=" + movieDate 
 				+ ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater="
-				+ selectedTheater + ", movieAge=" + movieAge + ", reserve_date=" + reserve_date + "]";
+				+ selectedTheater + ", movieAge=" + movieAge + ", reserveDate=" + reserveDate + ", seatCnt=" + seatCnt + ", pay=" + pay + "]";
 	}
 	
 	
