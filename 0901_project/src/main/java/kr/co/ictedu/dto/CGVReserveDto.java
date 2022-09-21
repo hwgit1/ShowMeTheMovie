@@ -14,6 +14,8 @@ public class CGVReserveDto implements Serializable {
 	private String selectedTheater;
 	private String movieAge;
 	private String reserveWhere;
+	private String seatCnt;
+	private String pay;
 	
 	private CGVPayDto cgvPayDto;
 	
@@ -24,6 +26,18 @@ public class CGVReserveDto implements Serializable {
 	
 
 	
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+	public String getSeatCnt() {
+		return seatCnt;
+	}
+	public void setSeatCnt(String seatCnt) {
+		this.seatCnt = seatCnt;
+	}
 	public String getReserveWhere() {
 		return reserveWhere;
 	}
@@ -122,7 +136,7 @@ public class CGVReserveDto implements Serializable {
 
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserveDate) {
+			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserveDate, String seatCnt, String pay) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -134,11 +148,13 @@ public class CGVReserveDto implements Serializable {
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
+		this.movieAge = seatCnt;
+		this.movieAge = pay;
 	}
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
 			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
-			CGVPayDto cgvPayDto, String reserveDate) {
+			CGVPayDto cgvPayDto, String reserveDate, String seatCnt, String pay) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
@@ -151,6 +167,8 @@ public class CGVReserveDto implements Serializable {
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
 		this.cgvPayDto = cgvPayDto;
+		this.movieAge = seatCnt;
+		this.movieAge = pay;
 	}
 
 	@Override
@@ -158,7 +176,7 @@ public class CGVReserveDto implements Serializable {
 		return "CGVReserveDto [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title
 				+ ", runningTime=" + runningTime + ", movieDate=" + movieDate 
 				+ ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater="
-				+ selectedTheater + ", movieAge=" + movieAge + ", reserveDate=" + reserveDate + "]";
+				+ selectedTheater + ", movieAge=" + movieAge + ", reserveDate=" + reserveDate + ", seatCnt=" + seatCnt + ", pay=" + pay + "]";
 	}
 	
 	

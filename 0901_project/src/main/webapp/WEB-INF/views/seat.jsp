@@ -87,8 +87,9 @@
 						<!-- 티켓의수(선택한 좌석) -->
 						<input type="hidden" class="ticketNumber" name="ticketNumber">
 						<input type="hidden" class="selectedSeat" name="selectedSeat">
+						<input type="hidden" class="seatCnt" name="seatCnt">
 						<!-- 결제 정보 -->
-						<input type="hidden" class="payMoney" name="payMoney">
+						<input type="hidden" class="pay" name="pay">
 						<button type="button" class="reserve-button">
 							결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
 						</button>

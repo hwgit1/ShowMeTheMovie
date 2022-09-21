@@ -46,6 +46,8 @@ const reserveDate = document.querySelector('.reserveDate');
 const runningTime = document.querySelector('.runningTime');
 const ticketNumber = document.querySelector('.ticketNumber');
 const selectedSeat = document.querySelector('.selectedSeat');
+const seatCnt = document.querySelector('.seatCnt');
+const pay = document.querySelector('.pay');
 
 toastr.options = {
     positionClass: 'toast-top-right',
@@ -289,6 +291,9 @@ reserveButton.addEventListener('click', function() {
     runningTime.value = theaterTime.innerHTML;
     ticketNumber.value = reserveNumber.innerHTML;
     selectedSeat.value = selectedSeats.innerHTML;
+    seatCnt.value = remainSeat.innerHTML;
+    pay.value = allMoney;
+    
     console.log(allNumber + '임');
     console.log(ticketNumber.value);
     console.log(allNumber === ticketNumber.value);

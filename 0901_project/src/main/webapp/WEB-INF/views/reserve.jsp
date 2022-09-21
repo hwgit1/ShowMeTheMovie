@@ -1,12 +1,14 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.ictedu.util.dto.MemberDTO"%>
 <%@page import="kr.co.ictedu.dto.ReserveSeatDto"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <%
- 	ReserveSeatDto seat = (ReserveSeatDto) request.getAttribute("seat");
+//   	List<ReserveSeatDto> list = new ArrayList<ReserveSeatDto>();
  	MemberDTO login = (MemberDTO)session.getAttribute("login_info");
 	if(login!= null) System.out.println(login.toString());
 %>
@@ -46,7 +48,7 @@
             <div class="theater-container">
                 <div class="theater-wrapper">
                     <div class="theater-location-wrapper">
-                        <button class="theater-location">서울(30)</button>
+                        <button class="theater-location">서울(18)</button>
                         <button class="theater-location">경기(43)</button>
                         <button class="theater-location">인천(10)</button>
                         <button class="theater-location">강원(5)</button>
@@ -81,10 +83,13 @@
         <div class="time-part">
             <div class="reserve-title">시간</div>
             <div class="reserve-time">
+            	<c:forEach items="${list}" var="list">
+            	 <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">${list.reserve_date}</span>
+				</c:forEach>
                 <div class="reserve-where" id="4관(Laser) 6층(총 120석)">4관(Laser) 6층(총 120석)</div>
                 <div class="reserve-time-wrapper">
 	        <button class="reserve-time-button">
-	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">12:20</span>
+	           
 	            <span class="reserve-time-remain">120석</span>
 	        </button>
 	        <button class="reserve-time-button">
