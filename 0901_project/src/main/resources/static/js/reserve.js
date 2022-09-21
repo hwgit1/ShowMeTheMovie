@@ -16,6 +16,8 @@ const moveSeatForm = document.querySelector('.moveSeatForm');
 const moveSeatButton = document.querySelector('.moveSeatButton');
 const movieAge = document.querySelector('.movieAge');
 
+
+
 let movieListAge = '';
 let year = 0;
 let month = 0;
@@ -24,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     add();
     addDate();
 });
+
+
 
 // 데이터 가져오기
 function add() {
@@ -190,7 +194,7 @@ function dayClickEvent(button) {
         console.log(day);
         
         $.ajax({
-            url : "seatReserve.do",
+            url : "moveReserve.do",
             type : "POST",
             data :{
             	seatreserve_date : button.childNodes[1].innerHTML
@@ -326,3 +330,4 @@ moveSeatButton.addEventListener('click', function() {
         );
     }
 });
+
