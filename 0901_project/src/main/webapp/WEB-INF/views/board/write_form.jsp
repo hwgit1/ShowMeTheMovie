@@ -14,10 +14,15 @@
 		.write_label {
 			color : red;
 		}
+		#board_write{
+			margin-left: 250px;	
+			margin-right: 250px;	
+		}
 		</style>
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<div id="board_write">
 		<hr>
 		<h3> 공지사항 글 쓰기 </h3>
 		<hr>
@@ -88,5 +93,6 @@
 		});//click
 	});//ready
 	</script>
+	</div>
 	</body>
 </html>

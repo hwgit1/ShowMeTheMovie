@@ -16,14 +16,24 @@ public class CGVReserveDto implements Serializable {
 	private String reserveWhere;
 	private String seatCnt;
 	private String pay;
+	private String order_no;
 	
+	
+
 	private CGVPayDto cgvPayDto;
 	
 	public CGVReserveDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public String getOrder_no() {
+		return order_no;
+	}
+
+
+	public void setOrder_no(String order_no) {
+		this.order_no = order_no;
+	}
 
 	
 	public String getPay() {

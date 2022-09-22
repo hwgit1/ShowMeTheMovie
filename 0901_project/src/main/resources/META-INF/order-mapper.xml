@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderMapper">
+
+	<insert id="order_detail" parameterType="kr.co.ictedu.order.orderdetailDto">
+		insert into order_detail(detailorder_id, detailorder_title, detailorder_ticketNumber, detailorder_pay)
+		values (#{detailorder_id}, #{detailorder_title}, #{detailorder_ticketNumber}, #{detailorder_pay})
+	</insert>
+	
+</mapper>

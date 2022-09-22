@@ -9,9 +9,18 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		<style type="text/css">
+		#board {
+			margin-left: 250px;	
+			margin-right: 250px;	
+		}
+		</style>
+		
+		
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+		<div id="board">
 		<hr>
 		<h3> 공 지 사 항 </h3>
 		<hr>
@@ -102,6 +111,7 @@
 			</c:if>
 		</ul>
 		<hr>
+		</div>
 	</body>
 </html>
 

@@ -10,17 +10,28 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="//cdn.ckeditor.com/4.19.1/basic/ckeditor.js"></script>
+		<style type="text/css">
+		#chatroom {
+			margin-left: 250px;	
+			margin-right: 250px;	
+		}
+		</style>
 	</head>
+	
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<div id="chatroom">
 		<hr>
 		<h3> ${room_dto.mid_from}님의 문의사항 </h3>
 		<hr>
-
+		
+		<p>
 		<a href="javascript:history.back(-1)">
-		<button id="back-btn" type="button" class="back-btn btn-primary"> 뒤로가기 </button>
+		<button id="back-btn" type="button" class="btn btn-primary float-right"> 뒤로가기 </button>
 		</a>
-
+		</p>
+		<br>
+		<br>
 		<iframe src="${pageContext.request.contextPath}/memo/chat_list?room_no=${room_dto.room_no}"
 				name="chatList" width="100%" height="470px" frameborder="0" scrolling="no" class="mb-1"></iframe>
 
@@ -66,7 +77,7 @@
 
 	});//ready
 	</script>
-
+	</div>
 	</body>
 </html>
 

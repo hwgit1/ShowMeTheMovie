@@ -14,10 +14,15 @@
 		.write_label {
 			color : red;
 		}
+		#board_update {
+			margin-left: 250px;	
+			margin-right: 250px;	
+		}
 		</style>
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<div id="board_update">
 		<hr>
 		<h3> 공지사항 글 수정하기 </h3>
 		<hr>
@@ -89,5 +94,6 @@
 		});//click
 	});//ready
 	</script>
+	</div>
 	</body>
 </html>
