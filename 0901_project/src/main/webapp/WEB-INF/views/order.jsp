@@ -13,44 +13,10 @@
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-	<hr>
-		<h3> 결 제 서 </h3>
-		<hr>
-		<table class="table table-hover">
-			<col class="col-1">
-			<thead>
-				<tr>
-					<th> 영화 제목 </th>
-					<th> 좌석 수 </th>	<th> 결제 가격 </th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:set var="sum_product_class_qty" value="0" />
-				<c:set var="sum_buy_amt" value="0" />
-				<c:set var="sum_discount_amt" value="0" />
-				<c:forEach var="dto" items="${list}" varStatus="status">
-					<c:set var="sum_product_class_qty" value="${sum_product_class_qty + 1}" />
-					<c:set var="sum_buy_amt" value="${sum_buy_amt + (dto.price * dto.buy_qty)}" />
-					<tr>
-						<td width="10%">
-							<img src="${dto.thumbnail_path}" class="img-thumbnail">
-						</td>
-						<td>
-							<a href="${pageContext.request.contextPath}/product/detail?prdt_no=${dto.prdt_no}">
-								${dto.prdt_name}
-							</a>
-						</td>
-						<td> ${reserve.title} </td>
-						<td> ${reserve.ticketNumber} 석 </td>
-						<td> ${reserve.pay} 원 </td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
 	
 	
 	<button type="button" class="order-button" id="order-button">
-							결제하기
+		<img src="/resources/img/payment_icon_yellow_medium.png">
 	</button>
 	
 	    
