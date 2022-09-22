@@ -16,7 +16,7 @@
 	
 	
 	<button type="button" class="order-button" id="order-button">
-		<img src="/resources/img/payment_icon_yellow_medium.png">
+							결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
 	</button>
 	
 	    
@@ -68,7 +68,7 @@
         					function(data, status) {
         						if(data >= 1){
         							alert("주문 등록을 성공 하였습니다.");
-        							location.href="${pageContext.request.contextPath}/main";
+        							location.href="${pageContext.request.contextPath}/";
         						} else if(data <= 0){
         							alert("주문 등록을 실패 하였습니다.");
         						} else {

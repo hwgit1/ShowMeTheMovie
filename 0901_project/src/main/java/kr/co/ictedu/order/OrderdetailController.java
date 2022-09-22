@@ -19,7 +19,7 @@ import kr.co.ictedu.board.MemberBoardDTO;
 //import com.mysql.cj.Session;
 
 import kr.co.ictedu.dto.ReserveSeatDto;
-import kr.co.ictedu.order.orderdetailDto;
+import kr.co.ictedu.order.OrderdetailDto;
 import kr.co.ictedu.service.ReserveService;
 import kr.co.ictedu.util.dto.MemberDTO;
 import kr.co.ictedu.service.CGVReserveService;
@@ -42,7 +42,7 @@ public class OrderdetailController {
 	}
 	
 	@RequestMapping( value = "/insert", method = RequestMethod.POST )
-	public void insert(Model model, orderdetailDto dto, HttpSession session, PrintWriter out) {
+	public void insert(Model model, OrderdetailDto dto, HttpSession session, PrintWriter out) {
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		logger.info(login.getMid());
 		System.out.println(">>>>>>>>>>" + dto.getDetailorder_id());

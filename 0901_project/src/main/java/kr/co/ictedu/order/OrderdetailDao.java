@@ -13,7 +13,7 @@ public class OrderdetailDao {
 	SqlSession sqlSession;
 	
 
-	public int orderdetail(orderdetailDto dto) {
+	public int orderdetail(OrderdetailDto dto) {
 		int isSuccess = 0;
 		System.out.println(isSuccess + "Mapper 들어갑니다");
 		isSuccess = sqlSession.insert("OrderMapper.order_detail", dto);

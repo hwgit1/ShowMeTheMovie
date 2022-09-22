@@ -1,6 +1,6 @@
 package kr.co.ictedu.order;
 
-public class orderdetailDto {
+public class OrderdetailDto {
 	
 	private String detailorder_no;
 	private String detailorder_id;
