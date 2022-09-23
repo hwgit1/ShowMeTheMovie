@@ -1,4 +1,4 @@
-package kr.co.ictedu.controller;
+package kr.co.ictedu.order;
 
 import java.awt.Window;
 import java.io.PrintWriter;
@@ -18,107 +18,49 @@ import kr.co.ictedu.board.MemberBoardDTO;
 
 //import com.mysql.cj.Session;
 
-import kr.co.ictedu.dto.CGVPayDto;
-import kr.co.ictedu.dto.CGVReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
+import kr.co.ictedu.order.OrderdetailDto;
 import kr.co.ictedu.service.ReserveService;
 import kr.co.ictedu.util.dto.MemberDTO;
 import kr.co.ictedu.service.CGVReserveService;
 
 
 @Controller
-public class CGVReserveController {
+@RequestMapping( value = "/order" )
+public class OrderdetailController {
 
 	@Autowired
-	ReserveService service;
-	
-	@Autowired
+	OrderdetailService service;
 	CGVReserveService cgvReserveService;
 	
 	
-	private static Logger logger = LoggerFactory.getLogger(CGVReserveController.class);
+	private static Logger logger = LoggerFactory.getLogger(OrderdetailController.class);
 	
-	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
-		logger.info("moveReserve");
-		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-		
-		List<ReserveSeatDto> list = null;
-		System.out.println(seatreserve_date);
-		list = service.seat(seatreserve_date);
-		model.addAttribute("list", list);
-//		dto = null;
-//		dto = service.seat(reverve_date);
-//		model.addAttribute("seat", dto);
-//		System.out.println(dto.toString());
-//		System.out.println(dto.getReverve_date());
-//		System.out.println(seatreserve_date+"seatreserve_date 컨트롤러");
-//		System.out.println(list.size()+"list.size컨트롤러");
-		return "reserve";
+	@RequestMapping( value = "/paySuccess", method = RequestMethod.GET )
+	public String paySuccess() {
+		return "paySuccess";
 	}
 	
-//	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-//	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
-//		logger.info("seatReserve");
-//		
-//		return "reserve";
-//	}
-	
-	
-	@RequestMapping(value="moveSeat.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveSeat(Model model, CGVReserveDto dto, HttpSession session) {
-		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-		
-		logger.info(login.getMid());
-		String id = login.getMid();
-		dto.setId(id);
-		System.out.println(dto.toString());
-		logger.info("moveSeat");
-		model.addAttribute("reserve", dto);
-		
-		return "seat";
-	}
-	
-
-	@RequestMapping(value="moveKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
+	@RequestMapping( value = "/insert", method = RequestMethod.POST )
+	public void insert(Model model, OrderdetailDto dto, HttpSession session, PrintWriter out) {
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		logger.info(login.getMid());
+		System.out.println(">>>>>>>>>>" + dto.getDetailorder_id());
+		System.out.println(">>>>>>>>>>" + dto.getDetailorder_title());
+		System.out.println(">>>>>>>>>>" + dto.getDetailorder_no());
+		System.out.println(">>>>>>>>>>" + dto.getDetailorder_pay());
+		System.out.println(">>>>>>>>>>" + dto.getDetailorder_ticketNumber());
 		String id = login.getMid();
-		dto.setId(id);
 		System.out.println(dto.toString());
-		logger.info("moveKakao");
 		int isSuccess = 0;
-		System.out.println(isSuccess + "서비스 들어가기 전");
-		isSuccess = service.CGVReserve(dto);
+		isSuccess = service.orderdetail(dto);
 		System.out.println(isSuccess);
-		model.addAttribute("reserve", dto);
-		model.addAttribute("pay", payDto);
-//		if(isSuccess == false) {
-//			System.out.println("오류가 났어요...");
-//			return "redirect:/moveMain.do";
-//		}
-		return "order";
-	}
-	
-//	@RequestMapping( value = "/paySuccess", method = RequestMethod.GET )
-//	public String paySuccess() {
-//		return "paySuccess";
-//	}
-//	
-//	@RequestMapping( value = "/insert", method = RequestMethod.POST )
-//	public void insert( CGVReserveDto dto, HttpSession session, PrintWriter out) {
-//		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-//		int isSuccess = 0;
-//		isSuccess = service.CGVReserve(dto);
-//		System.out.println(isSuccess);
-//		out.print(isSuccess);
-//		out.close();
-//		
-//	}//insert
+		model.addAttribute("orderdetail", dto);
+		out.print(isSuccess);
+		out.close();
+		
+	}//insert
 
-	
-	
 	
 //	
 //	@RequestMapping(value="payKakao.do", method = {RequestMethod.GET, RequestMethod.POST})

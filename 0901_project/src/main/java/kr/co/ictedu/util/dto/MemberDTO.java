@@ -19,6 +19,16 @@ public class MemberDTO {
 	private String maddr1;
 	private String maddr2;
 	
+	private String authority;
+	
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	
 	public String toString() {
 		return mno + " : " + mid;
 	}
