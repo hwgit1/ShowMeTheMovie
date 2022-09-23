@@ -62,4 +62,8 @@
 		</selectKey>
 	</insert> 
 	
+	<delete id="roomdelete" parameterType="kr.co.ictedu.memo.MemoDTO">
+	delete from memo_room where room_no = #{room_no};
+	</delete>
+	
 </mapper>

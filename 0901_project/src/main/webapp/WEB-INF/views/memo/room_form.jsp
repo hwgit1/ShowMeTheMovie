@@ -26,6 +26,9 @@
 		<hr>
 		
 		<p>
+		<c:if test="${login_info.authority == 1}">
+		<button id="end-btn" type="button" class="btn btn-danger float-left"> Q&A 종료 </button>
+		</c:if>
 		<a href="javascript:history.back(-1)">
 		<button id="back-btn" type="button" class="btn btn-primary float-right"> 뒤로가기 </button>
 		</a>
@@ -76,6 +79,30 @@
 		});//click
 
 	});//ready
+	
+	$(document).ready(function() {
+		$("#end-btn").click(function() {
+
+			$.get(
+					"${pageContext.request.contextPath}/memo/Room_delete"
+					, {
+						room_no : "${room_dto.room_no}"
+					}
+					, function(data, status) {
+						//alert(data);
+						if(data >= 1){
+							alert("Q&A가 삭제 되었습니다.");
+							location.href="${pageContext.request.contextPath}/memo/my_room_list";
+						} else if (data <= 0) {
+							alert("Q&A 삭제를 실패하였습니다");
+						} else {
+							alert("잠시 후 다시 시도해 주세요.");
+						}
+					}//call back function
+			);//get
+
+		});//click
+	}); //ready	
 	</script>
 	</div>
 	</body>

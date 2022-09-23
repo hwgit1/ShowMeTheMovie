@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
 @Service
 public class MemoService {
 
@@ -49,4 +50,11 @@ public class MemoService {
 		return roomNo;
 	}//getRoomNo
 
+	public int roomdelete( MemoDTO dto ) {
+		System.out.println(">>>>>>>>>>>>>>>>>>> sder");
+		int successCount = 0;
+		successCount = dao.roomdelete( dto );
+		return successCount;
+	}//delete
+	
 }//class

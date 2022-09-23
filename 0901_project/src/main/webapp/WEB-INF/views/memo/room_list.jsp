@@ -40,7 +40,7 @@
 			</table>
 			
 			<c:if test="${login_info.authority == 0}">
-			<button class="QnA-btn"> 문의 하기 </button>
+			<button id="QnA-btn" class="btn btn-primary"> 문의 하기 </button>
 			</c:if>
 			
 			<script type="text/javascript">
