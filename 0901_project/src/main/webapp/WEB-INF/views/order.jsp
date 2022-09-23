@@ -16,7 +16,7 @@
 	
 	
 	<button type="button" class="order-button" id="order-button">
-							결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
+			결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
 	</button>
 	
 	    

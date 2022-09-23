@@ -53,7 +53,7 @@
 								</div>
 							</td>
 							<td class="order-date">${list.reserve_date}</td>
-							<td class="order-amt">18000 원 (수정해야됨)</td>
+							<td class="order-amt">${list.pay}</td>
 							<td class="order_seat">${list.selectedSeat}</td>
 							
 						</tr>

@@ -47,7 +47,7 @@
 							<tr>
 								<td class="rorder-no">${olist.order_no}</td>	
 								<td class="rorder-prdt">${olist.title}</td>
-								<td class="rorder-amt">18000원(수정해야됨)</td>
+								<td class="rorder-amt">${olist.pay}</td>
 								<td class="rorder_seat">${olist.selectedSeat}</td>
 								<td class="rorder-date">${olist.reserve_date}</td>
 							</tr>

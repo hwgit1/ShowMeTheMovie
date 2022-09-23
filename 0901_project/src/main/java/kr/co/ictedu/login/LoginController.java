@@ -74,7 +74,7 @@ public class LoginController {
 			}//login
 			
 			
-			return "home";
+			return "main";
 			
 		} catch (Exception e) {
 			return "/login/login_form";
