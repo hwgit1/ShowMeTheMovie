@@ -10,15 +10,23 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		<style type="text/css">
+		#kakaoimg {
+       		width:950px;
+        	margin:auto;
+			padding: 100px 0px;
+		}
+		</style>
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	
+	<div id="kakaoimg">
+	<h1 id="txtContact"> 카카오페이 결제 </h1>
 	<button type="button" class="order-button" id="order-button">
-							결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
+						<img src="/resources/img/kakaopay.jfif">
 	</button>
-	
+	</div>
 	    
 	    	<!-- # 카카오페이 -->
 <script type="text/javascript">
