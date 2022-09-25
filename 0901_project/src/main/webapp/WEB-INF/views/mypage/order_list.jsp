@@ -53,14 +53,14 @@
 								</div>
 							</td>
 							<td class="order-date">${list.reserve_date}</td>
-							<td class="order-amt">18000 원 (수정해야됨)</td>
+							<td class="order-amt">${list.pay}</td>
 							<td class="order_seat">${list.selectedSeat}</td>
 							
 						</tr>
 						</c:forEach>
 						<c:if test="${order_cnt == 0}">
 						<tr>
-							<td colspan="6">주문 내역이 없습니다.</td>
+							<td colspan="6">예매 내역이 없습니다.</td>
 						</tr>
 						</c:if>
 					</table>

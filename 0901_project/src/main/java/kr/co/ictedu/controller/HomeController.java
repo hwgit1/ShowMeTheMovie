@@ -19,6 +19,13 @@ public class HomeController {
 
 	}//home
 	
+	@RequestMapping(value = "/play", method = RequestMethod.GET)
+	public String playhome(Model model) {
+
+		return "playmain";//jsp file name
+
+	}//home
+	
 	@RequestMapping(value = "/plan", method = RequestMethod.GET)
 	public String planhome(Model model) {
 

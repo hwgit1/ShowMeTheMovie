@@ -47,12 +47,16 @@
 							<tr>
 								<td class="rorder-no">${olist.order_no}</td>	
 								<td class="rorder-prdt">${olist.title}</td>
-								<td class="rorder-amt">18000원(수정해야됨)</td>
+								<td class="rorder-amt">${olist.pay}</td>
 								<td class="rorder_seat">${olist.selectedSeat}</td>
 								<td class="rorder-date">${olist.reserve_date}</td>
 							</tr>
 							</c:forEach>
-							
+							<c:if test="${order_cnt == 0}">
+							<tr>
+								<td colspan="6">예매 내역이 없습니다.</td>
+							</tr>
+							</c:if>
 						</table>
 					</div>
 				</div>

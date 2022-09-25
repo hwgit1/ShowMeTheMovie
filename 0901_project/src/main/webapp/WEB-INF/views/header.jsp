@@ -39,12 +39,12 @@
             <div id="navMenu">
                <ul id="big-menu">
                   <li>
-                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=1">
+                     <a href="${pageContext.request.contextPath}/play">
                         <span>영화</span>
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=2">
+                     <a href="${pageContext.request.contextPath}/moveReserve.do">
                         <span>예매</span>
                      </a>
                   </li>
