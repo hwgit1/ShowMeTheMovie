@@ -123,7 +123,7 @@ main {
 .rorder-amt {
 	width: 20%;
 }
-.rorder-con {
+.rorder_seat {
 	width: 15%;
 }
 .sell-no {
@@ -372,7 +372,7 @@ main {
 .order-delivery {
 	width: 15%;
 }
-.order-con {
+.order_seat {
 	width: 15%;
 }
 #delivery-input {

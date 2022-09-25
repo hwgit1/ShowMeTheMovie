@@ -20,6 +20,23 @@
 
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
+			<div id="movie-menu">
+								<ul id="movie-ing">
+				                  <li>
+				                     <a href="${pageContext.request.contextPath}/play">
+				                        <h3><span>상영 중인 영화 &nbsp;</span></h3>
+				                     </a>
+				                  </li>
+				                 
+				                 
+				                  <li>
+				                     <a href="${pageContext.request.contextPath}/plan">
+				                        </h3><span> &nbsp; 상영 예정 영화</span></h3>
+				                     </a>
+				                  </li>
+				               </ul>
+			</div>
+		         
 		         
 		 <div>
             <div class="movie-infomation-wrapper">

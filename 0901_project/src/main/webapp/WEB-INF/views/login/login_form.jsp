@@ -46,8 +46,8 @@
 						<button id="login_btn" type="button" class="btn btn-primary float-right"> 로 그 인 </button>
 					</td>
 					<td>
-							<a href="https://kauth.kakao.com/oauth/authorize?client_id=945e73f5f777795905223c979bc7a02f&redirect_uri=http://localhost:8081/ictedu/login/kakao_login&response_type=code">
-							<img id="loginBtn" src=${pageContext.request.contextPath}/resources/login/img/kakao_login.png /></a>
+							<a href="https://kauth.kakao.com/oauth/authorize?client_id=945e73f5f777795905223c979bc7a02f&redirect_uri=http://localhost/login/kakao_login&response_type=code">
+							<img id="loginBtn" src=/resources/img/kakao_login.png /></a>
 					</td>
 				</tr>
 			</tbody>

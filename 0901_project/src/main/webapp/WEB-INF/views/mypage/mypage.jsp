@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>HandFlea</title>
+		<title>showmethemovie</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/mypage_style.css">
 	</head>
 	<body>
@@ -24,8 +24,8 @@
 						<h4>내 정보</h4>
 						<a onclick="pwd_ch()">회원정보 변경</a>
 						
-						<h4>나의 예약</h4>
-						<a href="${pageContext.request.contextPath}/mypage/order">예약 내역</a>
+						<h4>나의 예매</h4>
+						<a href="${pageContext.request.contextPath}/mypage/order">예매 내역</a>
 						
 					</div>
 				</div>
@@ -33,30 +33,30 @@
 			<div id="main-content">
 				
 				<div class="record">
-					<h4>최근 예약 내역</h4>
+					<h4>최근 예매 내역</h4>
 					<div class="list-box">
 						<table>
 							<tr class="list-top">
-								<td class="rorder-no">예약 번호</td>
+								<td class="rorder-no">예매 번호</td>
 								<td class="rorder-prdt">영화명</td>
-								<td class="rorder-amt">예약 금액</td>
-								<td class="rorder-con">예약 상태</td>
+								<td class="rorder-amt">예매 금액</td>
+								<td class="rorder_seat">예매 좌석</td>
 								<td class="rorder-date">결제일</td>
 							</tr>
-							<c:forEach var="olist" items="">
+							<c:forEach var="olist" items="${recent_order_list}">
 							<tr>
-								<td class="rorder-no">주문 번호</td>	
-								<td class="rorder-prdt">
-									<a href="${pageContext.request.contextPath}/mypage/detail?detail_no=${olist.detail_no}">
-										<p>상품명</p>
-									</a>
-								</td>
-								<td class="rorder-amt">주문 금액</td>
-								<td class="rorder-con">상품 상태</td>
-								<td class="rorder-date">결제일</td>
+								<td class="rorder-no">${olist.order_no}</td>	
+								<td class="rorder-prdt">${olist.title}</td>
+								<td class="rorder-amt">${olist.pay}</td>
+								<td class="rorder_seat">${olist.selectedSeat}</td>
+								<td class="rorder-date">${olist.reserve_date}</td>
 							</tr>
 							</c:forEach>
-							
+							<c:if test="${order_cnt == 0}">
+							<tr>
+								<td colspan="6">예매 내역이 없습니다.</td>
+							</tr>
+							</c:if>
 						</table>
 					</div>
 				</div>
