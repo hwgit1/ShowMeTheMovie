@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.ictedu.dto.CGVReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
+import kr.co.ictedu.dto.SelectedDto;
 
 @Repository
 public class ReserveSeatDao {
@@ -33,6 +34,21 @@ public class ReserveSeatDao {
 		
 		
 		return isSuccess;
+	}
+	
+	public ReserveSeatDto seatcnt(CGVReserveDto dto) {
+		ReserveSeatDto dtoo = null;
+		dtoo = sqlSession.selectOne("SeatMapper.seatcnt", dto);
+		
+		return dtoo;
+	}
+
+
+	public List<SelectedDto> selectedseat(CGVReserveDto dto) {
+		List<SelectedDto> list = null;
+		list = sqlSession.selectList("SeatMapper.selectedseat", dto);
+		
+		return list;
 	}
 	
 

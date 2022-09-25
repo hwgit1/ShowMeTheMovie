@@ -2,8 +2,10 @@ package kr.co.ictedu.controller;
 
 import java.awt.Window;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.co.ictedu.dto.CGVPayDto;
 import kr.co.ictedu.dto.CGVReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
+import kr.co.ictedu.dto.SelectedDto;
 import kr.co.ictedu.service.ReserveService;
 import kr.co.ictedu.util.dto.MemberDTO;
 import kr.co.ictedu.service.CGVReserveService;
@@ -37,6 +40,7 @@ public class CGVReserveController {
 	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("moveReserve");
+		
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		
 		List<ReserveSeatDto> list = null;
@@ -53,24 +57,58 @@ public class CGVReserveController {
 		return "reserve";
 	}
 	
-//	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-//	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
-//		logger.info("seatReserve");
-//		
-//		return "reserve";
-//	}
-	
 	
 	@RequestMapping(value="moveSeat.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveSeat(Model model, CGVReserveDto dto, HttpSession session) {
+	public String moveSeat(HttpServletResponse response, Model model, CGVReserveDto dto, ReserveSeatDto dtoo, SelectedDto dtooo, HttpSession session, PrintWriter out) {
+		response.setContentType("text/html;charset=utf-8");                                                                                                                                                                                                                                                                                            
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
-		                                                                                                                                                                                                                                                                                                                            
-		logger.info(login.getMid());
-		String id = login.getMid();
-		dto.setId(id);
-		System.out.println(dto.toString());
-		logger.info("moveSeat");
+		if (login != null) {
+			logger.info(login.getMid());
+			String id = login.getMid();
+			dto.setId(id);
+		} else {
+			out.println("<script>");
+			out.println("alert('로그인이 필요한 페이지입니다 ');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return "redirect:reserve";
+		}
+//		좌석카운트
+		System.out.println(dto.toString() + "좌석 카운트용");
 		model.addAttribute("reserve", dto);
+		logger.info(dto.getReserveWhere());
+		dtoo = service.seatcnt(dto);
+		model.addAttribute("seat", dtoo);
+		if (dtoo != null) {
+			System.out.println(dtoo.getSeat_cnt());
+			System.out.println(dtoo.getSelectedSeat());
+		}
+		
+		//예매된 좌석
+		List<SelectedDto> list = null;
+		list = service.selectedseat(dto);
+		String[] select = ((list.toString().trim())).split("[\\[\\,\\]\\ ]", 60);
+//		String selct1 = select[0];
+//		String selct2 = select[1];
+//		String selct3 = select[2];
+//		String selct4 = select[3];
+//		String selct5 = select[4];
+		for (int i = 0; i < select.length; i++) {
+			System.out.println("selct"+i+":"+select[i]);
+		}
+		model.addAttribute("list", list);
+		System.out.println(select.toString());
+		
+		return "seat";
+	}
+	
+	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dto, ReserveSeatDto dtoo, HttpSession session) {
+		logger.info("seatReserve");
+		
+		
+			
 		
 		return "seat";
 	}
