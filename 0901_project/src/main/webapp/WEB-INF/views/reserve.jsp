@@ -89,7 +89,7 @@
                 <div class="reserve-where" id="4관(Laser) 6층(총 120석)">4관(Laser) 6층(총 120석)</div>
                 <div class="reserve-time-wrapper">
 	        <button class="reserve-time-button">
-	           
+	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">12:20</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">14:20</span>

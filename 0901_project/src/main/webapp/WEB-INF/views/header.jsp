@@ -49,12 +49,12 @@
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=3">
+                     <a href="${pageContext.request.contextPath}/board/list">
                         <span>공지사항</span>
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/product/bigcatelist?bigcate_no=4">
+                     <a href="${pageContext.request.contextPath}/memo/my_room_list">
                         <span>Q&A</span>
                      </a>
                   </li>

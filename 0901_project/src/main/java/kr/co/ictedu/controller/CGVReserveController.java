@@ -16,6 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.ictedu.board.MemberBoardDTO;
+
 //import com.mysql.cj.Session;
 
 import kr.co.ictedu.dto.CGVPayDto;
@@ -32,6 +34,8 @@ public class CGVReserveController {
 
 	@Autowired
 	ReserveService service;
+	
+	@Autowired
 	CGVReserveService cgvReserveService;
 	
 	
@@ -62,6 +66,7 @@ public class CGVReserveController {
 	public String moveSeat(HttpServletResponse response, Model model, CGVReserveDto dto, ReserveSeatDto dtoo, SelectedDto dtooo, HttpSession session, PrintWriter out) {
 		response.setContentType("text/html;charset=utf-8");                                                                                                                                                                                                                                                                                            
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+<<<<<<< HEAD
 		if (login != null) {
 			logger.info(login.getMid());
 			String id = login.getMid();
@@ -76,6 +81,14 @@ public class CGVReserveController {
 		}
 //		좌석카운트
 		System.out.println(dto.toString() + "좌석 카운트용");
+=======
+		
+		logger.info(login.getMid());
+		String id = login.getMid();
+		dto.setId(id);
+		System.out.println(dto.toString());
+		logger.info("moveSeat");
+>>>>>>> origin/민기
 		model.addAttribute("reserve", dto);
 		logger.info(dto.getReserveWhere());
 		dtoo = service.seatcnt(dto);
@@ -126,15 +139,34 @@ public class CGVReserveController {
 		System.out.println(isSuccess + "서비스 들어가기 전");
 		isSuccess = service.CGVReserve(dto);
 		System.out.println(isSuccess);
-//		model.addAttribute("reserve", dtoo);
-//		model.addAttribute("pay", payDto);
+		model.addAttribute("reserve", dto);
+		model.addAttribute("pay", payDto);
 //		if(isSuccess == false) {
 //			System.out.println("오류가 났어요...");
 //			return "redirect:/moveMain.do";
 //		}
-		return "main";
+		return "order";
 	}
+	
+//	@RequestMapping( value = "/paySuccess", method = RequestMethod.GET )
+//	public String paySuccess() {
+//		return "paySuccess";
+//	}
+//	
+//	@RequestMapping( value = "/insert", method = RequestMethod.POST )
+//	public void insert( CGVReserveDto dto, HttpSession session, PrintWriter out) {
+//		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
+//		int isSuccess = 0;
+//		isSuccess = service.CGVReserve(dto);
+//		System.out.println(isSuccess);
+//		out.print(isSuccess);
+//		out.close();
+//		
+//	}//insert
 
+	
+	
+	
 //	
 //	@RequestMapping(value="payKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
 //	public String payKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	

@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="/resources/css/header.css">
 <link rel="stylesheet" href="/resources/css/seat.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script> 
 <link rel='stylesheet'
 	href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
 <script
@@ -98,7 +99,7 @@
 						<!-- 결제 정보 -->
 						<input type="hidden" class="pay" name="pay">
 						<button type="button" class="reserve-button">
-							결제하기<img src="/resources/img/payment_icon_yellow_medium.png">
+							진행하기<img src="/resources/img/payment_icon_yellow_medium.png">
 						</button>
 					</form>
 				</div>
@@ -112,8 +113,12 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<input type="hidden" value="<%= list.toString() %>" name="seatseat" class="seatseat">
 	<input type="hidden" value="<%= reserve.getReserveWhere()%>" name="reservename" class="reservename">
+=======
+	
+>>>>>>> origin/민기
 </body>
 <script th:inline="javascript">
 var seatnono=[[${seat.seat_cnt}]];

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberBoardMapper">
+
+	<update id="update" parameterType="kr.co.ictedu.board.MemberBoardDTO">
+	update memberboard
+	set title = #{title}, contents = #{contents}
+	where board_no = #{board_no}
+	and mno = #{mno}
+	</update>
+
+	<delete id="delete" parameterType="kr.co.ictedu.board.MemberBoardDTO">
+	delete from memberboard
+	where board_no = #{board_no}
+	and mno = #{mno}
+	</delete>
+
+	<update id="incrementViewCnt" parameterType="java.lang.String">
+	update memberboard
+	set view_cnt = view_cnt + 1
+	where board_no = #{board_no}
+	</update>
+
+	<select id="detail" parameterType="java.lang.String" resultType="kr.co.ictedu.board.MemberBoardDTO">
+	select mb.board_no, mb.title, mb.mno, m.mid, mb.contents, mb.view_cnt, mb.write_date
+	from memberboard mb, member m
+	where mb.board_no = #{board_no}
+	and mb.mno = m.mno
+	</select>
+
+	<insert id="write" parameterType="kr.co.ictedu.board.MemberBoardDTO">
+	insert into memberboard ( title, mno, contents, view_cnt, write_date )
+	values ( #{title}, #{mno}, #{contents}, 0, now() )
+	</insert>
+
+	<select id="selectList" parameterType="kr.co.ictedu.util.dto.SearchDTO"
+			resultType="kr.co.ictedu.board.MemberBoardDTO">
+	select mb.board_no, mb.title, mb.mno, m.mid, mb.view_cnt, mb.write_date
+	from memberboard mb, member m
+	where mb.mno = m.mno
+		<if test="searchOption != null and searchOption != ''
+					and searchWord != null and searchWord != ''">
+			<choose>
+				<when test="searchOption == 'title'">
+					and mb.title like concat('%', #{searchWord}, '%')
+				</when>
+				<when test="searchOption == 'writer'">
+					and m.mid like concat('%', #{searchWord}, '%')
+				</when>
+			</choose>
+		</if>
+	order by board_no desc
+	limit #{limitNum}, 10
+	</select>
+
+	<select id="searchListCount" parameterType="kr.co.ictedu.util.dto.SearchDTO" resultType="int">
+	select count(mb.board_no) cnt
+	from memberboard mb, member m
+	where mb.mno = m.mno
+		<if test="searchOption != null and searchOption != ''
+					and searchWord != null and searchWord !=''">
+			<choose>
+				<when test="searchOption == 'title'">
+					and mb.title like concat('%', #{searchWord}, '%')
+				</when>
+				<when test="searchOption == 'writer'">
+					and m.mid like concat('%', #{searchWord}, '%')
+				</when>
+			</choose>
+		</if>
+	</select>
+
+</mapper>
