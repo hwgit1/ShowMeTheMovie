@@ -126,13 +126,15 @@ public class CGVReserveController {
 		System.out.println(isSuccess + "서비스 들어가기 전");
 		isSuccess = service.CGVReserve(dto);
 		System.out.println(isSuccess);
+		model.addAttribute("reserve", dto);
+		model.addAttribute("pay", payDto);
 //		model.addAttribute("reserve", dtoo);
 //		model.addAttribute("pay", payDto);
 //		if(isSuccess == false) {
 //			System.out.println("오류가 났어요...");
 //			return "redirect:/moveMain.do";
 //		}
-		return "main";
+		return "order";
 	}
 
 //	
