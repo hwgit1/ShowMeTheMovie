@@ -298,23 +298,23 @@ moveSeatButton.addEventListener('click', function() {
     if (!!inputTitle.value &&
         !!inputSelectedTheater.value &&
         !!inputReserveDate.value &&
-        !!inputRunningTime.value 
+        !!inputRunningTime.value
     ) {
-    	moveSeatForm.submit();
-//    	if ( login != "") {
-//		} else {
-//			 toastr.options = {
-//			            positionClass: 'toast-top-full-width',
-//			            progressBar: true,
-//			            timeOut: 1000,
-//			        };
-//			        toastr.error(
-//			            '<div style="color:white">로그인해주세요</div>',
-//			            '<div style="color:white">제발</div>', {
-//			                timeOut: 3000,
-//			            }
-//			        );
-//		}
+    	if ( id == "" || id == null) {
+    		toastr.options = {
+    				positionClass: 'toast-top-full-width',
+    				progressBar: true,
+    				timeOut: 1000,
+    		};
+    		toastr.error(
+    				'<div style="color:white">로그인해주세요</div>',
+    				'<div style="color:white">제발</div>', {
+    					timeOut: 3000,
+    				}
+    		);
+		} else {
+			moveSeatForm.submit();
+		}
        
     } else {
         toastr.options = {
