@@ -5,11 +5,23 @@
 
 <mapper namespace="FindMapper">
 
-	<select id="findID" resultType="kr.co.ictedu.util.dto.MemberDTO">
-		select * from member where memail = #{memail}
+		<!-- 비밀번호 변경 -->
+	<update id="changepwd" parameterType="kr.co.ictedu.util.dto.MemberDTO">
+		update member set mpwd = #{serti} where mno = #{mno}
+	</update>
+	
+		<!-- 아이디 찾기 -->
+	<select id="find_id" parameterType="kr.co.ictedu.util.dto.MemberDTO" resultType="java.lang.String">
+		select mid from member where memail = #{memail}
 	</select>
-
-	<select id="findIdCheck" resultType="int">
-		select count(*) from member where memail = #{memail}
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="find_pw" parameterType="kr.co.ictedu.util.dto.MemberDTO" resultType="java.lang.String">
+		select mpwd from member where mid = #{mid}
 	</select>
+	
+	<select id="findpwd" parameterType="kr.co.ictedu.util.dto.MemberDTO" resultType="kr.co.ictedu.util.dto.MemberDTO">
+		select mno from member where mid = #{mid} and memail = #{memail};
+	</select>
+	
 </mapper>

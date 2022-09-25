@@ -62,22 +62,23 @@ public class LoginController {
 			System.out.println("시작 전 dto : " + dtoFromDB);
 			dtoFromDB = k_service.login( dto ); //k_service.login를 통해 로그인 여부 확인
 			
-			if( dtoFromDB == null ) {//회원 가입 이력이 없는 사용자
+			if( dtoFromDB.getMemail() == null || dtoFromDB.getMemail().equals("")) {//회원 가입 이력이 없는 사용자
 				session.setAttribute("kakao_login_info", dto); 
 				// 미가입의 경우 api에서 전달 받은 값을 넣은 dto를 회원가입 페이지에서 로딩하기위해 kakao_login_info 세션에 정보 탑재
 				return "/join/join_form_kakao";//카카오 회원가입 페이지로 이동 
 			
 			} else if ( dtoFromDB != null && dtoFromDB.getMname() != null && dtoFromDB.getMname() != "") {
 				// 회원가입 이력이 있을경우
+				System.out.println("시작 후 dto : " + dtoFromDB);
 				session.setAttribute("login_info", dtoFromDB);
 				
 			}//login
 			
 			
-			return "home";
+			return "redirect:/";
 			
 		} catch (Exception e) {
-			return "/login/login_form";
+			return "/login_form";
 		}
 		
 		
