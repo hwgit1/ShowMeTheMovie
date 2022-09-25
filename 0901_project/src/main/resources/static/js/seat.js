@@ -46,7 +46,13 @@ const reserveDate = document.querySelector('.reserveDate');
 const runningTime = document.querySelector('.runningTime');
 const ticketNumber = document.querySelector('.ticketNumber');
 const selectedSeat = document.querySelector('.selectedSeat');
+const seat_Cnt = document.querySelector('.seat_Cnt');
+const pay = document.querySelector('.pay');
+const reserveWhere = document.querySelector('.reserveWhere');
+const seatseat = document.querySelector('.seatseat');
+const reservename = document.querySelector('.reservename');
 
+ 
 toastr.options = {
     positionClass: 'toast-top-right',
     progressBar: true,
@@ -143,6 +149,7 @@ function selectListUiFunction(selectSeatListUlActive) {
             li.classList.remove('select-seat-ul-active');
             // normalNumber = teenNumber = oldNumber = 0;
             toastr.error(
+            		
                 '<div style="color:white">지정한 인원수를 넘었습니다(최대 8명)</div>',
                 '<div style="color:white">인원수 확인</div>', {
                     timeOut: 4000,
@@ -158,48 +165,127 @@ selectSeatList(selectSeatListNormal);
 selectSeatList(selectSeatListTeen);
 selectSeatList(selectSeatListOld);
 
-for (let i = 0; i < 10; i++) {
-    div = document.createElement('div');
-    div.classList = 'seatButtonWrapper';
-    seatWrapper.append(div);
-
-    for (let j = 0; j < 12; j++) {
-        const input = document.createElement('input');
-        input.type = 'button';
-        input.name = 'seats';
-        input.classList = 'seat';
-        //3중포문을 사용하지 않기위해
-        mapping(input, i, j);
-        div.append(input);
-        //클릭시 이벤트
-        inputClickEvent(input);
-    }
-
+//좌석 구현 부분
+if (reservename.value == "4관(Laser) 6층(총 120석)") {
+	console.log("if문 정상작동")
+	for (let i = 0; i < 10; i++) {
+	div = document.createElement('div');
+	div.classList = 'seatButtonWrapper';
+	seatWrapper.append(div);
+	
+	for (let j = 0; j < 12; j++) {
+		const input = document.createElement('input');
+		input.type = 'button';
+		input.name = 'seats';
+		input.classList = 'seat';
+		//3중포문을 사용하지 않기위해
+		mapping(input, i, j);
+		div.append(input);
+		//클릭시 이벤트
+		inputClickEvent(input);
+		}
+}
+//    좌석 부분
     seat = document.querySelectorAll('.seat');
-    remainSeat.innerHTML = seat.length;
-    allSeat.innerHTML = seat.length;
+    if (seatnono == null || seatnono == "") {
+    	remainSeat.innerHTML = seat.length;
+    	allSeat.innerHTML = seat.length;
+	} else {
+		remainSeat.innerHTML = seatnono;
+		allSeat.innerHTML = seat.length;
+	}
 }
 
-seat.forEach(data => {
-    //console.log(data.value.substring(1, data.value.length));
-    // console.log(data.value.substring(0, data.value.length - 1));
-    //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
-    if (data.value.substring(1, data.value.length) === '2') {
-        data.classList.add('left-margin');
-    } else if (data.value.substring(1, data.value.length) === '9') {
-        data.classList.add('right-margin');
-    }
-    //앞자리가 E로끝나는 좌석들에 class 추가
-    if (
-        data.value.substring(0, data.value.length - 1) === 'E' ||
-        data.value.substring(0, data.value.length - 2) === 'E'
-    ) {
-        data.classList.add('top-margin');
-    }
-});
+if (reservename.value == "2관(4DX) 5층(총 80석)") {
+	console.log("if문 정상작동")
+	for (let i = 0; i < 8; i++) {
+	div = document.createElement('div');
+	div.classList = 'seatButtonWrapper';
+	seatWrapper.append(div);
+	
+	for (let j = 0; j < 10; j++) {
+		const input = document.createElement('input');
+		input.type = 'button';
+		input.name = 'seats';
+		input.classList = 'seat';
+		//3중포문을 사용하지 않기위해
+		mapping(input, i, j);
+		div.append(input);
+		//클릭시 이벤트
+		inputClickEvent(input);
+		}
+}
+//    좌석 부분
+    seat = document.querySelectorAll('.seat');
+    if (seatnono == null || seatnono == "") {
+    	remainSeat.innerHTML = seat.length;
+    	allSeat.innerHTML = seat.length;
+	} else {
+		remainSeat.innerHTML = seatnono;
+		allSeat.innerHTML = seat.length;
+	}
+}
+
+if (reservename.value == "4관(Laser) 6층(총 120석)") {
+	seat.forEach(data => {
+	    //console.log(data.value.substring(1, data.value.length));
+	    // console.log(data.value.substring(0, data.value.length - 1));
+	    //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
+	    if (data.value.substring(1, data.value.length) === '2') {
+	        data.classList.add('left-margin');
+	    } else if (data.value.substring(1, data.value.length) === '9') {
+	        data.classList.add('right-margin');
+	    }
+	    //앞자리가 E로끝나는 좌석들에 class 추가
+	    if (
+	        data.value.substring(0, data.value.length - 1) === 'E' ||
+	        data.value.substring(0, data.value.length - 2) === 'E'
+	    ) {
+	        data.classList.add('top-margin');
+	    }
+	    if (
+	    		(seatseat.value).includes(data.value)
+	    ) {
+	    	console.log(data.value);
+	    	data.disabled = true;
+	    	
+	    }
+	});
+}//120석 좌석 설정
+
+if (reservename.value == "2관(4DX) 5층(총 80석)") {
+	seat.forEach(data => {
+	    //console.log(data.value.substring(1, data.value.length));
+	    // console.log(data.value.substring(0, data.value.length - 1));
+	    //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
+	    if (data.value.substring(1, data.value.length) === '2') {
+	        data.classList.add('left-margin');
+	    } else if (data.value.substring(1, data.value.length) === '3') {
+	        data.classList.add('right-margin');
+	    } else if (data.value.substring(1, data.value.length) === '5') {
+	        data.classList.add('right-margin');
+	    } else if (data.value.substring(1, data.value.length) === '7') {
+	        data.classList.add('right-margin');
+	    }
+	    //앞자리가 E로끝나는 좌석들에 class 추가
+	    if (
+	        data.value.substring(0, data.value.length - 1) === 'F' ||
+	        data.value.substring(0, data.value.length - 2) === 'F'
+	    ) {
+	        data.classList.add('top-margin');
+	    }
+	    if (
+	    		(seatseat.value).includes(data.value)
+	    ) {
+	    	console.log(data.value);
+	    	data.disabled = true;
+	    	
+	    }
+	});
+}//80석 좌석 설정
 
 //TODO 좌석 2개씩은 커플석으로 분리하기위해서 해당 class를 추가해줘야하는데 value가 2로끝나는얘들이랑 7로끝나는 얘들은 class를 추가해주기
-
+console.log("selects");
 function inputClickEvent(input) {
     input.addEventListener('click', function(e) {
         console.log(e.target.value);
@@ -224,6 +310,7 @@ function inputClickEvent(input) {
             clicked = document.querySelectorAll('.clicked');
             //선택한 번호의 갯수를 넘기면 동작 못하게 하는 코드
             console.log(allNumber);
+           
             if (clicked.length > allNumber) {
                 input.classList.remove('clicked');
                 toastr.error(
@@ -245,13 +332,20 @@ function inputClickEvent(input) {
         //좌석번호의 innerHTML 설정
         selectedSeats.innerHTML = selectedSeatsArray;
         reserveNumber.innerHTML = selectedSeatsArray.length;
-        remainSeat.innerHTML = seat.length - selectedSeatsArray.length;
+        //남은 좌석
+        if (seatnono == null || seatnono == "") {
+        	remainSeat.innerHTML = seat.length  - selectedSeatsArray.length;
+		} else {
+			remainSeat.innerHTML = seatnono  - selectedSeatsArray.length;
+			
+		}
         // if (selectedSeatsArray.length > 4) {
         //     return;
         // }
     });
 }
-
+//seat.length - selectedSeatsArray.length
+//${seat.getSeat_cnt()}
 function mapping(input, i, j) {
     if (i === 0) {
         input.value = 'A' + j;
@@ -276,19 +370,23 @@ function mapping(input, i, j) {
     } else if (i === 10) {
         input.value = 'K' + j;
     }
+//    remainSeat.innerHTML = ${seat.getSeat_cnt()};
 }
 
 //form 제출시 hidden설정하기
 reserveButton.addEventListener('click', function() {
     title.value = selectedMovie.innerHTML;
     selectedTheater.value =
-        selectedTheaterPlaceInfo[0].innerHTML +
-        ' ' +
+        selectedTheaterPlaceInfo[0].innerHTML;
+    reserveWhere.value =
         selectedTheaterPlaceInfo[1].innerHTML;
     reserveDate.value = theaterDate.innerHTML;
     runningTime.value = theaterTime.innerHTML;
     ticketNumber.value = reserveNumber.innerHTML;
     selectedSeat.value = selectedSeats.innerHTML;
+    seat_Cnt.value = remainSeat.innerHTML;
+    pay.value = allMoney;
+    
     console.log(allNumber + '임');
     console.log(ticketNumber.value);
     console.log(allNumber === ticketNumber.value);

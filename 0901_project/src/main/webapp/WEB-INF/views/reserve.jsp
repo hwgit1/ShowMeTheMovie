@@ -1,12 +1,14 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.ictedu.util.dto.MemberDTO"%>
 <%@page import="kr.co.ictedu.dto.ReserveSeatDto"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <%
- 	ReserveSeatDto seat = (ReserveSeatDto) request.getAttribute("seat");
+//   	List<ReserveSeatDto> list = new ArrayList<ReserveSeatDto>();
  	MemberDTO login = (MemberDTO)session.getAttribute("login_info");
 	if(login!= null) System.out.println(login.toString());
 %>
@@ -81,23 +83,22 @@
         <div class="time-part">
             <div class="reserve-title">시간</div>
             <div class="reserve-time">
+            	<c:forEach items="${list}" var="list">
+            	 <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">${list.reserve_date}</span>
+				</c:forEach>
                 <div class="reserve-where" id="4관(Laser) 6층(총 120석)">4관(Laser) 6층(총 120석)</div>
                 <div class="reserve-time-wrapper">
 	        <button class="reserve-time-button">
-	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">12:20</span>
-	            <span class="reserve-time-remain">120석</span>
+	           
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">14:20</span>
-	            <span class="reserve-time-remain">120석</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">16:20</span>
-	            <span class="reserve-time-remain">120석</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="4관(Laser) 6층(총 120석)">18:20</span>
-	            <span class="reserve-time-remain">120석</span>
 	        </button>
 
                 </div>
@@ -108,19 +109,15 @@
                 <div class="reserve-time-wrapper">
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">12:20</span>
-	            <span class="reserve-time-remain">80석</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">14:20</span>
-	            <span class="reserve-time-remain">80석</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">16:20</span>
-	            <span class="reserve-time-remain">80석</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">18:20</span>
-	            <span class="reserve-time-remain">80석</span>
 	        </button>
 
                 </div>

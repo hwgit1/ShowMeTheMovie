@@ -16,6 +16,8 @@ const moveSeatForm = document.querySelector('.moveSeatForm');
 const moveSeatButton = document.querySelector('.moveSeatButton');
 const movieAge = document.querySelector('.movieAge');
 
+
+
 let movieListAge = '';
 let year = 0;
 let month = 0;
@@ -24,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     add();
     addDate();
 });
+
+
 
 // 데이터 가져오기
 function add() {
@@ -190,7 +194,7 @@ function dayClickEvent(button) {
         console.log(day);
         
         $.ajax({
-            url : "seatReserve.do",
+            url : "moveReserve.do",
             type : "POST",
             data :{
             	seatreserve_date : button.childNodes[1].innerHTML
@@ -294,23 +298,23 @@ moveSeatButton.addEventListener('click', function() {
     if (!!inputTitle.value &&
         !!inputSelectedTheater.value &&
         !!inputReserveDate.value &&
-        !!inputRunningTime.value 
+        !!inputRunningTime.value
     ) {
-    	moveSeatForm.submit();
-//    	if ( login != "") {
-//		} else {
-//			 toastr.options = {
-//			            positionClass: 'toast-top-full-width',
-//			            progressBar: true,
-//			            timeOut: 1000,
-//			        };
-//			        toastr.error(
-//			            '<div style="color:white">로그인해주세요</div>',
-//			            '<div style="color:white">제발</div>', {
-//			                timeOut: 3000,
-//			            }
-//			        );
-//		}
+    	if ( id == "" || id == null) {
+    		toastr.options = {
+    				positionClass: 'toast-top-full-width',
+    				progressBar: true,
+    				timeOut: 1000,
+    		};
+    		toastr.error(
+    				'<div style="color:white">로그인해주세요</div>',
+    				'<div style="color:white">제발</div>', {
+    					timeOut: 3000,
+    				}
+    		);
+		} else {
+			moveSeatForm.submit();
+		}
        
     } else {
         toastr.options = {
@@ -326,3 +330,4 @@ moveSeatButton.addEventListener('click', function() {
         );
     }
 });
+

@@ -7,15 +7,20 @@ public class ReserveSeatDto {
 	private String play_time;
 	private String seat_cnt;
 	private String seatreserve_date;
+	private String selectedSeat;
 	
 	
 	@Override
 	public String toString() {
-		return reserve_date + " : " + theater_no + " : " + play_time + " : " + seat_cnt;
+		return reserve_date + " : " + theater_no + " : " + play_time + " : " + seat_cnt + " : " + selectedSeat;
 	}
 	
-	
-	
+	public String getSelectedSeat() {
+		return selectedSeat;
+	}
+	public void setSelectedSeat(String selectedSeat) {
+		this.selectedSeat = selectedSeat;
+	}
 	public String getSeatreserve_date() {
 		return seatreserve_date;
 	}
@@ -46,7 +51,6 @@ public class ReserveSeatDto {
 	public void setPlay_time(String play_time) {
 		this.play_time = play_time;
 	}
-	
 	
 
 }

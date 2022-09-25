@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.co.ictedu.dao.ReserveSeatDao;
 import kr.co.ictedu.dto.CGVReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
+import kr.co.ictedu.dto.SelectedDto;
 import kr.co.ictedu.login.LoginDAO;
 import kr.co.ictedu.util.dto.MemberDTO;
 
@@ -43,5 +44,19 @@ public class ReserveService {
 		return isSuccess;
 	}
 	
+	public ReserveSeatDto seatcnt(CGVReserveDto dto) {
+		ReserveSeatDto dtoo = null;
+		dtoo = dao.seatcnt(dto);
+		
+		return dtoo;
+	}
+
+	public List<SelectedDto> selectedseat(CGVReserveDto dto) {
+		List<SelectedDto> list = null;
+		list = dao.selectedseat(dto);
+		
+		return list;
+	}
+
 	
 }

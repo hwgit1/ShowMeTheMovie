@@ -272,3 +272,9 @@
 .top-margin {
     margin-top: 30px;
 }
+
+input[type="button"]:disabled {
+  background: white;
+  color: gray;
+  cursor: default
+}
