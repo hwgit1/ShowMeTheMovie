@@ -31,7 +31,11 @@ public class JoinController {
 	@RequestMapping(value = "/mailCheck", method = RequestMethod.GET)
 	@ResponseBody
 	public String mailCheck(@RequestParam("memail") String memail) throws Exception{
+		//화면에서 보낸 ID, Email로 회원정보를 확인한다.(회원번호를 가져와야함)
+		//회원정보가 일치하지 않으면, 오류 메세지를 출력하는 화면으로  리턴.
 	    int serti = (int)((Math.random() * (99999 - 10000 + 1)) + 10000);
+	    //회원번호와 만들어진 난수를 회원정보테이블에 업데이트 후 저장시킨다.
+	    
 	    
 	    String from = "showmethemv@naver.com";//보내는 이 메일주소
 	    String to = memail;
@@ -84,32 +88,5 @@ public class JoinController {
 	public String joinForm() {
 		return "/join/join_form";//jsp file name
 	}//joinForm
-	
-//	@RequestMapping( value = "/seller_form", method = RequestMethod.GET )
-//	public String sellerJoinForm() {
-//		return "/join/seller_join_form";//jsp file name
-//	}//joinForm
 
 }//class
-
-/*
-CREATE TABLE `yeonolmember` (
-  `mno` int NOT NULL AUTO_INCREMENT,
-  `mid` varchar(20) NOT NULL,
-  `mpwd` varchar(30) NOT NULL,
-  `memail` varchar(50) NOT NULL,
-  `mtel` varchar(15) NOT NULL,
-  `mnick` varchar(30) NOT NULL,
-  `maddr1` varchar(150) NOT NULL,
-  `maddr2` varchar(150) NOT NULL,
-  `post_code` varchar(10) NOT NULL,
-  `infoch` varchar(5) NOT NULL DEFAULT 'true',
-  `emailch` varchar(5) NOT NULL DEFAULT 'false',
-  `smsch` varchar(5) NOT NULL DEFAULT 'false',
-  `mdate` datetime NOT NULL,
-  `role` int NOT NULL DEFAULT '3',
-  PRIMARY KEY (`mno`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-*/

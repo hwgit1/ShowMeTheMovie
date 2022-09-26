@@ -88,6 +88,17 @@ public class MemoController {
 
 	}//start
 
+	@RequestMapping( value = "/Room_delete", method = RequestMethod.GET )
+	public void delete( MemoDTO dto, PrintWriter out) {
+		//dbms에서 게시글 하나를 delete : FreeBoardService.delete(board_no) -> FreeBoardDAO.delete(board_no)
+		//						-> freeboard-mapper.xml(namespace : FreeBoardMapper.delete)
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>> del");
+		int successCount = 0;
+		successCount = service.roomdelete( dto );
+		out.print(successCount);
+		out.close();
+	}//Team_delete
+	
 }//class
 
 /*

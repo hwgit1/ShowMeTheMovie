@@ -48,4 +48,12 @@ public class MemoDAO {
 		return successCount;
 	}//createRoomNo
 
+	public int roomdelete( MemoDTO dto ) {
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> ddao");
+		int successCount = 0;
+		successCount = sqlSession.delete("MemoMapper.roomdelete", dto);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>> dlCnt" + successCount);
+		return successCount;
+	}//delete
+	
 }//class

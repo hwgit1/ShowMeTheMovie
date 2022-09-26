@@ -14,15 +14,15 @@
 <!--  		<mapper resource="META-INF/dongcode-mapper.xml" />  -->
 <!--  		<mapper resource="META-INF/history-mapper.xml" />  -->
 <!--  		<mapper resource="META-INF/freeboard-mapper.xml" />  -->
- 			<mapper resource="META-INF/join-mapper.xml" /> 
- 			<mapper resource="META-INF/mypage-mapper.xml" />
+ 		<mapper resource="META-INF/join-mapper.xml" /> 
 <!-- 		<mapper resource="META-INF/kakaomap-mapper.xml" /> -->
- 			<mapper resource="META-INF/login-mapper.xml" /> 
-  			<mapper resource="META-INF/memberboard-mapper.xml" />
-			<mapper resource="META-INF/order-mapper.xml" />
+ 		<mapper resource="META-INF/login-mapper.xml" />
+ 		<mapper resource="META-INF/mypage-mapper.xml" />  
+<!--  		<mapper resource="META-INF/memberboard-mapper.xml" />  -->
+<!-- 		<mapper resource="META-INF/order-mapper.xml" />  -->
 <!-- 		<mapper resource="META-INF/product-mapper.xml" />  -->
-			<mapper resource="META-INF/memo-mapper.xml" />
-			<mapper resource="META-INF/seat-mapper.xml" />
+		<mapper resource="META-INF/seat-mapper.xml" />
+		<mapper resource="META-INF/find-mapper.xml" />
 	</mappers>
 
 </configuration>
