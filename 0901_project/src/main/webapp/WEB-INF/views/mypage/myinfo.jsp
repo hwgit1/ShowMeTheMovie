@@ -26,7 +26,7 @@
 						<a onclick="pwd_ch()">회원 정보 수정</a>
 						
 						<h4>나의 쇼핑</h4>
-						<a href="${pageContext.request.contextPath}/">주문 내역</a>
+						<a href="${pageContext.request.contextPath}/">예매 내역</a>
 						
 					</div>
 				</div>

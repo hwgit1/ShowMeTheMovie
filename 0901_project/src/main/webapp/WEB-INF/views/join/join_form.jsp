@@ -177,28 +177,6 @@
 						<label for="info_agree" id="info_agree_label"></label>
 					</td>
 				</tr>
-<!-- 				<tr> -->
-<!-- 					<th> S M S 수 신 동 의 </th> -->
-<!-- 					<td> -->
-<!-- 						<div class="input-group"> -->
-<!-- 							<div class="input-group-text"> -->
-<!-- 								<input type="checkbox" id="smsch" name="smsch" class="mr-1" -->
-<!-- 										checked="checked"> SMS 수신을 동의 합니다. -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<th> E M A I L 수 신 동 의 </th> -->
-<!-- 					<td> -->
-<!-- 						<div class="input-group"> -->
-<!-- 							<div class="input-group-text"> -->
-<!-- 								<input type="checkbox" id="emailch" name="emailch" class="mr-1" -->
-<!-- 										checked="checked"> EMAIL 수신을 동의 합니다. -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
 				
 			</tbody>
 		</table>

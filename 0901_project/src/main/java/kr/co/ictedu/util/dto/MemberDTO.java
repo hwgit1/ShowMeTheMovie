@@ -18,6 +18,7 @@ public class MemberDTO {
 	private String post_code;
 	private String maddr1;
 	private String maddr2;
+	private int serti;
 	
 	private String authority;
 	
@@ -122,6 +123,17 @@ public class MemberDTO {
 	public void setInfo_agree(String info_agree) {
 		this.info_agree = info_agree;
 	}
+
+	public int getSerti() {
+		return serti;
+	}
+
+	public void setSerti(int serti) {
+		this.serti = serti;
+	}
+
+	
+	
 	
 
 }//class

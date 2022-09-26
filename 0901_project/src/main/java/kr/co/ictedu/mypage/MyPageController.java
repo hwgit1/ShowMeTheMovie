@@ -1,14 +1,7 @@
 package kr.co.ictedu.mypage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,15 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.Gson;
-
-
+import kr.co.ictedu.dto.CGVReserveDto;
 import kr.co.ictedu.util.dto.MemberDTO;
 
 
@@ -41,6 +29,12 @@ public class MyPageController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String myPage(HttpSession session, Model model) {
 		String mem_no = ((MemberDTO)session.getAttribute("login_info")).getMno();
+		
+		List<CGVReserveDto> olist = null;
+		olist = service.recentOrder(mem_no);
+		model.addAttribute("recent_order_list", olist);
+		model.addAttribute("order_cnt", olist.size());
+		
 		
 		return "/mypage/mypage";
 	}
@@ -90,4 +84,17 @@ public class MyPageController {
 		out.print(updateYn);
 		out.close();
 	}
+	
+	@RequestMapping(value = "/order", method = RequestMethod.GET)
+	public String orderList(HttpSession session, Model model) {
+		String mem_no = ((MemberDTO) session.getAttribute("login_info")).getMno();
+		
+		List<CGVReserveDto> list = null; 
+		list = service.orderList(mem_no);
+		model.addAttribute("order_list", list);
+		model.addAttribute("order_cnt", list.size());
+		
+		return "/mypage/order_list";
+	}
+	
 }

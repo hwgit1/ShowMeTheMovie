@@ -18,16 +18,8 @@
 	</select>
 	
 	<insert id="order" parameterType="kr.co.ictedu.dto.CGVReserveDto">
-<<<<<<< HEAD
 		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, selectWhere, movieAge, reserve_date, seat_cnt, pay)
 		VALUES ( #{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater},#{reserveWhere}, #{movieAge}, now(), #{seat_Cnt}, #{pay})
-=======
-		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, movieAge, reserve_date, seat_cnt, pay)
-		VALUES (#{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater}, #{movieAge}, now(), #{seatCnt}, #{pay})
-		<selectKey resultType="String" keyProperty="order_no" order="AFTER">
-			SELECT LAST_INSERT_ID()
-		</selectKey>
->>>>>>> origin/민기
 	</insert>
 	
 	<select id="seatcnt" parameterType="kr.co.ictedu.dto.CGVReserveDto" resultType="kr.co.ictedu.dto.ReserveSeatDto">

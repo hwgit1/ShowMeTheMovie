@@ -8,7 +8,7 @@ public class CGVReserveDto implements Serializable {
 	private String title;
 	private String runningTime;
 	private String movieDate;
-	private String reserveDate;
+	private String reserve_date;
 	private String ticketNumber;
 	private String selectedSeat;
 	private String selectedTheater;
@@ -42,10 +42,10 @@ public class CGVReserveDto implements Serializable {
 	public void setPay(String pay) {
 		this.pay = pay;
 	}
-	public String getSeat_Cnt() {
+	public String getseat_Cnt() {
 		return seat_Cnt;
 	}
-	public void setSeat_Cnt(String seat_Cnt) {
+	public void setseat_Cnt(String seat_Cnt) {
 		this.seat_Cnt = seat_Cnt;
 	}
 	public String getReserveWhere() {
@@ -104,12 +104,12 @@ public class CGVReserveDto implements Serializable {
 		this.movieDate = movieDate;
 	}
 
-	public String getReserveDate() {
-		return reserveDate;
+	public String getreserve_date() {
+		return reserve_date;
 	}
 
-	public void setReserveDate(String reserveDate) {
-		this.reserveDate = reserveDate;
+	public void setreserve_date(String reserve_date) {
+		this.reserve_date = reserve_date;
 	}
 
 	public String getTicketNumber() {
@@ -146,40 +146,39 @@ public class CGVReserveDto implements Serializable {
 
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
-			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserveDate, String seat_Cnt, String reserveWhere) {
+			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserve_date, String seat_Cnt, String pay) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
 		this.title = title;
 		this.runningTime = runningTime;
 		this.movieDate = movieDate;
-		this.reserveDate = reserveDate;
+		this.reserve_date = reserve_date;
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
-		this.seat_Cnt = seat_Cnt;
-		this.reserveWhere = reserveWhere;
+		this.movieAge = seat_Cnt;
+		this.movieAge = pay;
 	}
 
 	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
 			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
-			CGVPayDto cgvPayDto, String reserveDate, String seat_Cnt, String pay, String reserveWhere) {
+			CGVPayDto cgvPayDto, String reserve_date, String seat_Cnt, String pay) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;
 		this.title = title;
 		this.runningTime = runningTime;
 		this.movieDate = movieDate;
-		this.reserveDate = reserveDate;
+		this.reserve_date = reserve_date;
 		this.ticketNumber = ticketNumber;
 		this.selectedSeat = selectedSeat;
 		this.selectedTheater = selectedTheater;
 		this.movieAge = movieAge;
 		this.cgvPayDto = cgvPayDto;
-		this.seat_Cnt = seat_Cnt;
-		this.pay = pay;
-		this.reserveWhere = reserveWhere;
+		this.movieAge = seat_Cnt;
+		this.movieAge = pay;
 	}
 
 	@Override
@@ -187,7 +186,7 @@ public class CGVReserveDto implements Serializable {
 		return "CGVReserveDto [id=" + id + ", reserveSequence=" + reserveSequence + ", title=" + title
 				+ ", runningTime=" + runningTime + ", movieDate=" + movieDate 
 				+ ", ticketNumber=" + ticketNumber + ", selectedSeat=" + selectedSeat + ", selectedTheater="
-				+ selectedTheater + ", reserveWhere=" + reserveWhere + ", movieAge=" + movieAge + ", reserveDate=" + reserveDate + ", seat_Cnt=" + seat_Cnt + ", pay=" + pay + "]";
+				+ selectedTheater + ", movieAge=" + movieAge + ", reserve_date=" + reserve_date + ", seat_Cnt=" + seat_Cnt + ", pay=" + pay + "]";
 	}
 	
 	

@@ -9,60 +9,69 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 	</head>
 	<body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-		<hr>
-		<h3> 로그인 </h3>
-		<hr>
-		<table class="table table-hover">
-			<tbody>
-				<tr>
-					<th> 아 이 디 </th>
-					<td>
-						<input type="text" id="mid" name="mid" maxlength="20" class="form-control">
-					</td>
-				</tr>
-				<tr>
-					<th> 패 스 워 드 </th>
-					<td>
-						<input type="password" id="mpwd" name="mpwd" maxlength="20" class="form-control">
-					</td>
-				</tr>
-				
-				
-				
-				<tr>
-					<th> 테스트 ID 선택 -> 테스트 후 삭제 </th>
-					<td>
-						<div class="input-group">
-							<input type="radio" id="rdo1" name="test_id_selector" value="admin">
-							<h3><label for="rdo1">admin</label></h3>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button id="login_btn" type="button" class="btn btn-primary float-right"> 로 그 인 </button>
-					</td>
-					<td>
-							<a href="https://kauth.kakao.com/oauth/authorize?client_id=945e73f5f777795905223c979bc7a02f&redirect_uri=http://localhost:8081/ictedu/login/kakao_login&response_type=code">
-							<img id="loginBtn" src=${pageContext.request.contextPath}/resources/login/img/kakao_login.png /></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<section class="vh-100 gradient-custom">
+				  <div class="container py-5 h-100">
+				    <div class="row d-flex justify-content-center align-items-center h-100">
+				      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+				        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+				          <div class="card-body p-5 text-center">
+				            <div class="mb-md-5 mt-md-4 pb-5">
+				              <h2 class="fw-bold mb-2 text-uppercase">로그인</h2>
+				              <p class="text-white-50 mb-5">아이디와 패스워드를 입력하세요.</p>
+				              <div class="form-outline form-white mb-4">
+				                <input type="text" id="mid" name="mid" maxlength="20" class="form-control form-control-lg" />
+				                <label class="form-label" for="typeEmailX"> I D </label>
+				              </div>
+				              <div class="form-outline form-white mb-4">
+				                <input type="password" id="mpwd" name="mpwd" maxlength="20" class="form-control form-control-lg" />
+				                <label class="form-label" for="typePasswordX"> Password </label>
+				              </div>
+				              <button id="login_btn" class="btn btn-outline-light btn-lg px-5" type="button">Login</button>
+				              <div class="kakao">
+								<a href="https://kauth.kakao.com/oauth/authorize?client_id=945e73f5f777795905223c979bc7a02f&redirect_uri=http://localhost/login/kakao_login&response_type=code">
+								<img class="mt-2" style="width: 150px; height: 50px;" id="loginBtn" src=/resources/img/kakao_login.png /></a>
+							  </div>
+				              <div class="d-flex justify-content-center text-center mt-4 pt-1">
+				                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+				                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+				                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+				              </div>
+				            </div>
+				            <div>
+				              <p class="mb-0">Don't have an account? <a href="/join/form" class="text-white-50 fw-bold">Sign Up</a></p>
+				            </div>
+				            <div>
+				              <p class="mb-0">Forgot an ID? <a href="/find_id_form.do" class="text-white-50 fw-bold">Find ID</a></p>
+				            </div>
+				            <div>
+				              <p class="mb-0">Forgot Password? <a href="/find_pw_form.do" class="text-white-50 fw-bold">Find Password</a></p>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+				</section>
 		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#find_pw_btn").click(function(){
+					location.href='./find_pw_form.do';
+				})
+			})
+		</script>
 		
-
-	<script type="text/javascript">
-	$(document).ready(function() {//테스트용 스크립트 -> 테스트 후 삭제
-		$("input[type='radio']").click(function() {
-			$("#mid").val( $(this).val() );
-			$("#mpwd").val("1111");
-		});//click
-	});//ready
-	</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#find_id_btn").click(function(){
+					location.href='./find_id_form.do';
+				})
+			})
+		</script>
 
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -88,7 +97,7 @@
 		});//click
 	});//ready
 	</script>
-
+	
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$("#mpwd").keyup(function() {
@@ -100,6 +109,8 @@
 		});//click
 	});//ready
 	</script>
+	
+	
 
 	</body>
 </html>
