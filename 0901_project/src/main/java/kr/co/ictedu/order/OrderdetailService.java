@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.ictedu.dao.ReserveSeatDao;
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 
 
 @Service

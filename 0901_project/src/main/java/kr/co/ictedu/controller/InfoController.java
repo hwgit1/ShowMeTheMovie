@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import kr.co.ictedu.dto.CGVInfoDto;
+import kr.co.ictedu.dto.InfoDto;
 
 
 @Controller
-public class CGVInfoController {
-	private static Logger logger = LoggerFactory.getLogger(CGVInfoController.class);
+public class InfoController {
+	private static Logger logger = LoggerFactory.getLogger(InfoController.class);
 	
 	
 	@ResponseBody
@@ -55,7 +55,7 @@ public class CGVInfoController {
 			 Elements movieOpenDates = doc.select(".txt-info strong");
 			 logger.info("percents" + movieOpenDates); 
 			
-			 List<CGVInfoDto> list = new ArrayList<CGVInfoDto>();
+			 List<InfoDto> list = new ArrayList<InfoDto>();
 			 
 			 for(int i = 0; i < ranks.size(); i++) {
 				
@@ -66,7 +66,7 @@ public class CGVInfoController {
 				 String movieRate = movieRates.get(i).text();
 				 String movieOpenDate = movieOpenDates.get(i).text();
 				 int seq = i;
-				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieAge, movieTitle, movieRate, movieOpenDate, seq);
+				 InfoDto cgvInfoDto = new InfoDto(rank, img, movieAge, movieTitle, movieRate, movieOpenDate, seq);
 				 
 				 logger.info(cgvInfoDto.toString());
 				 list.add(cgvInfoDto);

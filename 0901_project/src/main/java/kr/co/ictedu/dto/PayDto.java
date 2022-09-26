@@ -2,13 +2,13 @@ package kr.co.ictedu.dto;
 
 import java.io.Serializable;
 
-public class CGVPayDto implements Serializable {
+public class PayDto implements Serializable {
 	private String id;
 	private int reserveSequence;
 	private String payDate;
 	private String payMoney;
 	
-	public CGVPayDto() {
+	public PayDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -37,7 +37,7 @@ public class CGVPayDto implements Serializable {
 		this.payMoney = payMoney;
 	}
 
-	public CGVPayDto(String id, int reserveSequence, String payDate, String payMoney) {
+	public PayDto(String id, int reserveSequence, String payDate, String payMoney) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;

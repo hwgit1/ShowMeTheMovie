@@ -2,7 +2,7 @@ package kr.co.ictedu.dto;
 
 import java.io.Serializable;
 
-public class CGVMemberDto implements Serializable{
+public class MemberDto implements Serializable{
 	private String id;
 	private String password;
 	private String name;
@@ -68,10 +68,10 @@ public class CGVMemberDto implements Serializable{
 	}
 	
 	
-	public CGVMemberDto() {
+	public MemberDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public CGVMemberDto(String id, String password, String name, String phoneNumber, String email, String address,
+	public MemberDto(String id, String password, String name, String phoneNumber, String email, String address,
 			int auth, String registerDate, String unRegisterDate) {
 		super();
 		this.id = id;
@@ -90,7 +90,7 @@ public class CGVMemberDto implements Serializable{
 				+ ", email=" + email + ", address=" + address + ", auth=" + auth + ", registerDate=" + registerDate
 				+ ", unRegisterDate=" + unRegisterDate + "]";
 	}
-	public CGVMemberDto(String id, String password, String name, String phoneNumber, String email, String address) {
+	public MemberDto(String id, String password, String name, String phoneNumber, String email, String address) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -99,7 +99,7 @@ public class CGVMemberDto implements Serializable{
 		this.email = email;
 		this.address = address;
 	}
-	public CGVMemberDto(String id, String name, String phoneNumber, String email, String address, int auth,
+	public MemberDto(String id, String name, String phoneNumber, String email, String address, int auth,
 			String registerDate, String unRegisterDate) {
 		super();
 		this.id = id;

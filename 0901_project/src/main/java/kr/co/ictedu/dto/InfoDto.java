@@ -1,6 +1,6 @@
 package kr.co.ictedu.dto;
 
-public class CGVInfoDto {
+public class InfoDto {
 
 	String rank;
 	String img;
@@ -10,7 +10,7 @@ public class CGVInfoDto {
 	String movieOpenDate; //개봉일
 	int seq;
 	
-	public CGVInfoDto() {
+	public InfoDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -66,7 +66,7 @@ public class CGVInfoDto {
 	}
 
 
-	public CGVInfoDto(String rank, String img, String movieAge, String movieTitle, String movieRate,
+	public InfoDto(String rank, String img, String movieAge, String movieTitle, String movieRate,
 			String movieOpenDate, int seq) {
 		super();
 		this.rank = rank;

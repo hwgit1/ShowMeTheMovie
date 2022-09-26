@@ -2,7 +2,7 @@ package kr.co.ictedu.dto;
 
 import java.io.Serializable;
 
-public class CGVReserveDto implements Serializable {
+public class ReserveDto implements Serializable {
 	private String id;
 	private int reserveSequence;
 	private String title;
@@ -20,9 +20,9 @@ public class CGVReserveDto implements Serializable {
 	
 	
 
-	private CGVPayDto cgvPayDto;
+	private PayDto cgvPayDto;
 	
-	public CGVReserveDto() {
+	public ReserveDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -56,11 +56,11 @@ public class CGVReserveDto implements Serializable {
 		this.reserveWhere = reserveWhere;
 	}
 
-	public CGVPayDto getCgvPayDto() {
+	public PayDto getCgvPayDto() {
 		return cgvPayDto;
 	}
 
-	public void setCgvPayDto(CGVPayDto cgvPayDto) {
+	public void setCgvPayDto(PayDto cgvPayDto) {
 		this.cgvPayDto = cgvPayDto;
 	}
 
@@ -145,7 +145,7 @@ public class CGVReserveDto implements Serializable {
 	}
 
 
-	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
+	public ReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
 			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge, String reserve_date, String seat_Cnt, String pay) {
 		super();
 		this.id = id;
@@ -162,9 +162,9 @@ public class CGVReserveDto implements Serializable {
 		this.movieAge = pay;
 	}
 
-	public CGVReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
+	public ReserveDto(String id, int reserveSequence, String title, String runningTime, String movieDate,
 			String ticketNumber, String selectedSeat, String selectedTheater, String movieAge,
-			CGVPayDto cgvPayDto, String reserve_date, String seat_Cnt, String pay) {
+			PayDto cgvPayDto, String reserve_date, String seat_Cnt, String pay) {
 		super();
 		this.id = id;
 		this.reserveSequence = reserveSequence;

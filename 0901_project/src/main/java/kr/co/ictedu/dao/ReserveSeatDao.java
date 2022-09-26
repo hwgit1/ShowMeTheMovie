@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
 import kr.co.ictedu.dto.SelectedDto;
 
@@ -26,7 +26,7 @@ public class ReserveSeatDao {
 	}//seat
 
 
-	public int order(CGVReserveDto dto) {
+	public int order(ReserveDto dto) {
 		int isSuccess = 0;
 		System.out.println(isSuccess + "Mapper 들어갑니다");
 		isSuccess = sqlSession.insert("SeatMapper.order", dto);
@@ -36,7 +36,7 @@ public class ReserveSeatDao {
 		return isSuccess;
 	}
 	
-	public ReserveSeatDto seatcnt(CGVReserveDto dto) {
+	public ReserveSeatDto seatcnt(ReserveDto dto) {
 		ReserveSeatDto dtoo = null;
 		dtoo = sqlSession.selectOne("SeatMapper.seatcnt", dto);
 		
@@ -44,7 +44,7 @@ public class ReserveSeatDao {
 	}
 
 
-	public List<SelectedDto> selectedseat(CGVReserveDto dto) {
+	public List<SelectedDto> selectedseat(ReserveDto dto) {
 		List<SelectedDto> list = null;
 		list = sqlSession.selectList("SeatMapper.selectedseat", dto);
 		

@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.util.dto.MemberDTO;
 
 
@@ -30,7 +30,7 @@ public class MyPageController {
 	public String myPage(HttpSession session, Model model) {
 		String mem_no = ((MemberDTO)session.getAttribute("login_info")).getMno();
 		
-		List<CGVReserveDto> olist = null;
+		List<ReserveDto> olist = null;
 		olist = service.recentOrder(mem_no);
 		model.addAttribute("recent_order_list", olist);
 		model.addAttribute("order_cnt", olist.size());
@@ -89,7 +89,7 @@ public class MyPageController {
 	public String orderList(HttpSession session, Model model) {
 		String mem_no = ((MemberDTO) session.getAttribute("login_info")).getMno();
 		
-		List<CGVReserveDto> list = null; 
+		List<ReserveDto> list = null; 
 		list = service.orderList(mem_no);
 		model.addAttribute("order_list", list);
 		model.addAttribute("order_cnt", list.size());

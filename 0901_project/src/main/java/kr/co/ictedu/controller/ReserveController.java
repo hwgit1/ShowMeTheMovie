@@ -18,27 +18,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 //import com.mysql.cj.Session;
 
-import kr.co.ictedu.dto.CGVPayDto;
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.PayDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
 import kr.co.ictedu.dto.SelectedDto;
 import kr.co.ictedu.service.ReserveService;
 import kr.co.ictedu.util.dto.MemberDTO;
-import kr.co.ictedu.service.CGVReserveService;
+import kr.co.ictedu.service.MovieReserveService;
 
 
 @Controller
-public class CGVReserveController {
+public class ReserveController {
 
 	@Autowired
 	ReserveService service;
-	CGVReserveService cgvReserveService;
+	MovieReserveService cgvReserveService;
 	
 	
-	private static Logger logger = LoggerFactory.getLogger(CGVReserveController.class);
+	private static Logger logger = LoggerFactory.getLogger(ReserveController.class);
 	
 	@RequestMapping(value="moveReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveReserve(String seatreserve_date, Model model,CGVReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
+	public String moveReserve(String seatreserve_date, Model model,ReserveDto dtoo, ReserveSeatDto dto, HttpSession session) {
 		logger.info("moveReserve");
 		
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
@@ -59,7 +59,7 @@ public class CGVReserveController {
 	
 	
 	@RequestMapping(value="moveSeat.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveSeat(HttpServletResponse response, Model model, CGVReserveDto dto, ReserveSeatDto dtoo, SelectedDto dtooo, HttpSession session, PrintWriter out) {
+	public String moveSeat(HttpServletResponse response, Model model, ReserveDto dto, ReserveSeatDto dtoo, SelectedDto dtooo, HttpSession session, PrintWriter out) {
 		response.setContentType("text/html;charset=utf-8");                                                                                                                                                                                                                                                                                            
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		if (login != null) {
@@ -104,7 +104,7 @@ public class CGVReserveController {
 	}
 	
 	@RequestMapping(value="seatReserve.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String seatReserve(String seatreserve_date, Model model,CGVReserveDto dto, ReserveSeatDto dtoo, HttpSession session) {
+	public String seatReserve(String seatreserve_date, Model model,ReserveDto dto, ReserveSeatDto dtoo, HttpSession session) {
 		logger.info("seatReserve");
 		
 		
@@ -115,7 +115,7 @@ public class CGVReserveController {
 	
 
 	@RequestMapping(value="moveKakao.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveKakao(Model model, CGVReserveDto dto, CGVPayDto payDto, HttpSession session) {	
+	public String moveKakao(Model model, ReserveDto dto, PayDto payDto, HttpSession session) {	
 		MemberDTO login =(MemberDTO)session.getAttribute("login_info");
 		logger.info(login.getMid());
 		String id = login.getMid();

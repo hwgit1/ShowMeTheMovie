@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.util.dto.MemberDTO;
 
 
@@ -36,15 +36,15 @@ public class MyPageDAO {
 		return deleteYn;
 	}
 
-	public List<CGVReserveDto> orderList(String mem_no) {
-		List<CGVReserveDto> list = null;
+	public List<ReserveDto> orderList(String mem_no) {
+		List<ReserveDto> list = null;
 		list = sqlSession.selectList("MyPageMapper.orderList", mem_no);
 		
 		return list;
 	}
 
-	public List<CGVReserveDto> recentOrder(String mem_no) {
-		List<CGVReserveDto> list = null;
+	public List<ReserveDto> recentOrder(String mem_no) {
+		List<ReserveDto> list = null;
 		list = sqlSession.selectList("MyPageMapper.recentOrder", mem_no);
 		
 		return list;

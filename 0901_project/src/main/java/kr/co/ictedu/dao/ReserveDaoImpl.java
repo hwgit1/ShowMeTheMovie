@@ -7,33 +7,33 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 
 
 @Repository
-public class CGVReserveDaoImpl implements CGVReserveDao {
+public class ReserveDaoImpl implements ReserveDao {
 
 	@Autowired
 	SqlSession session;
 
 	@Override
-	public boolean CGVReserve(CGVReserveDto dto) {
+	public boolean CGVReserve(ReserveDto dto) {
 		int count = session.insert("CGVReserve", dto);
 
 		return count > 0 ? true : false;
 	}
 
 	@Override
-	public List<CGVReserveDto> getCGVReserveList(CGVReserveDto dto) {
+	public List<ReserveDto> getCGVReserveList(ReserveDto dto) {
 		// TODO Auto-generated method stub
-		List<CGVReserveDto> list = new ArrayList<CGVReserveDto>();
+		List<ReserveDto> list = new ArrayList<ReserveDto>();
 		list = session.selectList("getCGVReserveList", dto);
 		return list;
 	}
 
 	@Override
-	public List<CGVReserveDto> getPayJoinTable(CGVReserveDto dto) {
-		List<CGVReserveDto> list = new ArrayList<CGVReserveDto>();
+	public List<ReserveDto> getPayJoinTable(ReserveDto dto) {
+		List<ReserveDto> list = new ArrayList<ReserveDto>();
 		list = session.selectList("selectMapping", dto);
 		return list;
 	}

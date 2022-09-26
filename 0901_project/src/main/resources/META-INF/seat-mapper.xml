@@ -6,23 +6,17 @@
 <mapper namespace="SeatMapper">
 
 	<select id="seat" parameterType="java.lang.String" resultType="kr.co.ictedu.dto.ReserveSeatDto">
-<!-- 	select re.reserve_date, th.theater_no, th.play_time, th.seat_cnt -->
-<!-- 	from reserve re, theater th -->
-<!-- 	where re.reserve_date = #{reverve_date} -->
-<!-- 	and re.theater_no = re.theater_no -->
-<!-- 	and re.theater_no = re.theater_no -->
-	
 		select reserve_date, theater_no, play_time, seat_cnt
 		from theater
 		where reserve_date = #{seatreserve_date}
 	</select>
 	
-	<insert id="order" parameterType="kr.co.ictedu.dto.CGVReserveDto">
+	<insert id="order" parameterType="kr.co.ictedu.dto.ReserveDto">
 		insert into order_main(id, reserveSequence, title, runningTime, movieDate, ticketNumber, selectedSeat, selectTheater, selectWhere, movieAge, reserve_date, seat_cnt, pay)
 		VALUES ( #{id}, #{reserveSequence}, #{title}, #{runningTime}, #{movieDate}, #{ticketNumber}, #{selectedSeat}, #{selectedTheater},#{reserveWhere}, #{movieAge}, now(), #{seat_Cnt}, #{pay})
 	</insert>
 	
-	<select id="seatcnt" parameterType="kr.co.ictedu.dto.CGVReserveDto" resultType="kr.co.ictedu.dto.ReserveSeatDto">
+	<select id="seatcnt" parameterType="kr.co.ictedu.dto.ReserveDto" resultType="kr.co.ictedu.dto.ReserveSeatDto">
 		select seat_cnt, selectedSeat
 		from order_main
 		where selectWhere = #{reserveWhere}
@@ -32,7 +26,7 @@
 		limit 1
 	</select>
 
-	<select id="selectedseat" parameterType="kr.co.ictedu.dto.CGVReserveDto" resultType="kr.co.ictedu.dto.SelectedDto">
+	<select id="selectedseat" parameterType="kr.co.ictedu.dto.ReserveDto" resultType="kr.co.ictedu.dto.SelectedDto">
 		select selectedSeat
 		from order_main
 		where selectWhere = #{reserveWhere}

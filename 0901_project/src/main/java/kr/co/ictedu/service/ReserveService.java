@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.ictedu.dao.ReserveSeatDao;
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.dto.ReserveSeatDto;
 import kr.co.ictedu.dto.SelectedDto;
 import kr.co.ictedu.login.LoginDAO;
@@ -36,7 +36,7 @@ public class ReserveService {
 		return dtoFromDB;
 	}//login
 	
-	public int CGVReserve(CGVReserveDto dto) {
+	public int CGVReserve(ReserveDto dto) {
 		int isSuccess = 0;
 		System.out.println(isSuccess + "DAO 넘어가기 전");
 		isSuccess = dao.order(dto);
@@ -45,14 +45,14 @@ public class ReserveService {
 		return isSuccess;
 	}
 	
-	public ReserveSeatDto seatcnt(CGVReserveDto dto) {
+	public ReserveSeatDto seatcnt(ReserveDto dto) {
 		ReserveSeatDto dtoo = null;
 		dtoo = dao.seatcnt(dto);
 		
 		return dtoo;
 	}
 
-	public List<SelectedDto> selectedseat(CGVReserveDto dto) {
+	public List<SelectedDto> selectedseat(ReserveDto dto) {
 		List<SelectedDto> list = null;
 		list = dao.selectedseat(dto);
 		

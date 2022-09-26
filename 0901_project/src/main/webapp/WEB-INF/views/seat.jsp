@@ -1,14 +1,13 @@
 <%@page import="java.util.List"%>
 <%@page import="kr.co.ictedu.dto.ReserveSeatDto"%>
-<%@page import="kr.co.ictedu.dto.CGVReserveDto"%>
+<%@page import="kr.co.ictedu.dto.ReserveDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
-<%	
-	
- 	CGVReserveDto reserve = (CGVReserveDto) request.getAttribute("reserve");
+<%
+	ReserveDto reserve = (ReserveDto) request.getAttribute("reserve");
 	ReserveSeatDto seat = (ReserveSeatDto) request.getAttribute("seat");
 	List<ReserveSeatDto> list =(List<ReserveSeatDto>) request.getAttribute("list");
 	/* if (reserve != null && reserve.getCgvPayDto() != null) {

@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
 <%
-//   	List<ReserveSeatDto> list = new ArrayList<ReserveSeatDto>();
  	MemberDTO login = (MemberDTO)session.getAttribute("login_info");
 	if(login!= null) System.out.println(login.toString());
 %>
@@ -108,7 +107,7 @@
                 <div class="reserve-where" id="2관(4DX) 5층(총 80석)">2관(4DX) 5층(총 80석)</div>
                 <div class="reserve-time-wrapper">
 	        <button class="reserve-time-button">
-	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">12:20</span>
+	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">1:20</span>
 	        </button>
 	        <button class="reserve-time-button">
 	            <span class="reserve-time-want" id="2관(4DX) 5층(총 80석)">14:20</span>

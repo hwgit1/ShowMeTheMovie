@@ -22,7 +22,7 @@ import kr.co.ictedu.dto.ReserveSeatDto;
 import kr.co.ictedu.order.OrderdetailDto;
 import kr.co.ictedu.service.ReserveService;
 import kr.co.ictedu.util.dto.MemberDTO;
-import kr.co.ictedu.service.CGVReserveService;
+import kr.co.ictedu.service.MovieReserveService;
 
 
 @Controller
@@ -31,7 +31,7 @@ public class OrderdetailController {
 
 	@Autowired
 	OrderdetailService service;
-	CGVReserveService cgvReserveService;
+	MovieReserveService cgvReserveService;
 	
 	
 	private static Logger logger = LoggerFactory.getLogger(OrderdetailController.class);

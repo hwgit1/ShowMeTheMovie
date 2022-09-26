@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.ictedu.dto.CGVReserveDto;
+import kr.co.ictedu.dto.ReserveDto;
 import kr.co.ictedu.util.dto.MemberDTO;
 
 
@@ -35,14 +35,14 @@ public class MyPageService {
 		return deleteYn;
 	}
 
-	public List<CGVReserveDto> orderList(String mem_no) {
-		List<CGVReserveDto> list = null;
+	public List<ReserveDto> orderList(String mem_no) {
+		List<ReserveDto> list = null;
 		list = dao.orderList(mem_no);
 		return list;
 	}
 
-	public List<CGVReserveDto> recentOrder(String mem_no) {
-		List<CGVReserveDto> list = null;
+	public List<ReserveDto> recentOrder(String mem_no) {
+		List<ReserveDto> list = null;
 		list = dao.recentOrder(mem_no);
 		
 		return list;
