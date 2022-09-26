@@ -22,16 +22,16 @@ public class MemberDTO {
 	
 	private String authority;
 	
-	public String getAuthority() {
-		return authority;
-	}
-
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
 	
 	public String toString() {
 		return mno + " : " + mid;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 	
 	public String getMno() {
