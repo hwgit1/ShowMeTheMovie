@@ -58,6 +58,7 @@ public class CGVInfoplanController {
 				
 				 String rank = ranks.get(i).text();
 				 String img = imgs.get(i).attr("src");
+				 String movieAge = movieAges.get(i).text();
 				 String movieTitle = movieTitles.get(i).text();
 				 String movieRate = movieRates.get(i).text();
 				 String movieOpenDate = movieOpenDates.get(i).text();
