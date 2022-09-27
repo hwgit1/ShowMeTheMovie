@@ -43,6 +43,9 @@ public class CGVInfoplanController {
 			 Elements imgs = doc.select(".thumb-image > img");
 			 //logger.info("imgs" + imgs); 
 			 
+			 Elements movieAges = doc.select(".cgvIcon");
+			 logger.info("cgvIcon" + movieAges); 
+			 
 			 Elements movieTitles = doc.select("div.box-contents strong.title");
 			 //logger.info("titles" + movieTitles); 
 			 
