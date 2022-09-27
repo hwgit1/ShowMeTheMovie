@@ -62,7 +62,7 @@ public class CGVInfoplanController {
 				 String movieRate = movieRates.get(i).text();
 				 String movieOpenDate = movieOpenDates.get(i).text();
 				 int seq = i;
-				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieTitle, movieRate, movieOpenDate, seq);
+				 CGVInfoDto cgvInfoDto = new CGVInfoDto(rank, img, movieTitle, movieAge, movieRate, movieOpenDate, seq);
 				 
 				 logger.info(cgvInfoDto.toString());
 				 list.add(cgvInfoDto);
