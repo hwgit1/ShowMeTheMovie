@@ -46,7 +46,7 @@
 			<script type="text/javascript">
 				$(document).ready(function() {
 			
-					$(".QnA-btn").click( function(){
+					$("#QnA-btn").click( function(){
 			
 						$.get(
 								"${pageContext.request.contextPath}/memo/start"

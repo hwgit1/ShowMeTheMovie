@@ -12,9 +12,10 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		<style type="text/css">
 		#kakaoimg {
-       		width:950px;
-        	margin:auto;
-			padding: 100px 0px;
+       		width: 10px;
+       		height: 10px;
+			padding: 10px 0px;
+			margin-left: 50%;
 		}
 		</style>
 	</head>
@@ -22,9 +23,7 @@
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	
 	<div id="kakaoimg">
-	<h1 id="txtContact"> 카카오페이 결제 </h1>
-	<button type="button" class="order-button" id="order-button">
-						<img src="/resources/img/kakaopay.jfif">
+	<button type="button" class="order-button" id="order-button">결제
 	</button>
 	</div>
 	    
@@ -50,19 +49,19 @@
 	    	}
 	    	
 	    	, function(rsp) { //callback
-		    		alert(rsp);
+
 	        	if (rsp.success) {
 	                var msg = '결제가 완료 되었습니다.';
 	             
 					
-                    msg += ' 고유ID : ' + rsp.imp_uid;
-                    msg += ' 상점 거래ID : ' + rsp.merchant_uid;
-                    msg += ' 결제 금액 : ' + rsp.paid_amount;
-                    msg += ' 결제 수단 : ' + rsp.pay_method;
-                    msg += ' 카드 승인번호 : ' + rsp.apply_num;
-                    msg += ' 결제 승인 시간 : ' + rsp.paid_at;
-                    msg += ' 구매자 이름 : ' + rsp.buyer_name;
-                    msg += ' 구매자 전화번호 : ' + rsp.buyer_tel;
+                    //msg += ' 고유ID : ' + rsp.imp_uid;
+                    //msg += ' 상점 거래ID : ' + rsp.merchant_uid;
+                   // msg += ' 결제 금액 : ' + rsp.paid_amount;
+                   // msg += ' 결제 수단 : ' + rsp.pay_method;
+                   // msg += ' 카드 승인번호 : ' + rsp.apply_num;
+                  //  msg += ' 결제 승인 시간 : ' + rsp.paid_at;
+                  //  msg += ' 구매자 이름 : ' + rsp.buyer_name;
+                  //  msg += ' 구매자 전화번호 : ' + rsp.buyer_tel;
                     
                     $.post(
         					"${pageContext.request.contextPath}/order/insert"
@@ -75,7 +74,6 @@
         					},
         					function(data, status) {
         						if(data >= 1){
-        							alert("주문 등록을 성공 하였습니다.");
         							location.href="${pageContext.request.contextPath}/";
         						} else if(data <= 0){
         							alert("주문 등록을 실패 하였습니다.");
