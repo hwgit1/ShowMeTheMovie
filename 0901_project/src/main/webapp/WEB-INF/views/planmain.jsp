@@ -23,12 +23,12 @@
 <div id="movie-menu">
                <ul id="movie-ing">
                   <li>
-                     <a href="${pageContext.request.contextPath}/play">
+                     <a href="${pageContext.request.contextPath}/">
                         <h3><span>상영 중인 영화</span></h3>
                      </a>
                   </li>
                   <li>
-                     <a href="${pageContext.request.contextPath}/plan">
+                     <a href="${pageContext.request.contextPath}/">
                         </h3><span>상영 예정 영화</span></h3>
                      </a>
                   </li>
